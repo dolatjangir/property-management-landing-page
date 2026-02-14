@@ -40,6 +40,10 @@ import {
 } from 'lucide-react';
 import Footer from '@/components/footer/footer'
 import Analytics from '@/components/analytics/analytics'
+import Hero from '@/components/hero/hero'
+import Header from '@/components/header/header'
+import Trusted from '@/components/trusted/trusted';
+import Features from '@/components/features/features';
 interface NavItem {
   label: string;
   href: string;
@@ -509,7 +513,7 @@ const StayPilotLanding = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-[var(--bg-primary)] font-sans text-[var(--text-primary)]">
+    <div className="min-h-screen  bg-[var(--bg-primary)] font-sans text-[var(--text-primary)]">
       <Head>
         <title> - Smart Hotel & BnB Management Platform</title>
         <meta name="description" content="Manage all your properties in one smart dashboard. Automate bookings, pricing, and guest communication." />
@@ -517,303 +521,17 @@ const StayPilotLanding = () => {
 
 
       {/* Navigation */}
-      <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-[var(--duration-normal)] ${scrolled ? 'bg-[var(--bg-primary)]/80 backdrop-blur-xl shadow-sm' : 'bg-transparent'}`}>
-        <div className="max-w-7xl mx-auto px-[var(--space-4)] sm:px-[var(--space-2)] lg:px-[var(--space-4)]">
-          <div className="flex justify-between items-center h-20">
-            <div className="flex items-center gap-[var(--space-2)]">
-              <div className=" rounded-[var(--radius-xl)] bg-[var(--gradient-primary)] flex items-center justify-center shadow-lg" style={{ boxShadow: '0 10px 15px -3px var(--color-primary-500)/25' }}>
-                <img width={220} height={220} src="/assets/vertical-bnb-logo.png"/>
-              </div>
-              {/* <span className="text-2xl font-bold bg-[var(--gradient-primary)] bg-clip-text ">
-                StayPilot
-              </span> */}
-            </div>
-
-             {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center gap-1">
-            {navItems.map((item) => (
-              <div
-                key={item.label}
-                className="relative"
-                onMouseEnter={() => handleMouseEnter(item.label)}
-                onMouseLeave={handleMouseLeave}
-              >
-                <button
-                  className={`
-                    flex items-center gap-1 px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200
-                    ${activeDropdown === item.label 
-                      ? "text-blue-600 bg-blue-50/50" 
-                      : "text-gray-600 hover:text-gray-900 hover:bg-gray-50"
-                    }
-                  `}
-                >
-                  {item.label}
-                  {item.hasDropdown && (
-                    <ChevronDown 
-                      className={`w-4 h-4 transition-transform duration-200 ${
-                        activeDropdown === item.label ? "rotate-180" : ""
-                      }`} 
-                    />
-                  )}
-                </button>
-
-                {/* Mega Menu Dropdown */}
-                {activeDropdown === item.label && item.dropdownContent && (
-                  <div
-                    className={`
-                      absolute top-full left-1/2 -translate-x-1/2 pt-2 w-[720px]
-                      transition-all duration-200 ease-out
-                      ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-2 pointer-events-none"}
-                    `}
-                  >
-                    <div className="bg-white rounded-2xl shadow-2xl border border-gray-100 overflow-hidden">
-                      {/* Header */}
-                      <div className="bg-gradient-to-r from-gray-50 to-white px-6 py-4 border-b border-gray-100">
-                        <h3 className="text-lg font-semibold text-gray-900">
-                          {item.dropdownContent.title}
-                        </h3>
-                        <p className="text-sm text-gray-500 mt-1">
-                          {item.dropdownContent.description}
-                        </p>
-                      </div>
-
-                      {/* Content Grid */}
-                      <div className="p-6 grid grid-cols-2 gap-8">
-                        {item.dropdownContent.sections.map((section, idx) => (
-                          <div key={idx} className="space-y-3">
-                            <h4 className="text-xs font-semibold text-gray-400 uppercase tracking-wider">
-                              {section.title}
-                            </h4>
-                            <div className="space-y-1">
-                              {section.items.map((subItem, subIdx) => (
-                                <Link
-                                  key={subIdx}
-                                  href={subItem.href}
-                                  className="group flex items-start gap-3 p-2 rounded-lg hover:bg-gray-50 transition-colors duration-200"
-                                >
-                                  <div className="flex-shrink-0 w-8 h-8 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center group-hover:bg-blue-100 transition-colors">
-                                    {subItem.icon}
-                                  </div>
-                                  <div className="flex-1 min-w-0">
-                                    <div className="flex items-center gap-2">
-                                      <span className="text-sm font-medium text-gray-900 group-hover:text-blue-600 transition-colors">
-                                        {subItem.title}
-                                      </span>
-                                      {subItem.badge && (
-                                        <span className="px-1.5 py-0.5 text-[10px] font-semibold bg-blue-100 text-blue-700 rounded-full">
-                                          {subItem.badge}
-                                        </span>
-                                      )}
-                                    </div>
-                                    <p className="text-xs text-gray-500 mt-0.5 line-clamp-1">
-                                      {subItem.description}
-                                    </p>
-                                  </div>
-                                </Link>
-                              ))}
-                            </div>
-                          </div>
-                        ))}
-                      </div>
-
-                      {/* Footer */}
-                      {item.dropdownContent.footer && (
-                        <div className="bg-gray-50 px-6 py-3 border-t border-gray-100 flex items-center justify-between">
-                          <span className="text-sm text-gray-500">
-                            {item.dropdownContent.footer.text}
-                          </span>
-                          <Link
-                            href={item.dropdownContent.footer.href}
-                            className="text-sm font-medium text-blue-600 hover:text-blue-700 flex items-center gap-1 group"
-                          >
-                            {item.dropdownContent.footer.link}
-                            <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
-                          </Link>
-                        </div>
-                      )}
-                    </div>
-                  </div>
-                )}
-              </div>
-            ))}
-          </nav>
-
-            <div className="hidden md:flex items-center gap-[var(--space-4)]">
-              <button className="text-[var(--text-secondary)] hover:text-[var(--color-primary-600)] font-medium transition-colors duration-[var(--duration-fast)]">Log in</button>
-              <button className="px-[var(--space-6)] py-[var(--space-2)] bg-[var(--color-primary-600)] hover:bg-[var(--color-primary-700)] text-[var(--text-inverse)] font-semibold rounded-lg transition-all duration-[var(--duration-fast)] shadow-lg hover:shadow-xl" style={{ boxShadow: '0 10px 15px -3px var(--color-primary-600)/25' }}>
-              Start For Free Trial
-              </button>
-            </div>
-
-            <button 
-              className="md:hidden p-2 text-[var(--text-secondary)]"
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-            >
-              {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-            </button>
-          </div>
-        </div>
-
-        {isMenuOpen && (
-          <div className="md:hidden bg-[var(--bg-primary)] border-t border-[var(--border-light)] absolute w-full">
-            <div className="px-[var(--space-4)] py-[var(--space-6)] space-y-[var(--space-4)]">
-              <a href="#features" className="block text-[var(--text-secondary)] font-medium">Features</a>
-              <a href="#how-it-works" className="block text-[var(--text-secondary)] font-medium">How it Works</a>
-              <a href="#pricing" className="block text-[var(--text-secondary)] font-medium">Pricing</a>
-              <a href="#testimonials" className="block text-[var(--text-secondary)] font-medium">Reviews</a>
-              <hr className="border-[var(--border-light)]" />
-              <button className="w-full py-[var(--space-3)] text-[var(--text-secondary)] font-medium">Log in</button>
-              <button className="w-full py-[var(--space-3)] bg-[var(--color-primary-600)] text-[var(--text-inverse)] font-semibold rounded-[var(--radius-xl)]">Get Started</button>
-            </div>
-          </div>
-        )}
-      </nav>
+    <Header/>
 
       {/* Hero Section */}
-      <section className="relative pt-32 pb-20 lg:pt-24 lg:pb-32 overflow-hidden">
-        <div className="absolute inset-0 bg-[var(--gradient-hero)] " />
-        <div className="absolute top-0 right-0 w-1/2 h-full  to-transparent" />
-        
-        <div className="relative max-w-7xl mx-auto px-[var(--space-4)] sm:px-[var(--space-6)] lg:px-[var(--space-8)]">
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-            <div className="space-y-[var(--space-3)]">
-              <div className="inline-flex items-center gap-[var(--space-2)] px-[var(--space-4)] py-[var(--space-2)] rounded-[var(--radius-full)] bg-[var(--color-primary-100)] text-[var(--color-primary-700)] text-sm font-semibold">
-                <Sparkles className="w-4 h-4" />
-                <span>Trusted by 10,000+ property managers</span>
-              </div>
-              
-              <h1 className="text-4xl lg:text-6xl font-bold leading-tight tracking-tight text-[var(--text-primary)]">
-                Manage All Your{" "}
-                <span className="bg-blue-600 bg-clip-text text-transparent">
-                  Properties
-                </span>{" "}
-                in One Smart Dashboard
-              </h1>
-              
-              <p className="text-xl text-[var(--text-secondary)] leading-relaxed max-w-xl">
-                Automate bookings, optimize pricing with AI, and delight guests with seamless communication. The all-in-one platform for modern hospitality.
-              </p>
-
-              <div className="flex flex-col sm:flex-row gap-[var(--space-4)]">
-                <button className="group px-[var(--space-8)] py-[var(--space-4)] bg-[var(--color-primary-600)] hover:bg-[var(--color-primary-700)] text-[var(--text-inverse)] font-semibold rounded-[var(--radius-full)] transition-all duration-[var(--duration-fast)] shadow-xl hover:shadow-2xl flex items-center justify-center gap-[var(--space-2)]" style={{ boxShadow: '0 20px 25px -5px var(--color-primary-600)/25' }}>
-                  Start Free Trial
-                  <ArrowRight className="w-5 h-5 hover:translate-x-1 transition-transform duration-[var(--duration-fast)]" />
-                </button>
-                <button className="group px-[var(--space-8)] py-[var(--space-4)] bg-[var(--bg-primary)] hover:bg-[var(--bg-secondary)] text-[var(--text-primary)] font-semibold rounded-[var(--radius-full)] transition-all duration-[var(--duration-fast)] border border-[var(--border-medium)] shadow-lg flex items-center justify-center gap-[var(--space-2)]">
-                  <Play className="w-5 h-5 text-[var(--color-primary-600)]" />
-                  Book a Demo
-                </button>
-              </div>
-
-              <div className="flex items-center gap-[var(--space-6)] pt-[var(--space-4)]">
-                <div className="flex -space-x-[var(--space-3)]">
-                  {[1,2,3,4].map((i) => (
-                    <div key={i} className="w-10 h-10 rounded-full border-2 border-[var(--bg-primary)] bg-[var(--gradient-primary)]" />
-                  ))}
-                </div>
-                <div>
-                  <div className="flex items-center gap-1">
-                    {[1,2,3,4,5].map((i) => (
-                      <Star key={i} className="w-4 h-4 fill-[var(--color-warning-500)] text-[var(--color-warning-500)]" />
-                    ))}
-                  </div>
-                  <p className="text-sm text-[var(--text-secondary)]">4.9/5 from 2,000+ reviews</p>
-                </div>
-              </div>
-            </div>
-
-           <div className="hero-visual relative ">
-                 <div className="bg-gray-100 border border-[var(--color-glass-border)] rounded-3xl p-5  relative z-10 animate-float">
-                   <img
-                    src="/assets/property.jpeg" 
-                     alt="Modern Luxury Apartment" 
-                     width={600} 
-                     height={400} 
-                     className="rounded-2xl w-full h-auto object-cover"
-                   />
-                   <div className="absolute bottom-6 lg:bottom-10 -left-3 lg:-left-8 bg-[var(--color-bg-card)] border border-[var(--color-primary-600)] p-3 lg:p-4 rounded-2xl shadow-xl flex items-center gap-4 z-20 animate-float-reverse">
-                     <div className="w-10 h-10 rounded-full bg-[var(--color-primary-500)]/20 text-[var(--color-primary-600)] flex items-center justify-center font-bold text-xl">+</div>
-                     <div>
-                       <div className="font-bold text-white lg:text-lg">32% Increase</div>
-                       <div className="text-xs text-[var(--color-text-muted)]">vs. Traditional Rent</div>
-                     </div>
-                   </div>
-                 </div>
-               </div>
-          </div>
-        </div>
-      </section>
+     <Hero/>
 
       {/* Trusted By Section */}
-      <section className="py-[var(--space-12)] border-y border-[var(--border-light)] bg-[var(--bg-primary)]">
-        <div className="max-w-7xl mx-auto px-[var(--space-4)] sm:px-[var(--space-6)] lg:px-[var(--space-8)]">
-          <p className="text-center text-sm font-semibold text-[var(--text-tertiary)] uppercase tracking-wider mb-[var(--space-8)]">
-            Trusted by leading hospitality brands
-          </p>
-         <div className="relative overflow-hidden w-full py-6">
-  <div className="flex w-max animate-scroll gap-16 items-center scale-100 hover:scale-105 transition-scale duration-500">
-    
-    {[
-      { name: "Marriott", logo: "/assets/marriott.png" },
-      { name: "Hilton", logo: "/assets/hiltonn.png" },
-      { name: "Airbnb", logo: "/assets/airbnb.png" },
-      { name: "Booking.com", logo: "/assets/booking.png" },
-      { name: "Expedia", logo: "/assets/expendia.png" },
-      { name: "Vrbo", logo: "/assets/verbo.png" },
-    ].concat([
-      { name: "Marriott", logo: "/assets/marriott.png" },
-      { name: "Hilton", logo: "/assets/hiltonn.png"},
-      { name: "Airbnb", logo: "/assets/airbnb.png"},
-      { name: "Booking.com", logo: "/assets/booking.png" },
-      { name: "Expedia", logo: "/assets/expendia.png" },
-      { name: "Vrbo", logo: "/assets/verbo.png" },
-    ]).map((brand, index) => (
-      
-      <div
-        key={index}
-        className="flex flex-col items-center gap-1 min-w-[160px]  justify-center"
-      >
-        <img
-          src={brand.logo}
-          alt={brand.name}
-          className="h-12 w-12   transition-all duration-300"
-        />
-        <span className="font-semibold text-xl text-[var(--color-primary-800)]">
-          {brand.name}
-        </span>
-      </div>
-    ))}
-    
-  </div>
-</div>
-
-        </div>
-      </section>
+      <Trusted/>
+      {/* analytics */}
     <Analytics/>
       {/* Features Section */}
-      <section id="features" className="py-[var(--space-24)] bg-[var(--bg-primary)]">
-        <div className="max-w-7xl mx-auto px-[var(--space-4)] sm:px-[var(--space-6)] lg:px-[var(--space-8)]">
-          <div className="text-center max-w-3xl mx-auto mb-[var(--space-16)]">
-            <h2 className="text-4xl font-bold mb-[var(--space-4)] text-[var(--text-primary)]">Everything You Need to Scale</h2>
-            <p className="text-xl text-[var(--text-secondary)]">Powerful tools designed specifically for modern property managers and hospitality entrepreneurs.</p>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-[var(--space-8)]">
-            {features.map((feature, idx) => (
-              <div key={idx} className="group relative bg-[var(--color-secondary-100)] rounded-[var(--radius-3xl)] p-[var(--space-8)] border border-[var(--border-light)] shadow-lg hover:shadow-xl transition-all duration-[var(--duration-normal)] hover:-translate-y-1">
-                <div 
-                  className="w-14 h-14 rounded-[var(--radius-2xl)] flex items-center justify-center text-[var(--text-inverse)] shadow-lg mb-[var(--space-6)] group-hover:scale-110 transition-transform duration-[var(--duration-normal)]"
-                  style={{ background: feature.gradient }}
-                >
-                  {feature.icon}
-                </div>
-                <h3 className="text-xl font-bold mb-[var(--space-3)] text-[var(--text-primary)]">{feature.title}</h3>
-                <p className="text-[var(--text-secondary)] leading-relaxed">{feature.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <Features/>
 
       {/* How It Works */}
       <section id="how-it-works" className="py-[var(--space-24)] bg-[var(--bg-secondary)]">
@@ -1058,17 +776,17 @@ const StayPilotLanding = () => {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-[var(--space-24)] bg-[var(--bg-secondary)]">
-        <div className="max-w-3xl mx-auto px-[var(--space-4)] sm:px-[var(--space-6)] lg:px-[var(--space-8)]">
+      <section className="py-[var(--space-24)] bg-[var(--bg-secondary)] ">
+        <div className="w-full mx-auto px-[var(--space-4)] sm:px-[var(--space-6)] lg:px-[var(--space-8)] border border-red-500">
           <div className="text-center mb-[var(--space-16)]">
             <h2 className="text-4xl font-bold mb-[var(--space-4)] text-[var(--text-primary)]">Frequently Asked Questions</h2>
             <p className="text-xl text-[var(--text-secondary)]">Everything you need to know about StayPilot.</p>
           </div>
 
            <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-blue-100 py-16 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-4xl ">
+      <div className="w-full ">
         {/* Header Section */}
-        <div className="text-center mb-12">
+        <div className="text-center mb-12 flex flex-col items-center justify-center border border-red-500">
           <div className="inline-flex items-center justify-center w-16 h-16 bg-blue-600 rounded-full mb-4">
             <HelpCircle className="w-8 h-8 text-white" />
           </div>

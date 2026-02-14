@@ -329,7 +329,7 @@ const CTA = () => {
   return (
     <section id="contact" className="container mx-auto px-4 py-20 text-center">
       <div className="bg-gradient-to-br from-[var(--color-bg-card)] to-[var(--color-bg-dark)] border border-[var(--color-primary)] rounded-[30px] p-12 relative overflow-hidden">
-        <div className="absolute top-0 left-0 w-[200%] h-[200%] -translate-x-1/2 -translate-y-1/2 bg-[radial-gradient(circle,var(--color-primary-glow)_0%,transparent_60%)] animate-rotate-slow"></div>
+       
         
         <div className="relative z-10">
           <h2 className="font-['var(--font-head)] text-3xl md:text-4xl mb-4">Ready to Optimize?</h2>
