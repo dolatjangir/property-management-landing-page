@@ -444,7 +444,7 @@ const EnterpriseLanding = () => {
                 Enterprise-Grade Solutions
               </div>
               
-              <h1 className="text-5xl lg:text-7xl font-bold leading-[1.1] mb-6">
+              <h1 className="text-5xl lg:text-7xl font-bold   leading-[1.1] mb-6">
                 Scale With <br />
                 <GradientText>Confidence</GradientText>
               </h1>
@@ -570,8 +570,8 @@ const EnterpriseLanding = () => {
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <Badge variant="secondary">Enterprise Capabilities</Badge>
-            <h2 className="text-4xl lg:text-5xl font-bold mt-4 mb-6">
-              Built for Scale, <br />Designed for Security
+            <h2 className="text-4xl lg:text-5xl font-bold mt-4 mb-6 text-[var(--color-primary-700)]">
+              Built for Scale, <br /><span className="text-[var(--color-primary-600)]">Designed for Security</span>
             </h2>
             <p className="text-xl text-[var(--text-secondary)]">
               Comprehensive enterprise features that empower your organization to operate at peak efficiency while maintaining the highest security standards.
@@ -588,7 +588,7 @@ const EnterpriseLanding = () => {
 
       {/* Security & Compliance */}
       <section className="py-24 bg-gradient-to-br from-[var(--color-neutral-900)] to-[var(--color-primary-900)] text-white relative overflow-hidden">
-        <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-5" />
+        <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-50" />
         <div className="absolute top-0 right-0 w-96 h-96 bg-[var(--color-primary-500)] rounded-full blur-3xl opacity-20" />
         <div className="absolute bottom-0 left-0 w-96 h-96 bg-[var(--color-secondary-500)] rounded-full blur-3xl opacity-20" />
 
@@ -596,7 +596,7 @@ const EnterpriseLanding = () => {
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div>
               <Badge variant="dark" size="lg">Security First</Badge>
-              <h2 className="text-4xl lg:text-5xl font-bold mt-6 mb-6">
+              <h2 className="text-4xl lg:text-5xl font-bold mt-6 mb-6 ">
                 Enterprise-Grade <br />
                 <span className="text-[var(--color-primary-300)]">Security & Compliance</span>
               </h2>
@@ -635,7 +635,7 @@ const EnterpriseLanding = () => {
       <section className="py-24 bg-[var(--bg-secondary)]">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-4xl lg:text-5xl font-bold mb-6">Industry Solutions</h2>
+            <h2 className="text-4xl lg:text-5xl font-bold mb-6 text-[var(--color-primary-700)]">Industry Solutions</h2>
             <p className="text-xl text-[var(--text-secondary)]">
               Tailored enterprise solutions designed for the unique challenges of your industry.
             </p>
@@ -699,7 +699,7 @@ const EnterpriseLanding = () => {
       <section className="py-24 bg-[var(--bg-primary)]">
         <div className="max-w-5xl mx-auto px-6">
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-4xl lg:text-5xl font-bold mb-6">Why Enterprises Choose Us</h2>
+            <h2 className="text-4xl lg:text-5xl font-bold mb-6 text-[var(--color-primary-700)]">Why Enterprises Choose Us</h2>
             <p className="text-xl text-[var(--text-secondary)]">
               See how our enterprise offering compares to standard solutions.
             </p>
@@ -732,7 +732,7 @@ const EnterpriseLanding = () => {
       <section className="py-24 bg-[var(--bg-secondary)]">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-4xl lg:text-5xl font-bold mb-6">Implementation Process</h2>
+            <h2 className="text-4xl lg:text-5xl font-bold mb-6 text-[var(--color-primary-700)]">Implementation Process</h2>
             <p className="text-xl text-[var(--text-secondary)]">
               White-glove onboarding and implementation tailored to your enterprise needs.
             </p>
@@ -833,12 +833,12 @@ const EnterpriseLanding = () => {
 
       {/* Final CTA */}
       <section className="py-24 bg-gradient-to-br from-[var(--color-primary-600)] to-[var(--color-secondary-700)] text-white relative overflow-hidden">
-        <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10" />
+        <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-50" />
         <div className="absolute top-0 right-0 w-96 h-96 bg-white/10 rounded-full blur-3xl" />
         <div className="absolute bottom-0 left-0 w-96 h-96 bg-white/10 rounded-full blur-3xl" />
 
         <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
-          <h2 className="text-4xl lg:text-6xl font-bold mb-6">
+          <h2 className="text-4xl lg:text-6xl font-bold mb-6 ">
             Ready to Scale?
           </h2>
           <p className="text-xl text-[var(--color-primary-100)] mb-10 max-w-2xl mx-auto">

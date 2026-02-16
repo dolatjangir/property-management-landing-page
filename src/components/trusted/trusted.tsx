@@ -4,7 +4,7 @@ import React from 'react'
 function Trusted() {
   return (
     <div>
-      <section className="py-[var(--space-12)] border-y border-[var(--border-light)] bg-[var(--bg-primary)]">
+      <section className="py-[var(--space-12)] border-y border-[var(--border-light)] ">
         <div className="max-w-7xl mx-auto px-[var(--space-4)] sm:px-[var(--space-6)] lg:px-[var(--space-8)]">
           <p className="text-center text-sm font-semibold text-[var(--text-tertiary)] uppercase tracking-wider mb-[var(--space-8)]">
             Trusted by leading hospitality brands

@@ -153,7 +153,7 @@ const SystemCard = ({ icon: Icon, title, description, step }: { icon: any; title
       <div className="hidden lg:block absolute top-12 left-full w-full h-0.5 bg-gradient-to-r from-[var(--color-primary-300)] to-[var(--color-secondary-300)] z-0" />
     )}
     <GlassCard className="p-6 h-full relative z-10" hover={true}>
-      <div className="absolute -top-3 -left-3 w-8 h-8 rounded-full bg-gradient-to-br from-[var(--color-primary-600)] to-[var(--color-secondary-600)] text-white flex items-center justify-center font-bold text-sm shadow-lg">
+      <div className=" absolute top-3 left-3 w-8 h-8 rounded-full bg-gradient-to-br from-[var(--color-primary-600)] to-[var(--color-secondary-600)] text-white flex items-center justify-center font-bold text-sm shadow-lg ">
         {step}
       </div>
       <div className="w-14 h-14 rounded-[var(--radius-xl)] bg-gradient-to-br from-[var(--color-primary-100)] to-[var(--color-secondary-100)] flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
@@ -469,7 +469,7 @@ const StartupLanding = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-[var(--bg-primary)] font-sans text-[var(--text-primary)]">
+    <div className="min-h-screen  font-sans text-[var(--text-primary)]">
       <Head>
         <title>Grow From Day One | Launch Your Property With Professional Management</title>
         <meta name="description" content="Start earning immediately with professional Airbnb & Booking.com management. Data-driven launch system for new property owners. 32% average revenue increase in 60 days." />
@@ -481,14 +481,14 @@ const StartupLanding = () => {
       <Header />
 
       {/* 1️⃣ HERO SECTION */}
-      <section className="relative pt-32 pb-20 lg:pt-40 lg:pb-32 overflow-hidden">
+      <section className="relative pt-24 pb-20 lg:pt-32 lg:pb-32 overflow-hidden">
         {/* Animated Background */}
         <div className="absolute inset-0 bg-gradient-to-br from-[var(--color-primary-50)] via-[var(--bg-primary)] to-[var(--color-secondary-50)]" />
         <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-gradient-to-br from-[var(--color-primary-200)] to-transparent rounded-full blur-3xl opacity-40 -translate-y-1/2 translate-x-1/4 animate-pulse" />
         <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-gradient-to-tr from-[var(--color-secondary-200)] to-transparent rounded-full blur-3xl opacity-40 translate-y-1/2 -translate-x-1/4" />
         
         {/* Grid Pattern */}
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,var(--border-light)_1px,transparent_1px),linear-gradient(to_bottom,var(--border-light)_1px,transparent_1px)] bg-[size:40px_40px] opacity-30" />
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,var(--color-primary-300)_1px,transparent_1px),linear-gradient(to_bottom,var(--color-primary-300)_1px,transparent_1px)] bg-[size:40px_40px] opacity-10" />
 
         <div className="relative z-10 max-w-7xl mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -545,7 +545,7 @@ const StartupLanding = () => {
 
             <div className={`relative transition-all duration-1000 delay-300 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
               <GlassCard className="p-8 relative z-10" hover={false}>
-                <div className="absolute -top-4 -right-4 bg-gradient-to-r from-[var(--color-success-500)] to-[var(--color-primary-500)] text-white px-4 py-2 rounded-full text-sm font-bold shadow-lg animate-bounce">
+                <div className="absolute top-3 right-4 bg-gradient-to-r from-[var(--color-success-500)] to-[var(--color-primary-500)] text-white px-4 py-2 rounded-full text-sm font-bold shadow-lg animate-bounce">
                   +32% Avg Revenue
                 </div>
 
@@ -588,7 +588,7 @@ const StartupLanding = () => {
               </GlassCard>
 
               {/* Floating Stats */}
-              <div className="absolute -bottom-6 -left-6 bg-white rounded-[var(--radius-2xl)] p-4 shadow-xl border border-[var(--border-light)] z-20">
+              <div className="absolute -bottom-9 -left-6 animate-float bg-white rounded-[var(--radius-2xl)] p-4 shadow-xl border border-[var(--border-light)] z-20">
                 <div className="flex items-center gap-3">
                   <div className="w-10 h-10 rounded-full bg-[var(--color-primary-100)] flex items-center justify-center">
                     <Home className="w-5 h-5 text-[var(--color-primary-600)]" />
@@ -605,7 +605,7 @@ const StartupLanding = () => {
       </section>
 
       {/* 2️⃣ THE STARTUP PROBLEM SECTION */}
-      <section className="py-24 bg-[var(--bg-secondary)] relative overflow-hidden">
+      <section className="py-24  relative overflow-hidden">
         <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-[var(--border-medium)] to-transparent" />
         
         <div className="max-w-7xl mx-auto px-6">
@@ -637,7 +637,7 @@ const StartupLanding = () => {
       </section>
 
       {/* 3️⃣ DAY ONE GROWTH SYSTEM */}
-      <section className="py-24 bg-[var(--bg-primary)]">
+      <section className="py-24 ">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <Badge variant="secondary" size="md" glow={true}>
@@ -678,7 +678,7 @@ const StartupLanding = () => {
 
       {/* 4️⃣ REVENUE-FOCUSED SECTION */}
       <section className="py-24 bg-gradient-to-br from-[var(--color-primary-900)] to-[var(--color-secondary-900)] text-white relative overflow-hidden">
-        <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-5" />
+        <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-50" />
         <div className="absolute top-0 right-0 w-96 h-96 bg-[var(--color-primary-500)] rounded-full blur-3xl opacity-20" />
         
         <div className="relative z-10 max-w-7xl mx-auto px-6">
@@ -750,7 +750,7 @@ const StartupLanding = () => {
       </section>
 
       {/* 5️⃣ SOCIAL PROOF / TRUST SECTION */}
-      <section className="py-24 bg-[var(--bg-primary)]">
+      <section className="py-24 ">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <Badge variant="success" size="md">
@@ -831,7 +831,7 @@ const StartupLanding = () => {
       </section>
 
       {/* 6️⃣ COMPARISON SECTION */}
-      <section className="py-24 bg-[var(--bg-secondary)]">
+      <section className="py-24 ">
         <div className="max-w-4xl mx-auto px-6">
           <div className="text-center max-w-3xl mx-auto mb-12">
             <h2 className="text-4xl lg:text-5xl font-bold mb-6">
@@ -895,7 +895,7 @@ const StartupLanding = () => {
       </section>
 
       {/* 7️⃣ STARTUP CALCULATOR SECTION */}
-      <section id="calculator" className="py-24 bg-[var(--bg-primary)]">
+      <section id="calculator" className="py-24 ">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center max-w-3xl mx-auto mb-12">
             <Badge variant="primary" size="md" glow={true}>
@@ -915,7 +915,7 @@ const StartupLanding = () => {
       </section>
 
       {/* 8️⃣ RISK REVERSAL SECTION */}
-      <section className="py-24 bg-[var(--bg-secondary)]">
+      <section className="py-24 ">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <h2 className="text-4xl lg:text-5xl font-bold mb-6">
@@ -962,7 +962,7 @@ const StartupLanding = () => {
 
       {/* 9️⃣ FINAL POWER CTA */}
       <section className="py-24 bg-gradient-to-br from-[var(--color-primary-600)] to-[var(--color-secondary-700)] text-white relative overflow-hidden">
-        <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10" />
+        <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-50" />
         <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-white/10 rounded-full blur-3xl" />
         <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-white/10 rounded-full blur-3xl" />
 

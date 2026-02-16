@@ -96,92 +96,7 @@ const PulseRing = ({ children }: { children: React.ReactNode }) => (
 // Header Component
 // ==========================================
 
-const Header = () => {
-  const [scrolled, setScrolled] = useState(false);
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-  useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 50);
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  return (
-    <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        scrolled
-          ? "bg-[var(--bg-primary)]/80 backdrop-blur-xl shadow-lg"
-          : "bg-transparent"
-      }`}
-    >
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <div className="flex items-center justify-between h-20">
-          <Link href="/" className="flex items-center gap-3 group">
-            <div className="relative w-10 h-10 rounded-xl bg-gradient-to-br from-[var(--color-primary-500)] to-[var(--color-secondary-600)] flex items-center justify-center overflow-hidden group-hover:scale-110 transition-transform duration-300">
-              <Zap className="w-6 h-6 text-white relative z-10" />
-              <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
-            </div>
-            <span className="text-xl font-bold bg-gradient-to-r from-[var(--text-primary)] to-[var(--text-secondary)] bg-clip-text text-transparent">
-              StayPilot
-            </span>
-          </Link>
-
-          <nav className="hidden lg:flex items-center gap-8">
-            {["Features", "Automation", "Pricing", "About"].map((item) => (
-              <a
-                key={item}
-                href={`#${item.toLowerCase()}`}
-                className="relative text-[var(--text-secondary)] hover:text-[var(--color-primary-600)] font-medium transition-colors group"
-              >
-                {item}
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[var(--color-primary-500)] group-hover:w-full transition-all duration-300" />
-              </a>
-            ))}
-          </nav>
-
-          <div className="hidden lg:flex items-center gap-4">
-            <button className="px-6 py-2.5 text-[var(--text-primary)] font-medium hover:text-[var(--color-primary-600)] transition-colors">
-              Sign In
-            </button>
-            <button className="px-6 py-2.5 bg-gradient-to-r from-[var(--color-primary-600)] to-[var(--color-secondary-600)] text-white font-semibold rounded-full hover:shadow-lg hover:shadow-[var(--color-primary-500)]/30 hover:-translate-y-0.5 transition-all duration-300">
-              Start Free Trial
-            </button>
-          </div>
-
-          <button
-            className="lg:hidden p-2 text-[var(--text-primary)]"
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          >
-            {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-          </button>
-        </div>
-      </div>
-
-      {/* Mobile Menu */}
-      <div
-        className={`lg:hidden absolute top-full left-0 right-0 bg-[var(--bg-primary)]/95 backdrop-blur-xl border-b border-[var(--border-light)] transition-all duration-300 ${
-          mobileMenuOpen ? "opacity-100 visible" : "opacity-0 invisible"
-        }`}
-      >
-        <nav className="flex flex-col p-6 gap-4">
-          {["Features", "Automation", "Pricing", "About"].map((item) => (
-            <a
-              key={item}
-              href={`#${item.toLowerCase()}`}
-              className="text-lg font-medium text-[var(--text-primary)] py-2"
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              {item}
-            </a>
-          ))}
-          <button className="w-full py-3 bg-gradient-to-r from-[var(--color-primary-600)] to-[var(--color-secondary-600)] text-white font-semibold rounded-full mt-4">
-            Start Free Trial
-          </button>
-        </nav>
-      </div>
-    </header>
-  );
-};
 
 // ==========================================
 // Hero Section
@@ -217,7 +132,7 @@ const HeroSection = () => {
             <h1 className="text-5xl lg:text-7xl font-bold leading-tight">
               <span className="text-[var(--text-primary)]">Automate Your</span>
               <br />
-              <span className="bg-gradient-to-r from-[var(--color-primary-600)] via-[var(--color-secondary-600)] to-[var(--color-accent-600)] bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-[var(--color-primary-600)] via-[var(--color-secondary-600)] to-[var(--color-primary-600)] bg-clip-text text-transparent">
                 Property Success
               </span>
             </h1>
@@ -389,7 +304,7 @@ const WorkflowBuilderSection = () => {
       icon: <MessageSquare className="w-6 h-6" />,
       title: "Action",
       description: "Send instant reply",
-      color: "var(--color-accent-500)",
+      color: "var(--color-secondary-600)",
     },
     {
       icon: <Calendar className="w-6 h-6" />,
@@ -400,7 +315,7 @@ const WorkflowBuilderSection = () => {
   ];
 
   return (
-    <section className="py-24 bg-[var(--bg-secondary)] relative overflow-hidden">
+    <section className="py-24  relative overflow-hidden">
       <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-5" />
       
       <div className="relative max-w-7xl mx-auto px-6 lg:px-8">
@@ -563,7 +478,7 @@ const FeatureGridSection = () => {
   ];
 
   return (
-    <section className="py-24 bg-[var(--bg-primary)]">
+    <section className="py-24 ">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h2 className="text-4xl lg:text-5xl font-bold text-[var(--text-primary)] mb-4">
@@ -629,7 +544,7 @@ const IntegrationSection = () => {
   ];
 
   return (
-    <section className="py-24 bg-[var(--bg-secondary)] relative overflow-hidden">
+    <section className="py-24  relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h2 className="text-4xl font-bold text-[var(--text-primary)] mb-4">
@@ -849,7 +764,7 @@ const TestimonialsSection = () => {
   ];
 
   return (
-    <section className="py-24 bg-[var(--bg-primary)]">
+    <section className="py-24 ">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h2 className="text-4xl font-bold text-[var(--text-primary)] mb-4">
@@ -906,7 +821,7 @@ const TestimonialsSection = () => {
 // ==========================================
 
 const CTASection = () => (
-  <section className="py-24 bg-[var(--bg-secondary)] relative overflow-hidden">
+  <section className="py-24  relative overflow-hidden">
     <div className="absolute inset-0">
       <div className="absolute top-0 left-1/4 w-96 h-96 bg-[var(--color-primary-400)] rounded-full filter blur-3xl opacity-10" />
       <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-[var(--color-secondary-400)] rounded-full filter blur-3xl opacity-10" />
@@ -969,57 +884,6 @@ const RocketIcon = ({ className }: { className?: string }) => (
 // Footer
 // ==========================================
 
-const Footer = () => (
-  <footer className="bg-[var(--bg-dark)] text-[var(--text-inverse)] py-16">
-    <div className="max-w-7xl mx-auto px-6 lg:px-8">
-      <div className="grid md:grid-cols-4 gap-12 mb-12">
-        <div className="col-span-2">
-          <div className="flex items-center gap-3 mb-4">
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[var(--color-primary-500)] to-[var(--color-secondary-600)] flex items-center justify-center">
-              <Zap className="w-6 h-6 text-white" />
-            </div>
-            <span className="text-xl font-bold">StayPilot</span>
-          </div>
-          <p className="text-[var(--text-tertiary)] max-w-sm">
-            Intelligent automation for modern property managers. 
-            Save time, increase revenue, and scale your portfolio effortlessly.
-          </p>
-        </div>
-        
-        <div>
-          <h4 className="font-bold mb-4">Product</h4>
-          <ul className="space-y-2 text-[var(--text-tertiary)]">
-            <li><a href="#" className="hover:text-white transition-colors">Features</a></li>
-            <li><a href="#" className="hover:text-white transition-colors">Integrations</a></li>
-            <li><a href="#" className="hover:text-white transition-colors">Pricing</a></li>
-            <li><a href="#" className="hover:text-white transition-colors">Changelog</a></li>
-          </ul>
-        </div>
-
-        <div>
-          <h4 className="font-bold mb-4">Company</h4>
-          <ul className="space-y-2 text-[var(--text-tertiary)]">
-            <li><a href="#" className="hover:text-white transition-colors">About</a></li>
-            <li><a href="#" className="hover:text-white transition-colors">Blog</a></li>
-            <li><a href="#" className="hover:text-white transition-colors">Careers</a></li>
-            <li><a href="#" className="hover:text-white transition-colors">Contact</a></li>
-          </ul>
-        </div>
-      </div>
-
-      <div className="pt-8 border-t border-[var(--border-dark)] flex flex-col md:flex-row justify-between items-center gap-4">
-        <p className="text-sm text-[var(--text-tertiary)]">
-          © 2024 StayPilot. All rights reserved.
-        </p>
-        <div className="flex gap-6">
-          <a href="#" className="text-[var(--text-tertiary)] hover:text-white transition-colors">Privacy</a>
-          <a href="#" className="text-[var(--text-tertiary)] hover:text-white transition-colors">Terms</a>
-          <a href="#" className="text-[var(--text-tertiary)] hover:text-white transition-colors">Security</a>
-        </div>
-      </div>
-    </div>
-  </footer>
-);
 
 // ==========================================
 // Main Page Component
@@ -1027,7 +891,7 @@ const Footer = () => (
 
 const WorkflowAutomationPage = () => {
   return (
-    <div className="min-h-screen bg-[var(--bg-secondary)]">
+    <div className="min-h-screen ">
       <style>{`
         @keyframes blob {
           0%, 100% { transform: translate(0px, 0px) scale(1); }

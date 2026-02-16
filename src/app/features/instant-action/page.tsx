@@ -81,7 +81,7 @@ const StatCard = ({ number, label, suffix = "" }: { number: string; label: strin
 
 const TriggerCard = ({ icon: Icon, title, description, triggers, delay = 0 }: { icon: any; title: string; description: string; triggers: string[]; delay?: number }) => (
   <GlassCard className="p-8 group" style={{ animationDelay: `${delay}ms` }}>
-    <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-[var(--color-primary-200)] to-[var(--color-secondary-200)] rounded-full blur-3xl opacity-20 group-hover:opacity-40 transition-opacity" />
+    <div className="absolute top-0 right-0 w-32 h-32  bg-gradient-to-br from-[var(--color-primary-200)] to-[var(--color-secondary-200)] rounded-full blur-3xl opacity-20 group-hover:opacity-40 transition-opacity " />
     
     <div className="relative z-10">
       <div className="w-16 h-16 rounded-[var(--radius-2xl)] bg-gradient-to-br from-[var(--color-primary-500)] to-[var(--color-secondary-600)] flex items-center justify-center mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300">
@@ -92,9 +92,9 @@ const TriggerCard = ({ icon: Icon, title, description, triggers, delay = 0 }: { 
       <p className="text-[var(--text-secondary)] mb-6 leading-relaxed">{description}</p>
       
       <div className="space-y-3">
-        <div className="text-xs font-semibold text-[var(--text-tertiary)] uppercase tracking-wider">Popular Triggers</div>
+        <div className="text-xs font-semibold text-[var(--color-primary-500)] uppercase tracking-wider">Popular Triggers</div>
         {triggers.map((trigger, idx) => (
-          <div key={idx} className="flex items-center gap-3 p-3 rounded-[var(--radius-lg)] bg-[var(--bg-secondary)] border border-[var(--border-light)] hover:border-[var(--color-primary-300)] hover:bg-[var(--color-primary-50)] transition-colors cursor-pointer group/item">
+          <div key={idx} className="flex items-center gap-3 p-3  rounded-[var(--radius-lg)] bg-[var(--bg-secondary)] border border-[var(--border-light)] hover:border-[var(--color-primary-300)] hover:bg-[var(--color-primary-50)] transition-colors cursor-pointer group/item">
             <div className="w-2 h-2 rounded-full bg-[var(--color-primary-500)] group-hover/item:animate-pulse" />
             <span className="text-sm font-medium text-[var(--text-secondary)] group-hover/item:text-[var(--color-primary-700)]">{trigger}</span>
             <ArrowRight className="w-4 h-4 ml-auto text-[var(--text-tertiary)] opacity-0 group-hover/item:opacity-100 transition-opacity" />
@@ -177,7 +177,7 @@ const ComparisonTable = () => {
         <tbody>
           {features.map((feature, idx) => (
             <tr key={idx} className="border-t border-[var(--border-light)] hover:bg-[var(--bg-secondary)] transition-colors">
-              <td className="p-6 font-medium text-[var(--text-primary)]">{feature.name}</td>
+              <td className="p-6 font-medium text-[var(--color-primary-500)]">{feature.name}</td>
               <td className="p-6 text-center">
                 {typeof feature.basic === 'boolean' ? (
                   feature.basic ? <Check className="w-5 h-5 text-[var(--color-success-500)] mx-auto" /> : <Minus className="w-5 h-5 text-[var(--text-tertiary)] mx-auto" />
@@ -341,42 +341,13 @@ const InstantActionsPage = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-[var(--bg-primary)] font-sans text-[var(--text-primary)] overflow-x-hidden">
+    <div className="min-h-screen  font-sans text-[var(--text-primary)] overflow-x-hidden">
       <Head>
         <title>Instant Actions - Trigger-Based Automation | YourCRM</title>
         <meta name="description" content="Build powerful trigger-based automation workflows that execute instantly. Connect systems, automate tasks, and scale operations without code." />
       </Head>
 
-      {/* Navigation */}
-      {/* <nav className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-xl border-b border-[var(--border-light)]">
-        <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[var(--color-primary-600)] to-[var(--color-secondary-600)] flex items-center justify-center">
-              <Zap className="w-6 h-6 text-white" />
-            </div>
-            <span className="text-2xl font-bold bg-gradient-to-r from-[var(--color-primary-600)] to-[var(--color-secondary-600)] bg-clip-text text-transparent">
-              YourCRM
-            </span>
-          </div>
-          
-          <div className="hidden md:flex items-center gap-8">
-            <Link href="#features" className="text-[var(--text-secondary)] hover:text-[var(--color-primary-600)] font-medium transition-colors">Features</Link>
-            <Link href="#use-cases" className="text-[var(--text-secondary)] hover:text-[var(--color-primary-600)] font-medium transition-colors">Use Cases</Link>
-            <Link href="#pricing" className="text-[var(--text-secondary)] hover:text-[var(--color-primary-600)] font-medium transition-colors">Pricing</Link>
-            <Link href="#docs" className="text-[var(--text-secondary)] hover:text-[var(--color-primary-600)] font-medium transition-colors">Docs</Link>
-          </div>
-
-          <div className="flex items-center gap-4">
-            <button className="hidden md:block px-6 py-2.5 text-[var(--text-secondary)] font-medium hover:text-[var(--color-primary-600)] transition-colors">
-              Sign In
-            </button>
-            <button className="px-6 py-2.5 bg-gradient-to-r from-[var(--color-primary-600)] to-[var(--color-secondary-600)] text-white font-semibold rounded-full hover:shadow-lg hover:shadow-[var(--color-primary-500)]/25 transition-all hover:-translate-y-0.5">
-              Start Free Trial
-            </button>
-          </div>
-        </div>
-      </nav> */}
-
+    
       {/* Hero Section */}
       <section className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
         {/* Background Effects */}
@@ -490,7 +461,7 @@ const InstantActionsPage = () => {
       </section>
 
       {/* Stats Bar */}
-      <section className="py-12 bg-[var(--bg-secondary)] border-y border-[var(--border-light)]">
+      <section className="py-12  border-y border-[var(--border-light)]">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {stats.map((stat, idx) => (
@@ -501,11 +472,11 @@ const InstantActionsPage = () => {
       </section>
 
       {/* Automation Types Grid */}
-      <section id="features" className="py-24 bg-[var(--bg-primary)]">
+      <section id="features" className="py-24 ">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <Badge variant="secondary">Powerful Automation</Badge>
-            <h2 className="text-4xl lg:text-5xl font-bold mt-4 mb-6">
+            <h2 className="text-4xl lg:text-5xl font-bold mt-4 mb-6 text-[var(--color-primary-700)]">
               Every Trigger Imaginable
             </h2>
             <p className="text-xl text-[var(--text-secondary)]">
@@ -523,12 +494,12 @@ const InstantActionsPage = () => {
 
       {/* Visual Workflow Builder Showcase */}
       <section className="py-24 bg-gradient-to-br from-[var(--color-primary-900)] to-[var(--color-secondary-900)] text-white relative overflow-hidden">
-        <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-5" />
+        <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-50" />
         
         <div className="relative z-10 max-w-7xl mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div>
-              <h2 className="text-4xl lg:text-5xl font-bold mb-6">
+              <h2 className="text-4xl lg:text-5xl font-bold mb-6 text-[var(--color-primary-700)]">
                 Visual Workflow Builder
               </h2>
               <p className="text-xl text-[var(--color-primary-100)] mb-8 leading-relaxed">
@@ -631,7 +602,7 @@ const InstantActionsPage = () => {
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <Badge variant="primary">Industry Solutions</Badge>
-            <h2 className="text-4xl lg:text-5xl font-bold mt-4 mb-6">
+            <h2 className="text-4xl lg:text-5xl font-bold mt-4 mb-6 text-[var(--color-primary-700)]">
               Built for Every Industry
             </h2>
             <p className="text-xl text-[var(--text-secondary)]">
@@ -664,7 +635,7 @@ const InstantActionsPage = () => {
       <section className="py-24 bg-[var(--bg-primary)]">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-4xl lg:text-5xl font-bold mb-6">
+            <h2 className="text-4xl lg:text-5xl font-bold mb-6 text-[var(--color-primary-700)]">
               Connects With Everything
             </h2>
             <p className="text-xl text-[var(--text-secondary)]">
@@ -697,10 +668,10 @@ const InstantActionsPage = () => {
       </section>
 
       {/* Comparison Table */}
-      <section id="pricing" className="py-24 bg-[var(--bg-secondary)]">
+      <section id="pricing" className="py-24 ">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-4xl lg:text-5xl font-bold mb-6">
+            <h2 className="text-4xl lg:text-5xl font-bold mb-6 text-[var(--color-primary-700)]">
               Choose Your Power
             </h2>
             <p className="text-xl text-[var(--text-secondary)]">
@@ -710,7 +681,7 @@ const InstantActionsPage = () => {
 
           <ComparisonTable />
 
-          <div className="mt-12 grid md:grid-cols-3 gap-8">
+          <div className="mt-12 grid md:grid-cols-3 gap-8 ">
             {[
               { title: "Starter", price: "$29", period: "/month", desc: "Perfect for small teams getting started with automation", features: ["5 active workflows", "1,000 executions/month", "Email support", "Basic triggers"] },
               { title: "Professional", price: "$79", period: "/month", desc: "For growing businesses that need serious automation power", features: ["Unlimited workflows", "50,000 executions/month", "Priority support", "Advanced conditions", "Webhooks & API"], popular: true },
@@ -718,11 +689,11 @@ const InstantActionsPage = () => {
             ].map((plan, idx) => (
               <GlassCard key={idx} className={`p-8 ${plan.popular ? 'ring-2 ring-[var(--color-primary-500)] scale-105' : ''}`}>
                 {plan.popular && (
-                  <div className="absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1 bg-[var(--color-primary-600)] text-white text-sm font-bold rounded-full">
+                  <div className="absolute  -top-1 left-1/2 -translate-x-1/2 px-4 py-1 bg-[var(--color-primary-600)] text-white text-sm font-bold rounded-full">
                     Most Popular
                   </div>
                 )}
-                <h3 className="text-2xl font-bold mb-2">{plan.title}</h3>
+                <h3 className="text-2xl font-bold mb-2 text-[var(--color-primary-700)]">{plan.title}</h3>
                 <div className="flex items-baseline gap-1 mb-4">
                   <span className="text-4xl font-bold text-[var(--color-primary-600)]">{plan.price}</span>
                   <span className="text-[var(--text-tertiary)]">{plan.period}</span>
@@ -748,10 +719,10 @@ const InstantActionsPage = () => {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-24 bg-[var(--bg-primary)]">
+      <section className="py-24 ">
         <div className="max-w-4xl mx-auto px-6">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-6">Frequently Asked Questions</h2>
+            <h2 className="text-4xl font-bold mb-6 text-[var(--color-primary-700)]">Frequently Asked Questions</h2>
             <p className="text-xl text-[var(--text-secondary)]">
               Everything you need to know about instant actions and trigger-based automation.
             </p>
@@ -772,7 +743,7 @@ const InstantActionsPage = () => {
 
       {/* Final CTA */}
       <section className="py-24 bg-gradient-to-br from-[var(--color-primary-600)] to-[var(--color-secondary-700)] text-white relative overflow-hidden">
-        <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10" />
+        <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-50" />
         <div className="absolute top-0 right-0 w-96 h-96 bg-white/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
         <div className="absolute bottom-0 left-0 w-96 h-96 bg-white/10 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2" />
 

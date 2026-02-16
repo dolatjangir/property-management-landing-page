@@ -1,6 +1,8 @@
+"use client"
 import { ArrowRight, Play, Sparkles, Star } from 'lucide-react'
+import Link from 'next/link'
 
-import React from 'react'
+
 
 function hero() {
   return (
@@ -60,7 +62,7 @@ function hero() {
       
                  <div className="hero-visual relative ">
                        <div className="bg-gray-100 border border-[var(--color-glass-border)] rounded-3xl p-5  relative z-10 animate-float">
-                         <img
+                        <img
                           src="/assets/property.jpeg" 
                            alt="Modern Luxury Apartment" 
                            width={600} 

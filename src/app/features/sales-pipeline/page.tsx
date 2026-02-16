@@ -566,7 +566,7 @@ const SalesPipelinePage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[var(--bg-secondary)] font-sans">
+    <div className="min-h-screen  font-sans">
       {/* <Header /> */}
 
       {/* Hero Section */}
@@ -610,7 +610,7 @@ const SalesPipelinePage = () => {
       </section>
 
       {/* Pipeline Visualization */}
-      <section id="pipeline" className="py-20 bg-[var(--bg-primary)]">
+      <section id="pipeline" className="py-20 ">
         <div className="max-w-7xl mx-auto px-[var(--space-4)] sm:px-[var(--space-6)] lg:px-[var(--space-8)]">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <h2 className="text-3xl lg:text-4xl font-bold text-[var(--text-primary)] mb-4">
@@ -670,7 +670,7 @@ const SalesPipelinePage = () => {
       </section>
 
       {/* Trust Signals Section */}
-      <section className="py-20 bg-[var(--bg-secondary)]">
+      <section className="py-20 ">
         <div className="max-w-7xl mx-auto px-[var(--space-4)] sm:px-[var(--space-6)] lg:px-[var(--space-8)]">
           {/* Metrics */}
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
@@ -685,9 +685,12 @@ const SalesPipelinePage = () => {
                 className="bg-[var(--bg-primary)] rounded-[var(--radius-2xl)] p-6 text-center shadow-lg border border-[var(--border-light)] hover:shadow-xl transition-shadow"
               >
                 <div className="w-12 h-12 mx-auto mb-4 rounded-[var(--radius-xl)] bg-[var(--color-primary-100)] text-[var(--color-primary-600)] flex items-center justify-center">
-                  {React.cloneElement(metric.icon as React.ReactElement, {
-                    className: "w-6 h-6",
-                  })}
+                  {React.cloneElement(
+  metric.icon as React.ReactElement<{ className?: string }>,
+  {
+    className: "w-6 h-6",
+  }
+)}
                 </div>
                 <div className="text-3xl font-bold text-[var(--text-primary)] mb-1">
                   {metric.value}
@@ -805,7 +808,7 @@ const SalesPipelinePage = () => {
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 required
-                className="px-6 py-4 rounded-[var(--radius-xl)] bg-white/90 border-0 text-[var(--text-primary)] placeholder-[var(--text-tertiary)] focus:outline-none focus:ring-2 focus:ring-white"
+                className="px-6 py-4 rounded-[var(--radius-xl)] bg-white/90 border-0 text-[var(--text-primary)] placeholder-[var(--text-tertiary)] focus:outline-none focus:ring-2 focus:ring-[var(--color-primary-600)]"
               />
               <input
                 type="email"
@@ -813,7 +816,7 @@ const SalesPipelinePage = () => {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
-                className="px-6 py-4 rounded-[var(--radius-xl)] bg-white/90 border-0 text-[var(--text-primary)] placeholder-[var(--text-tertiary)] focus:outline-none focus:ring-2 focus:ring-white"
+                className="px-6 py-4 rounded-[var(--radius-xl)] bg-white/90 border-0 text-[var(--text-primary)] placeholder-[var(--text-tertiary)] focus:outline-none focus:ring-2 focus:ring-[var(--color-primary-600)]"
               />
               <input
                 type="text"
@@ -821,7 +824,7 @@ const SalesPipelinePage = () => {
                 value={location}
                 onChange={(e) => setLocation(e.target.value)}
                 required
-                className="px-6 py-4 rounded-[var(--radius-xl)] bg-white/90 border-0 text-[var(--text-primary)] placeholder-[var(--text-tertiary)] focus:outline-none focus:ring-2 focus:ring-white"
+                className="px-6 py-4 rounded-[var(--radius-xl)] bg-white/90 border-0 text-[var(--text-primary)] placeholder-[var(--text-tertiary)] focus:outline-none focus:ring-2 focus:ring-[var(--color-primary-600)]"
               />
             </div>
             <button
@@ -840,7 +843,7 @@ const SalesPipelinePage = () => {
       </section>
 
       {/* Interactive Elements */}
-      <section id="calculator" className="py-20 bg-[var(--bg-primary)]">
+      <section id="calculator" className="py-20 ">
         <div className="max-w-7xl mx-auto px-[var(--space-4)] sm:px-[var(--space-6)] lg:px-[var(--space-8)]">
           <div className="grid lg:grid-cols-2 gap-12 items-start">
             <div>
@@ -867,7 +870,7 @@ const SalesPipelinePage = () => {
       </section>
 
       {/* Pipeline Table Section */}
-      <section className="py-20 bg-[var(--bg-secondary)]">
+      <section className="py-20 ">
         <div className="max-w-5xl mx-auto px-[var(--space-4)] sm:px-[var(--space-6)] lg:px-[var(--space-8)]">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-[var(--text-primary)] mb-4">
@@ -964,7 +967,7 @@ const SalesPipelinePage = () => {
       </section>
 
       {/* FAQ Section */}
-      <section id="faq" className="py-20 bg-[var(--bg-primary)]">
+      <section id="faq" className="py-20 ">
         <div className="max-w-3xl mx-auto px-[var(--space-4)] sm:px-[var(--space-6)] lg:px-[var(--space-8)]">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-[var(--text-primary)] mb-4">
@@ -992,81 +995,7 @@ const SalesPipelinePage = () => {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="bg-[var(--bg-dark)] text-[var(--text-inverse)] py-12">
-        <div className="max-w-7xl mx-auto px-[var(--space-4)] sm:px-[var(--space-6)] lg:px-[var(--space-8)]">
-          <div className="grid md:grid-cols-4 gap-8 mb-8">
-            <div>
-              <div className="flex items-center gap-2 mb-4">
-                <Building2 className="w-8 h-8 text-[var(--color-primary-400)]" />
-                <span className="text-xl font-bold">StayPilot</span>
-              </div>
-              <p className="text-[var(--text-tertiary)] text-sm">
-                Professional property management for modern hosts. Maximize revenue,
-                minimize stress.
-              </p>
-            </div>
-            <div>
-              <h4 className="font-semibold mb-4">Product</h4>
-              <ul className="space-y-2 text-sm text-[var(--text-tertiary)]">
-                <li>
-                  <a href="#" className="hover:text-white transition-colors">
-                    Features
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="hover:text-white transition-colors">
-                    Pricing
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="hover:text-white transition-colors">
-                    Pipeline
-                  </a>
-                </li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="font-semibold mb-4">Company</h4>
-              <ul className="space-y-2 text-sm text-[var(--text-tertiary)]">
-                <li>
-                  <a href="#" className="hover:text-white transition-colors">
-                    About
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="hover:text-white transition-colors">
-                    Careers
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="hover:text-white transition-colors">
-                    Contact
-                  </a>
-                </li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="font-semibold mb-4">Legal</h4>
-              <ul className="space-y-2 text-sm text-[var(--text-tertiary)]">
-                <li>
-                  <a href="#" className="hover:text-white transition-colors">
-                    Privacy
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="hover:text-white transition-colors">
-                    Terms
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div className="pt-8 border-t border-[var(--border-dark)] text-center text-sm text-[var(--text-tertiary)]">
-            © 2024 StayPilot. All rights reserved.
-          </div>
-        </div>
-      </footer>
+     
     </div>
   );
 };

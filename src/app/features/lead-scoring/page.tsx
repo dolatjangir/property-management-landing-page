@@ -100,7 +100,7 @@ const leadFormSchema = z.object({
   }),
 
   // Hidden Fields
-  formSource: z.string().default("owner_landing_page"),
+  formSource: z.string().optional(),
   interactionType: z.literal("requested_analysis"),
 });
 
@@ -644,7 +644,7 @@ const LeadQualificationPage = () => {
           {/* Progress Bar (Visual Only) */}
           <div className="h-1 bg-[var(--bg-secondary)]">
             <div
-              className="h-full bg-gradient-to-r from-[var(--color-primary-500)] to-[var(--color-secondary-500)] transition-all duration-500"
+              className="w-full h-full bg-gradient-to-r from-[var(--color-primary-500)] to-[var(--color-secondary-500)] transition-all duration-500"
               style={{ width: leadScore ? "100%" : "60%" }}
             />
           </div>

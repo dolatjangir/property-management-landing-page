@@ -41,7 +41,7 @@ import React from 'react'
 function Features() {
   return (
     <div>
-        <section id="features" className="py-[var(--space-24)] bg-[var(--bg-primary)]">
+        <section id="features" className="py-[var(--space-24)] ">
         <div className="max-w-7xl mx-auto px-[var(--space-4)] sm:px-[var(--space-6)] lg:px-[var(--space-8)]">
           <div className="text-center max-w-3xl mx-auto mb-[var(--space-16)]">
             <h2 className="text-4xl font-bold mb-[var(--space-4)] text-[var(--text-primary)]">Everything You Need to Scale</h2>

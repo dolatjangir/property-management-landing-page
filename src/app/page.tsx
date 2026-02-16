@@ -513,7 +513,7 @@ const StayPilotLanding = () => {
   ];
 
   return (
-    <div className="min-h-screen  bg-[var(--bg-primary)] font-sans text-[var(--text-primary)]">
+    <div className="min-h-screen  bg-[var(--bg-secondary)] font-sans text-[var(--text-primary)] overflow-hidden">
       <Head>
         <title> - Smart Hotel & BnB Management Platform</title>
         <meta name="description" content="Manage all your properties in one smart dashboard. Automate bookings, pricing, and guest communication." />
@@ -534,7 +534,7 @@ const StayPilotLanding = () => {
       <Features/>
 
       {/* How It Works */}
-      <section id="how-it-works" className="py-[var(--space-24)] bg-[var(--bg-secondary)]">
+      <section id="how-it-works" className="py-[var(--space-24)] ">
         <div className="max-w-7xl mx-auto px-[var(--space-4)] sm:px-[var(--space-6)] lg:px-[var(--space-8)]">
           <div className="text-center max-w-3xl mx-auto mb-[var(--space-16)]">
             <h2 className="text-4xl font-bold mb-[var(--space-4)] text-[var(--text-primary)]">Get Started in Minutes</h2>
@@ -542,7 +542,7 @@ const StayPilotLanding = () => {
           </div>
 
           <div className="grid lg:grid-cols-3 gap-[var(--space-8)]">
-            {steps.map((step, idx) => (
+            {steps.map((step:any, idx) => (
               <div key={idx} className="relative group">
                 <div 
                   className="rounded-[var(--radius-3xl)] p-[var(--space-8)] h-full border border-[var(--border-light)] relative overflow-hidden"
@@ -593,14 +593,14 @@ const StayPilotLanding = () => {
               />
             </div>
           {/*  */}
-          <div className="relative z-10">
+          <div className="relative z-10 group">
                   <div className="text-6xl font-bold text-[var(--color-neutral-900)] mb-[var(--space-6)]">{step.number}</div>
-                  <h3 className="text-2xl font-bold mb-[var(--space-4)] text-[var(--text-primary)]">{step.title}</h3>
+                  <h3 className="text-2xl font-bold mb-[var(--space-4)] text-[var(--color-primary-500)]">{step.title}</h3>
                   <p className="text-[var(--text-secondary)] leading-relaxed">{step.description}</p></div>
                 </div>
                 {idx < 2 && (
-                   <div className="hidden lg:block absolute z-50  top-1/2 -right-5 group-hover:-right-7 transition-all transform -translate-y-1/2 ">
-                                         <ChevronRight className="w-8 h-8 "  style={{ color: step.bg }} />
+                   <div className="hidden lg:block absolute  z-50  top-1/2 -right-5 group-hover:-right-7 transition-all transform -translate-y-1/2 ">
+                                         <ChevronRight className="w-8 h-8 text-[var(--color-primary-300)] group-hover:text-[var(--color-primary-500)]"  />
                                        </div> 
                                        
                 )}
@@ -612,7 +612,7 @@ const StayPilotLanding = () => {
       </section>
 
       {/* Benefits Section */}
-      <section className="py-[var(--space-24)] bg-[var(--bg-primary)]">
+      <section className="py-[var(--space-24)] ">
         <div className="max-w-7xl mx-auto px-[var(--space-4)] sm:px-[var(--space-6)] lg:px-[var(--space-8)]">
           <div 
             className="rounded-[var(--radius-3xl)] p-[var(--space-12)] lg:p-[var(--space-20)] text-[var(--text-inverse)] relative overflow-hidden"
@@ -668,10 +668,10 @@ const StayPilotLanding = () => {
       </section>
 
       {/* Testimonials */}
-      <section id="testimonials" className="py-[var(--space-24)] bg-[var(--bg-secondary)]">
+      <section id="testimonials" className="py-[var(--space-24)] ">
         <div className="max-w-7xl mx-auto px-[var(--space-4)] sm:px-[var(--space-6)] lg:px-[var(--space-8)]">
           <div className="text-center max-w-3xl mx-auto mb-[var(--space-16)]">
-            <h2 className="text-4xl font-bold mb-[var(--space-4)] text-[var(--text-primary)]">Loved by Hospitality Professionals</h2>
+            <h2 className="text-4xl font-bold mb-[var(--space-4)] text-[var(--color-primary-500)]">Loved by Hospitality Professionals</h2>
             <p className="text-xl text-[var(--text-secondary)]">See how StayPilot is transforming properties worldwide.</p>
           </div>
 
@@ -703,10 +703,10 @@ const StayPilotLanding = () => {
       </section>
 
       {/* Pricing Section */}
-      <section id="pricing" className="py-[var(--space-24)] bg-[var(--bg-primary)]">
+      <section id="pricing" className="py-[var(--space-24)] ">
         <div className="max-w-7xl mx-auto px-[var(--space-4)] sm:px-[var(--space-6)] lg:px-[var(--space-8)]">
           <div className="text-center max-w-3xl mx-auto mb-[var(--space-12)]">
-            <h2 className="text-4xl font-bold mb-[var(--space-4)] text-[var(--text-primary)]">Simple, Transparent Pricing</h2>
+            <h2 className="text-4xl font-bold mb-[var(--space-4)] text-[var(--color-primary-500)]">Simple, Transparent Pricing</h2>
             <p className="text-xl text-[var(--text-secondary)] mb-[var(--space-8)]">Start free, scale as you grow. No hidden fees.</p>
             
             <div className="inline-flex items-center gap-[var(--space-4)] p-1.5 bg-[var(--bg-secondary)] rounded-[var(--radius-full)]">
@@ -776,148 +776,149 @@ const StayPilotLanding = () => {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-[var(--space-24)] bg-[var(--bg-secondary)] ">
-        <div className="w-full mx-auto px-[var(--space-4)] sm:px-[var(--space-6)] lg:px-[var(--space-8)] border border-red-500">
-          <div className="text-center mb-[var(--space-16)]">
-            <h2 className="text-4xl font-bold mb-[var(--space-4)] text-[var(--text-primary)]">Frequently Asked Questions</h2>
-            <p className="text-xl text-[var(--text-secondary)]">Everything you need to know about StayPilot.</p>
-          </div>
+   <section className="relative overflow-hidden py-[var(--space-24)] ">
+  <div className="max-w-5xl mx-auto px-[var(--space-4)] sm:px-[var(--space-6)] lg:px-[var(--space-8)]">
 
-           <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-blue-100 py-16 px-4 sm:px-6 lg:px-8">
-      <div className="w-full ">
-        {/* Header Section */}
-        <div className="text-center mb-12 flex flex-col items-center justify-center border border-red-500">
-          <div className="inline-flex items-center justify-center w-16 h-16 bg-blue-600 rounded-full mb-4">
-            <HelpCircle className="w-8 h-8 text-white" />
-          </div>
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-            Frequently Asked Questions
-          </h1>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Find answers to common questions about our services, process, and how we can help you
-          </p>
-        </div>
-
-        {/* FAQ Items */}
-        <div className="space-y-4">
-          {faqs.map((faq, index) => {
-            const isOpen = openIndex === index;
-            
-            return (
-              <div
-                key={index}
-                className="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden border border-blue-100"
-              >
-                {/* Question Button */}
-                <button
-                  onClick={() => toggleFAQ(index)}
-                  className="w-full text-left p-6 md:p-8 flex items-start justify-between gap-4 group"
-                >
-                  <div className="flex-1">
-                    <div className="flex items-center gap-3 mb-2">
-                      <span 
-                        className="flex items-center justify-center w-8 h-8 rounded-full text-sm font-bold transition-all duration-300"
-                        style={{
-                          backgroundColor: isOpen ? '#2563eb' : '#dbeafe',
-                          color: isOpen ? 'white' : '#2563eb'
-                        }}
-                      >
-                        {index + 1}
-                      </span>
-                      <h3 
-                        className="text-xl md:text-2xl font-bold transition-colors duration-300"
-                        style={{ color: isOpen ? '#2563eb' : '#1f2937' }}
-                      >
-                        {faq.question}
-                      </h3>
-                    </div>
-                  </div>
-                  
-                  {/* Chevron Icon */}
-                  <div 
-                    className="flex-shrink-0 w-10 h-10 flex items-center justify-center rounded-full transition-all duration-300"
-                    style={{
-                      backgroundColor: isOpen ? '#dbeafe' : '#f3f4f6',
-                      transform: isOpen ? 'rotate(180deg)' : 'rotate(0deg)'
-                    }}
-                  >
-                    <ChevronDown 
-                      className="w-5 h-5 transition-colors duration-300" 
-                      style={{ color: isOpen ? '#2563eb' : '#6b7280' }}
-                    />
-                  </div>
-                </button>
-
-                {/* Answer Panel */}
-                <div
-                  className="overflow-hidden transition-all duration-300 ease-in-out"
-                  style={{
-                    maxHeight: isOpen ? '500px' : '0',
-                    opacity: isOpen ? 1 : 0
-                  }}
-                >
-                  <div className="px-6 md:px-8 pb-6 md:pb-8">
-                    <div className="pl-11 pt-2 border-l-4 border-blue-200">
-                      <p className="text-gray-700 leading-relaxed text-base md:text-lg ml-4">
-                        {faq.answer}
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            );
-          })}
-        </div>
-
-        {/* Bottom CTA */}
-        <div className="mt-12 text-center bg-gradient-to-r from-blue-600 to-blue-700 rounded-2xl p-8 md:p-10 shadow-xl">
-          <h3 className="text-2xl md:text-3xl font-bold text-white mb-3">
-            Still have questions?
-          </h3>
-          <p className="text-blue-100 mb-6 text-lg">
-            We're here to help! Get in touch with our team
-          </p>
-          <button className="bg-white text-blue-600 px-8 py-3 rounded-xl font-semibold hover:bg-blue-50 transition-all duration-300 hover:scale-105 shadow-lg">
-            Contact Us
-          </button>
-        </div>
-
-        {/* Decorative Elements */}
-        <div className="absolute top-20 left-10 w-72 h-72 bg-blue-200 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob"></div>
-        <div className="absolute top-40 right-10 w-72 h-72 bg-blue-300 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-2000"></div>
-        <div className="absolute bottom-20 left-1/2 w-72 h-72 bg-blue-100 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-4000"></div>
+    {/* Header */}
+    <div className="text-center mb-[var(--space-16)]">
+      <div className="inline-flex items-center justify-center w-16 h-16 rounded-full mb-4 bg-brand-primary">
+        <HelpCircle className="w-8 h-8 text-white" />
       </div>
 
-      {/* Animations */}
-      <style>{`
-        @keyframes blob {
-          0%, 100% {
-            transform: translate(0px, 0px) scale(1);
-          }
-          33% {
-            transform: translate(30px, -50px) scale(1.1);
-          }
-          66% {
-            transform: translate(-20px, 20px) scale(0.9);
-          }
-        }
-        .animate-blob {
-          animation: blob 7s infinite;
-        }
-        .animation-delay-2000 {
-          animation-delay: 2s;
-        }
-        .animation-delay-4000 {
-          animation-delay: 4s;
-        }
-      `}</style>
+      <h2 className="text-4xl font-bold mb-[var(--space-4)] text-[var(--text-primary)]">
+        Frequently Asked Questions
+      </h2>
+
+      <p className="text-xl text-[var(--text-secondary)] max-w-2xl mx-auto">
+        Everything you need to know about bnb management.
+      </p>
     </div>
-        </div>
-      </section>
+
+
+    {/* FAQ Items */}
+    <div className="space-y-4">
+      {faqs.map((faq, index) => {
+        const isOpen = openIndex === index;
+
+        return (
+          <div
+            key={index}
+            className="rounded-2xl shadow-brand bg-[var(--bg-primary)] border border-[var(--border-light)] overflow-hidden transition-all duration-300"
+          >
+            {/* Question */}
+            <button
+              onClick={() => toggleFAQ(index)}
+              className="w-full text-left p-6 md:p-8 flex items-start justify-between gap-4"
+            >
+              <div className="flex-1">
+
+                <div className="flex items-center gap-3 mb-2">
+
+                  {/* Number */}
+                  <span
+                    className="flex items-center justify-center w-8 h-8 rounded-full text-sm font-bold transition-all duration-300"
+                    style={{
+                      backgroundColor: isOpen
+                        ? "var(--color-primary-600)"
+                        : "var(--color-primary-100)",
+                      color: isOpen
+                        ? "white"
+                        : "var(--color-primary-600)"
+                    }}
+                  >
+                    {index + 1}
+                  </span>
+
+                  <h3
+                    className="text-md md:text-xl font-bold transition-colors duration-300"
+                    style={{
+                      color: isOpen
+                        ? "var(--color-primary-600)"
+                        : "var(--text-primary)"
+                    }}
+                  >
+                    {faq.question}
+                  </h3>
+                </div>
+
+              </div>
+
+              {/* Chevron */}
+              <div
+                className="flex-shrink-0 w-10 h-10 flex items-center justify-center rounded-full transition-all duration-300"
+                style={{
+                  backgroundColor: isOpen
+                    ? "var(--color-primary-100)"
+                    : "var(--bg-tertiary)",
+                  transform: isOpen ? "rotate(180deg)" : "rotate(0deg)"
+                }}
+              >
+                <ChevronDown
+                  className="w-5 h-5"
+                  style={{
+                    color: isOpen
+                      ? "var(--color-primary-600)"
+                      : "var(--text-secondary)"
+                  }}
+                />
+              </div>
+            </button>
+
+            {/* Answer */}
+            <div
+              className="overflow-hidden transition-all duration-300"
+              style={{
+                maxHeight: isOpen ? "400px" : "0",
+                opacity: isOpen ? 1 : 0
+              }}
+            >
+              <div className="px-6 md:px-8 pb-6 md:pb-8">
+                <div
+                  className="pl-6 pt-2 border-l-4"
+                  style={{ borderColor: "var(--color-primary-200)" }}
+                >
+                  <p className="text-[var(--text-secondary)] leading-relaxed text-base md:text-lg">
+                    {faq.answer}
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        );
+      })}
+    </div>
+
+
+    {/* CTA */}
+    <div className="mt-12 text-center bg-brand-gradient rounded-2xl p-8 md:p-10 shadow-brand">
+      <h3 className="text-2xl md:text-3xl font-bold text-white mb-3">
+        Still have questions?
+      </h3>
+
+      <p className="text-white/80 mb-6 text-lg">
+        We're here to help! Get in touch with our team
+      </p>
+
+      <button className="bg-white text-[var(--color-primary-600)] px-8 py-3 rounded-xl font-semibold hover:scale-105 transition-all duration-300 shadow-lg">
+        Contact Us
+      </button>
+    </div>
+
+
+    {/* Decorative blobs */}
+    <div className="pointer-events-none absolute top-20 left-10 w-72 h-72 rounded-full blur-3xl opacity-20"
+         style={{ background: "var(--color-primary-200)" }} />
+
+    <div className="pointer-events-none absolute bottom-20 right-10 w-72 h-72 rounded-full blur-3xl opacity-20"
+         style={{ background: "var(--color-primary-300)" }} />
+
+  </div>
+</section>
+
 
       {/* Final CTA */}
      {/* Final CTA */}
-<section className="  bg-[var(--bg-primary)]">
+<section className="  ">
   <div>
     <div 
       className="relative p-[var(--space-12)] lg:p-[var(--space-20)] text-center text-[var(--text-inverse)] overflow-hidden"
@@ -926,7 +927,7 @@ const StayPilotLanding = () => {
 
       {/* 🔥 Rotating Glow Animation */}
       <div className="absolute inset-0 z-10 flex items-center justify-center pointer-events-none">
-        <div className="w-[120%] h-[120%] bg-[var(--border-dark)]/50 animate-rotate-slow opacity-40"></div>
+        <div className="w-[100%] h-[120%] bg-[var(--border-dark)]/50 animate-rotate-slow overflow-hidden opacity-40"></div>
       </div>
 
       {/* Texture */}
@@ -975,8 +976,7 @@ const StayPilotLanding = () => {
 </section>
 
 
-      {/* Footer */}
-    <Footer/>
+ 
     </div>
   );
 };

@@ -66,7 +66,7 @@ const Analytics = () => {
 
         <div className="grid md:grid-cols-3 gap-8">
           {/* Card 1: Bar Chart */}
-          <div className="bg-[var(--color-secondary-100)] border border-[var(--color-glass-border)] p-8 rounded-2xl hover:border-[var(--color-primary)] hover:-translate-y-1 transition-all duration-300 overflow-hidden">
+          <div className="bg-[var(--color-secondary-100)] border border-[var(--color-glass-border)] p-8 rounded-2xl hover:border-[var(--color-primary-500)] hover:-translate-y-1 transition-all duration-300 overflow-hidden">
             <div className="flex justify-between items-center mb-6">
               <h3 className="text-[var(--color-secondary-500)] text-lg">Monthly Revenue</h3>
               <span className="text-[var(--color-accent)] text-sm flex items-center gap-1">
@@ -89,7 +89,7 @@ const Analytics = () => {
           </div>
 
           {/* Card 2: Line Chart */}
-          <div className="bg-[var(--color-secondary-100)] border border-[var(--color-glass-border)] p-8 rounded-2xl hover:border-[var(--color-primary)] hover:-translate-y-1 transition-all duration-300">
+          <div className="bg-[var(--color-secondary-100)] border border-[var(--color-glass-border)] p-8 rounded-2xl hover:border-[var(--color-primary-500)] hover:-translate-y-1 transition-all duration-300">
             <div className="flex justify-between items-center mb-6">
               <h3 className="text-[var(--color-secondary-500)] text-lg">Occupancy Rate</h3>
               <span className="text-[var(--color-accent)] text-sm">94% Avg</span>
@@ -115,7 +115,7 @@ const Analytics = () => {
           </div>
 
           {/* Card 3: Donut Chart */}
-          <div className="bg-[var(--color-secondary-100)] border border-[var(--color-glass-border)] p-8 rounded-2xl hover:border-[var(--color-primary)] hover:-translate-y-1 transition-all duration-300">
+          <div className="bg-[var(--color-secondary-100)] border border-[var(--color-glass-border)] p-8 rounded-2xl hover:border-[var(--color-primary-500)] hover:-translate-y-1 transition-all duration-300">
             <div className="flex justify-between items-center mb-6">
               <h3 className="text-[var(--color-secondary-500)] text-lg">Operational Efficiency</h3>
               <span className="text-[var(--color-accent)] text-sm">Automated</span>

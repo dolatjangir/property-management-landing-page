@@ -335,160 +335,213 @@ function Header() {
            return () => window.removeEventListener('scroll', handleScroll);
          }, []);
   return (
-    <div>
-         {/* Navigation */}
-            <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-[var(--duration-normal)] ${scrolled ? 'bg-[var(--bg-primary)]/80 backdrop-blur-xl shadow-sm' : 'bg-transparent'}`}>
-              <div className=" mx-auto px-[var(--space-4)] sm:px-[var(--space-2)] lg:px-[var(--space-4)]">
-                <div className="flex justify-between items-center h-20">
-                  <div className="flex items-center gap-[var(--space-2)]">
-                    <div className=" rounded-[var(--radius-xl)] bg-[var(--gradient-primary)]  flex items-center justify-center shadow-lg" style={{ boxShadow: '0 10px 15px -3px var(--color-primary-500)/25' }}>
-                      <img width={220} height={220} src="/assets/vertical-bnb-logo.png"/>
+   <div>
+  {/* Navigation */}
+  <nav
+    className={`fixed top-0 left-0 right-0 z-50 transition-all duration-[var(--duration-normal)] ${
+      scrolled
+        ? "bg-[var(--bg-primary)]/80 backdrop-blur-xl shadow-sm"
+        : "bg-transparent"
+    }`}
+  >
+    <div className="mx-auto px-[var(--space-4)] sm:px-[var(--space-2)] lg:px-[var(--space-4)]">
+      <div className="flex justify-between items-center h-20">
+        <div className="flex items-center gap-[var(--space-2)]">
+          <div
+            className="rounded-[var(--radius-xl)] bg-[var(--gradient-primary)] flex items-center justify-center shadow-lg"
+            style={{
+              boxShadow: "0 10px 15px -3px var(--color-primary-600)/25",
+            }}
+          >
+           <Link href="/">  <img width={220} height={220} src="/assets/bnb-green-logo.png" /></Link>
+          </div>
+        </div>
+
+        {/* Desktop Navigation */}
+        <nav className="hidden md:flex items-center gap-1">
+          {navItems.map((item) => (
+            <div
+              key={item.label}
+              className="relative"
+              onMouseEnter={() => handleMouseEnter(item.label)}
+              onMouseLeave={handleMouseLeave}
+            >
+              <button
+                className={`flex items-center gap-1 px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
+                  activeDropdown === item.label
+                    ? "text-[var(--color-primary-600)] bg-[var(--color-primary-50)]"
+                    : "text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-tertiary)]"
+                }`}
+              >
+                {item.label}
+                {item.hasDropdown && (
+                  <ChevronDown
+                    className={`w-4 h-4 transition-transform duration-200 ${
+                      activeDropdown === item.label ? "rotate-180" : ""
+                    }`}
+                  />
+                )}
+              </button>
+
+              {/* Mega Menu Dropdown */}
+              {activeDropdown === item.label && item.dropdownContent && (
+                <div
+                  className={`absolute top-full left-1/2 -translate-x-1/2 pt-2 w-[720px]
+                  transition-all duration-200 ease-out
+                  ${
+                    isVisible
+                      ? "opacity-100 translate-y-0"
+                      : "opacity-0 -translate-y-2 pointer-events-none"
+                  }`}
+                >
+                  <div className="bg-[var(--bg-primary)] rounded-2xl shadow-2xl border border-[var(--border-light)] overflow-hidden">
+                    {/* Header */}
+                    <div className="bg-[var(--bg-secondary)] px-6 py-4 border-b border-[var(--border-light)]">
+                      <h3 className="text-lg font-semibold text-[var(--text-primary)]">
+                        {item.dropdownContent.title}
+                      </h3>
+                      <p className="text-sm text-[var(--text-secondary)] mt-1">
+                        {item.dropdownContent.description}
+                      </p>
                     </div>
-                    {/* <span className="text-2xl font-bold bg-[var(--gradient-primary)] bg-clip-text ">
-                      StayPilot
-                    </span> */}
-                  </div>
-      
-                   {/* Desktop Navigation */}
-                <nav className="hidden md:flex items-center gap-1">
-                  {navItems.map((item) => (
-                    <div
-                      key={item.label}
-                      className="relative"
-                      onMouseEnter={() => handleMouseEnter(item.label)}
-                      onMouseLeave={handleMouseLeave}
-                    >
-                      <button
-                        className={`
-                          flex items-center gap-1 px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200
-                          ${activeDropdown === item.label 
-                            ? "text-blue-600 bg-blue-50/100" 
-                            : "text-gray-600 hover:text-gray-900 hover:bg-gray-50"
-                          }
-                        `}
-                      >
-                        {item.label}
-                        {item.hasDropdown && (
-                          <ChevronDown
-                            className={`w-4 h-4 transition-transform duration-200 ${
-                              activeDropdown === item.label ? "rotate-180" : ""
-                            }`} 
-                          />
-                        )}
-                      </button>
-      
-                      {/* Mega Menu Dropdown */}
-                      {activeDropdown === item.label && item.dropdownContent && (
-                        <div
-                          className={`
-                            absolute top-full left-1/2 -translate-x-1/2 pt-2 w-[720px]
-                            transition-all duration-200 ease-out
-                            ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-2 pointer-events-none"}
-                          `}
-                        >
-                          <div className="bg-white rounded-2xl shadow-2xl border border-gray-100 overflow-hidden">
-                            {/* Header */}
-                            <div className="bg-gradient-to-r from-gray-50 to-white px-6 py-4 border-b border-gray-100">
-                              <h3 className="text-lg font-semibold text-gray-900">
-                                {item.dropdownContent.title}
-                              </h3>
-                              <p className="text-sm text-gray-500 mt-1">
-                                {item.dropdownContent.description}
-                              </p>
-                            </div>
-      
-                            {/* Content Grid */}
-                            <div className="p-6 grid grid-cols-2 gap-8">
-                              {item.dropdownContent.sections.map((section, idx) => (
-                                <div key={idx} className="space-y-3">
-                                  <h4 className="text-xs font-semibold text-gray-400 uppercase tracking-wider">
-                                    {section.title}
-                                  </h4>
-                                  <div className="space-y-1">
-                                    {section.items.map((subItem, subIdx) => (
-                                      <Link
-                                        key={subIdx}
-                                        href={subItem.href}
-                                        className="group flex items-start gap-3 p-2 rounded-lg hover:bg-gray-50 transition-colors duration-200"
-                                      >
-                                        <div className="flex-shrink-0 w-8 h-8 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center group-hover:bg-blue-100 transition-colors">
-                                          {subItem.icon}
-                                        </div>
-                                        <div className="flex-1 min-w-0">
-                                          <div className="flex items-center gap-2">
-                                            <span className="text-sm font-medium text-gray-900 group-hover:text-blue-600 transition-colors">
-                                              {subItem.title}
-                                            </span>
-                                            {subItem.badge && (
-                                              <span className="px-1.5 py-0.5 text-[10px] font-semibold bg-blue-100 text-blue-700 rounded-full">
-                                                {subItem.badge}
-                                              </span>
-                                            )}
-                                          </div>
-                                          <p className="text-xs text-gray-500 mt-0.5 line-clamp-1">
-                                            {subItem.description}
-                                          </p>
-                                        </div>
-                                      </Link>
-                                    ))}
-                                  </div>
+
+                    {/* Content Grid */}
+                    <div className="p-6 grid grid-cols-2 gap-8">
+                      {item.dropdownContent.sections.map((section, idx) => (
+                        <div key={idx} className="space-y-3">
+                          <h4 className="text-xs font-semibold text-[var(--text-tertiary)] uppercase tracking-wider">
+                            {section.title}
+                          </h4>
+
+                          <div className="space-y-1">
+                            {section.items.map((subItem, subIdx) => (
+                              <Link
+                                key={subIdx}
+                                href={subItem.href}
+                                className="group flex items-start gap-3 p-2 rounded-lg hover:bg-[var(--bg-tertiary)] transition-colors duration-200"
+                              >
+                                <div className="flex-shrink-0 w-8 h-8 rounded-lg bg-[var(--color-primary-50)] text-[var(--color-primary-600)] flex items-center justify-center group-hover:bg-[var(--color-primary-100)] transition-colors">
+                                  {subItem.icon}
                                 </div>
-                              ))}
-                            </div>
-      
-                            {/* Footer */}
-                            {item.dropdownContent.footer && (
-                              <div className="bg-gray-50 px-6 py-3 border-t border-gray-100 flex items-center justify-between">
-                                <span className="text-sm text-gray-500">
-                                  {item.dropdownContent.footer.text}
-                                </span>
-                                <Link
-                                  href={item.dropdownContent.footer.href}
-                                  className="text-sm font-medium text-blue-600 hover:text-blue-700 flex items-center gap-1 group"
-                                >
-                                  {item.dropdownContent.footer.link}
-                                  <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
-                                </Link>
-                              </div>
-                            )}
+
+                                <div className="flex-1 min-w-0">
+                                  <div className="flex items-center gap-2">
+                                    <span className="text-sm font-medium text-[var(--text-primary)] group-hover:text-[var(--color-primary-600)] transition-colors">
+                                      {subItem.title}
+                                    </span>
+
+                                    {subItem.badge && (
+                                      <span className="px-1.5 py-0.5 text-[10px] font-semibold bg-[var(--color-primary-100)] text-[var(--color-primary-700)] rounded-full">
+                                        {subItem.badge}
+                                      </span>
+                                    )}
+                                  </div>
+
+                                  <p className="text-xs text-[var(--text-tertiary)] mt-0.5 line-clamp-1">
+                                    {subItem.description}
+                                  </p>
+                                </div>
+                              </Link>
+                            ))}
                           </div>
                         </div>
-                      )}
+                      ))}
                     </div>
-                  ))}
-                </nav>
-      
-                  <div className="hidden md:flex items-center gap-[var(--space-4)]">
-                    <button className="text-[var(--text-secondary)] hover:text-[var(--color-primary-600)] font-medium transition-colors duration-[var(--duration-fast)]">Log in</button>
-                    <button className="px-[var(--space-6)] py-[var(--space-2)] bg-[var(--color-primary-600)] hover:bg-[var(--color-primary-700)] text-[var(--text-inverse)] font-semibold rounded-lg transition-all duration-[var(--duration-fast)] shadow-lg hover:shadow-xl" style={{ boxShadow: '0 10px 15px -3px var(--color-primary-600)/25' }}>
-                    Start For Free Trial
-                    </button>
-                  </div>
-      
-                  <button 
-                    className="md:hidden p-2 text-[var(--text-secondary)]"
-                    onClick={() => setIsMenuOpen(!isMenuOpen)}
-                  >
-                    {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-                  </button>
-                </div>
-              </div>
-      
-              {isMenuOpen && (
-                <div className="md:hidden bg-[var(--bg-primary)] border-t border-[var(--border-light)] absolute w-full">
-                  <div className="px-[var(--space-4)] py-[var(--space-6)] space-y-[var(--space-4)]">
-                    <a href="#features" className="block text-[var(--text-secondary)] font-medium">Features</a>
-                    <a href="#how-it-works" className="block text-[var(--text-secondary)] font-medium">How it Works</a>
-                    <a href="#pricing" className="block text-[var(--text-secondary)] font-medium">Pricing</a>
-                    <a href="#testimonials" className="block text-[var(--text-secondary)] font-medium">Reviews</a>
-                    <hr className="border-[var(--border-light)]" />
-                    <button className="w-full py-[var(--space-3)] text-[var(--text-secondary)] font-medium">Log in</button>
-                    <button className="w-full py-[var(--space-3)] bg-[var(--color-primary-600)] text-[var(--text-inverse)] font-semibold rounded-[var(--radius-xl)]">Get Started</button>
+
+                    {/* Footer */}
+                    {item.dropdownContent.footer && (
+                      <div className="bg-[var(--bg-secondary)] px-6 py-3 border-t border-[var(--border-light)] flex items-center justify-between">
+                        <span className="text-sm text-[var(--text-secondary)]">
+                          {item.dropdownContent.footer.text}
+                        </span>
+
+                        <Link
+                          href={item.dropdownContent.footer.href}
+                          className="text-sm font-medium text-[var(--color-primary-600)] hover:text-[var(--color-primary-700)] flex items-center gap-1 group"
+                        >
+                          {item.dropdownContent.footer.link}
+                          <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
+                        </Link>
+                      </div>
+                    )}
                   </div>
                 </div>
               )}
-            </nav>
+            </div>
+          ))}
+        </nav>
+
+        <div className="hidden md:flex items-center gap-[var(--space-4)]">
+          <button className="text-[var(--text-secondary)] hover:text-[var(--color-primary-600)] font-medium transition-colors duration-[var(--duration-fast)]">
+            Log in
+          </button>
+
+          <button
+            className="px-[var(--space-6)] py-[var(--space-2)] bg-[var(--color-primary-600)] hover:bg-[var(--color-primary-700)] text-[var(--text-inverse)] font-semibold rounded-lg transition-all duration-[var(--duration-fast)] shadow-lg hover:shadow-xl"
+            style={{
+              boxShadow: "0 10px 15px -3px var(--color-primary-600)/25",
+            }}
+          >
+            Start For Free Trial
+          </button>
+        </div>
+
+        <button
+          className="md:hidden p-2 text-[var(--text-secondary)]"
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
+        >
+          {isMenuOpen ? (
+            <X className="w-6 h-6" />
+          ) : (
+            <Menu className="w-6 h-6" />
+          )}
+        </button>
+      </div>
     </div>
+
+    {isMenuOpen && (
+      <div className="md:hidden bg-[var(--bg-primary)] border-t border-[var(--border-light)] absolute w-full">
+        <div className="px-[var(--space-4)] py-[var(--space-6)] space-y-[var(--space-4)]">
+          <a
+            href="#features"
+            className="block text-[var(--text-secondary)] font-medium"
+          >
+            Features
+          </a>
+          <a
+            href="#how-it-works"
+            className="block text-[var(--text-secondary)] font-medium"
+          >
+            How it Works
+          </a>
+          <a
+            href="#pricing"
+            className="block text-[var(--text-secondary)] font-medium"
+          >
+            Pricing
+          </a>
+          <a
+            href="#testimonials"
+            className="block text-[var(--text-secondary)] font-medium"
+          >
+            Reviews
+          </a>
+
+          <hr className="border-[var(--border-light)]" />
+
+          <button className="w-full py-[var(--space-3)] text-[var(--text-secondary)] font-medium">
+            Log in
+          </button>
+
+          <button className="w-full py-[var(--space-3)] bg-[var(--color-primary-600)] text-[var(--text-inverse)] font-semibold rounded-[var(--radius-xl)]">
+            Get Started
+          </button>
+        </div>
+      </div>
+    )}
+  </nav>
+</div>
+
   )
 }
 
