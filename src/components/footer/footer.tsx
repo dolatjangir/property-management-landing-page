@@ -1,7 +1,7 @@
 import { Building2 } from 'lucide-react'
 import React from 'react'
 
-function footer() {
+function Footer() {
   return (
     <div>
         <footer className="bg-[var(--bg-dark)] text-[var(--text-tertiary)] py-[var(--space-16)]">
@@ -72,4 +72,4 @@ function footer() {
   )
 }
 
-export default footer
+export default Footer

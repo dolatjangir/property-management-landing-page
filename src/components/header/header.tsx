@@ -1,3 +1,5 @@
+"use client"
+import {useState,useRef,useEffect} from 'react'
 import { ChevronDown,
       Sparkles,
   Play,
@@ -26,7 +28,7 @@ import { ChevronDown,
   Menu,
   X
  } from 'lucide-react';
-import {useState,useRef,useEffect} from 'react'
+
 import Link from 'next/link'
 interface NavItem {
   label: string;
@@ -68,20 +70,20 @@ const navItems: NavItem[] = [
               icon: <Users className="w-5 h-5" />,
               title: "Contact Management",
               description: "Organize and segment your customer data",
-              href: "#contacts"
+              href: "/features/contact-management"
             },
             {
               icon: <Target className="w-5 h-5" />,
               title: "Lead Scoring",
               description: "AI-powered lead qualification",
-              href: "#leads",
+              href: "/features/lead-scoring",
               badge: "AI"
             },
             {
               icon: <LineChart className="w-5 h-5" />,
               title: "Sales Pipeline",
               description: "Visual deal tracking and forecasting",
-              href: "#pipeline"
+              href: "/features/sales-pipeline"
             }
           ]
         },
@@ -92,19 +94,19 @@ const navItems: NavItem[] = [
               icon: <Workflow className="w-5 h-5" />,
               title: "Workflow Automation",
               description: "Automate repetitive tasks",
-              href: "#workflows"
+              href: "/features/workflow-automation"
             },
             {
               icon: <Clock className="w-5 h-5" />,
               title: "Smart Scheduling",
               description: "AI meeting scheduler",
-              href: "#scheduling"
+              href: "/features/smart-scheduling"
             },
             {
               icon: <Zap className="w-5 h-5" />,
               title: "Instant Actions",
               description: "Trigger-based automation",
-              href: "#actions"
+              href: "/features/instant-action"
             }
           ]
         }
@@ -131,19 +133,19 @@ const navItems: NavItem[] = [
               icon: <Layers className="w-5 h-5" />,
               title: "Enterprise",
               description: "Scale with confidence",
-              href: "/enterprise"
+              href: "/industry/enterprise"
             },
             {
               icon: <Sparkles className="w-5 h-5" />,
               title: "Startups",
               description: "Grow from day one",
-              href: "/startups"
+              href: "/industry/startup"
             },
             {
               icon: <BarChart3 className="w-5 h-5" />,
               title: "Agencies",
               description: "Manage multiple clients",
-              href: "/agencies"
+              href: "/industry/agencies"
             }
           ]
         },
@@ -154,19 +156,19 @@ const navItems: NavItem[] = [
               icon: <Users className="w-5 h-5" />,
               title: "Sales Teams",
               description: "Close more deals faster",
-              href: "/sales"
+              href: "/industry/sales-team"
             },
             {
               icon: <Target className="w-5 h-5" />,
               title: "Marketing",
               description: "Align sales and marketing",
-              href: "/marketing"
+              href: "/industry/marketing"
             },
             {
               icon: <Shield className="w-5 h-5" />,
               title: "Customer Success",
               description: "Reduce churn, increase LTV",
-              href: "/success"
+              href: "/industry/customer-sucess"
             }
           ]
         }
@@ -193,20 +195,20 @@ const navItems: NavItem[] = [
               icon: <Star className="w-5 h-5" />,
               title: "Starter",
               description: "Free for up to 3 users",
-              href: "/pricing#starter",
+              href: "/pricing/starter",
               badge: "Free"
             },
             {
               icon: <Zap className="w-5 h-5" />,
               title: "Professional",
               description: "$49/user per month",
-              href: "/pricing#pro"
+              href: "/pricing/professional"
             },
             {
               icon: <Sparkles className="w-5 h-5" />,
               title: "Enterprise",
               description: "Custom pricing",
-              href: "/pricing#enterprise"
+              href: "/pricing/enterprise"
             }
           ]
         },
@@ -217,19 +219,19 @@ const navItems: NavItem[] = [
               icon: <PieChart className="w-5 h-5" />,
               title: "Plan Comparison",
               description: "See all features side by side",
-              href: "/compare"
+              href: "/compare/plan-comparison"
             },
             {
               icon: <Database className="w-5 h-5" />,
               title: "ROI Calculator",
               description: "Calculate your return",
-              href: "/roi"
+              href: "/compare/roi-calculator"
             },
             {
               icon: <Cloud className="w-5 h-5" />,
               title: "Cloud vs On-prem",
               description: "Deployment options",
-              href: "/deployment"
+              href: "/compare/cloud-vs-on-prem"
             }
           ]
         }
@@ -256,19 +258,19 @@ const navItems: NavItem[] = [
               icon: <BookA className="w-5 h-5" />,
               title: "Documentation",
               description: "Guides and API references",
-              href: "/docs"
+              href: "/resources/documentation"
             },
             {
               icon: <PlayCircle className="w-5 h-5" />,
               title: "Video Tutorials",
               description: "Step-by-step walkthroughs",
-              href: "/tutorials"
+              href: "resources/video-tutorials"
             },
             {
               icon: <GraduationCapIcon className="w-5 h-5" />,
               title: "CRM Academy",
               description: "Free certification courses",
-              href: "/academy"
+              href: "/resources/crm-academy"
             }
           ]
         },
@@ -279,19 +281,19 @@ const navItems: NavItem[] = [
               icon: <HelpCircleIcon className="w-5 h-5" />,
               title: "Help Center",
               description: "FAQs and troubleshooting",
-              href: "/help"
+              href: "/resources/help-center"
             },
             {
               icon: <MessageSquareCode className="w-5 h-5" />,
               title: "Community",
               description: "Join the conversation",
-              href: "/community"
+              href: "/resources/community"
             },
             {
               icon: <HeadphonesIcon className="w-5 h-5" />,
               title: "Contact Support",
               description: "24/7 expert assistance",
-              href: "/support"
+              href: "/resources/contact-support"
             }
           ]
         }
@@ -304,7 +306,7 @@ const navItems: NavItem[] = [
     }
   }
 ];
-function header() {
+function Header() {
      const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
      const [isVisible, setIsVisible] = useState(false);
      const [scrolled, setScrolled] = useState(false);
@@ -360,7 +362,7 @@ function header() {
                         className={`
                           flex items-center gap-1 px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200
                           ${activeDropdown === item.label 
-                            ? "text-blue-600 bg-blue-50/50" 
+                            ? "text-blue-600 bg-blue-50/100" 
                             : "text-gray-600 hover:text-gray-900 hover:bg-gray-50"
                           }
                         `}
@@ -490,4 +492,4 @@ function header() {
   )
 }
 
-export default header
+export default Header
