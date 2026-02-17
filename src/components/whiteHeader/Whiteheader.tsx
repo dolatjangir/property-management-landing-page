@@ -312,6 +312,12 @@ function WhiteHeader() {
      const [scrolled, setScrolled] = useState(false);
       const [isMenuOpen, setIsMenuOpen] = useState(false);
      const timeoutRef = useRef<NodeJS.Timeout | null>(null);
+          const [openMobileItem, setOpenMobileItem] = useState<string | null>(null);
+     
+     const toggleMobileItem = (label: string) => {
+       setOpenMobileItem(prev => (prev === label ? null : label));
+     };
+     
      
            const handleMouseEnter = (label: string) => {
          if (timeoutRef.current) {
@@ -499,46 +505,87 @@ function WhiteHeader() {
       </div>
     </div>
 
-    {isMenuOpen && (
-      <div className="md:hidden bg-[var(--bg-primary)] border-t border-[var(--border-light)] absolute w-full">
-        <div className="px-[var(--space-4)] py-[var(--space-6)] space-y-[var(--space-4)]">
-          <a
-            href="#features"
-            className="block text-[var(--color-secondary-100)] font-medium"
-          >
-            Features
-          </a>
-          <a
-            href="#how-it-works"
-            className="block text-[var(--color-secondary-100)] font-medium"
-          >
-            How it Works
-          </a>
-          <a
-            href="#pricing"
-            className="block text-[var(--color-secondary-100)] font-medium"
-          >
-            Pricing
-          </a>
-          <a
-            href="#testimonials"
-            className="block text-[var(--color-secondary-100)] font-medium"
-          >
-            Reviews
-          </a>
+   {isMenuOpen && (
+  <div className="md:hidden bg-[var(--bg-primary)] border-t border-[var(--border-light)] absolute w-full max-h-[80vh] overflow-y-auto">
+    <div className="px-[var(--space-4)] py-[var(--space-6)] space-y-6">
 
-          <hr className="border-[var(--border-light)]" />
+      {navItems.map((item) => (
+        <div key={item.label} className="space-y-3">
 
-          <button className="w-full py-[var(--space-3)] text-[var(--color-secondary-100)] font-medium">
-            Log in
+          {/* Section Title (Clickable) */}
+          <button
+            onClick={() => toggleMobileItem(item.label)}
+            className="w-full flex justify-between items-center text-sm font-semibold text-[var(--text-primary)]"
+          >
+            {item.label}
+            <ChevronDown
+              className={`w-4 h-4 transition-transform ${
+                openMobileItem === item.label ? "rotate-180" : ""
+              }`}
+            />
           </button>
 
-          <button className="w-full py-[var(--space-3)] bg-[var(--color-primary-600)] text-[var(--text-inverse)] font-semibold rounded-[var(--radius-xl)]">
-            Get Started
-          </button>
+          {/* Dropdown Content */}
+          {openMobileItem === item.label && (
+            <>
+              {item.dropdownContent?.sections.map((section, idx) => (
+                <div key={idx} className="space-y-2">
+
+                  <div className="text-xs uppercase tracking-wide text-[var(--text-tertiary)]">
+                    {section.title}
+                  </div>
+
+                  {section.items.map((subItem, subIdx) => (
+                    <Link
+                      key={subIdx}
+                      href={subItem.href}
+                      onClick={() => setIsMenuOpen(false)}
+                      className="flex items-start gap-3 p-2 rounded-lg hover:bg-[var(--bg-tertiary)] transition"
+                    >
+                      <div className="w-8 h-8 rounded-lg bg-[var(--color-primary-50)] text-[var(--color-primary-600)] flex items-center justify-center">
+                        {subItem.icon}
+                      </div>
+
+                      <div className="flex-1">
+                        <div className="flex items-center gap-2">
+                          <span className="text-sm font-medium text-[var(--text-primary)]">
+                            {subItem.title}
+                          </span>
+
+                          {subItem.badge && (
+                            <span className="px-1.5 py-0.5 text-[10px] font-semibold bg-[var(--color-primary-100)] text-[var(--color-primary-700)] rounded-full">
+                              {subItem.badge}
+                            </span>
+                          )}
+                        </div>
+
+                        <p className="text-xs text-[var(--text-tertiary)]">
+                          {subItem.description}
+                        </p>
+                      </div>
+                    </Link>
+                  ))}
+                </div>
+              ))}
+            </>
+          )}
         </div>
-      </div>
-    )}
+      ))}
+
+      <hr className="border-[var(--border-light)]" />
+
+      {/* Auth Buttons */}
+      <button className="w-full py-[var(--space-3)] text-[var(--text-secondary)] font-medium">
+        Log in
+      </button>
+
+      <button className="w-full py-[var(--space-3)] bg-[var(--color-primary-600)] text-[var(--text-inverse)] font-semibold rounded-[var(--radius-xl)]">
+        Start Free Trial
+      </button>
+    </div>
+  </div>
+)}
+
   </nav>
 </div>
 

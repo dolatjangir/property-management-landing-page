@@ -1,7 +1,23 @@
 "use client"
 import { ArrowRight, Play, Sparkles, Star } from 'lucide-react'
 import Link from 'next/link'
-
+interface User {
+  id: string;
+  name: string;
+  avatar: string;
+  role: 'member' | 'moderator' | 'admin' | 'expert';
+  reputation: number;
+  joinedAt: string;
+  location?: string;
+  bio?: string;
+  badges: string[];
+}
+const topUsers: User[] = [
+  { id: '1', name: 'Sarah Chen', avatar: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop&crop=face', role: 'admin', reputation: 5420, joinedAt: '2022-01-10', badges: ['Founding Member', 'Community Hero'] },
+  { id: '2', name: 'Marcus Johnson', avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face', role: 'moderator', reputation: 3890, joinedAt: '2022-08-22', badges: ['Technical Expert'] },
+  { id: '3', name: 'Emma Wilson', avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&h=100&fit=crop&crop=face', role: 'expert', reputation: 3150, joinedAt: '2023-02-14', badges: ['Rising Star'] },
+  { id: '4', name: 'David Park', avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face', role: 'member', reputation: 1280, joinedAt: '2023-11-05', badges: [] },
+];
 
 
 function hero() {
@@ -45,9 +61,12 @@ function hero() {
       
                     <div className="flex items-center gap-[var(--space-6)] pt-[var(--space-4)]">
                       <div className="flex -space-x-[var(--space-3)]">
-                        {[1,2,3,4].map((i) => (
-                          <div key={i} className="w-10 h-10 rounded-full border-2 border-[var(--bg-primary)] bg-[var(--gradient-primary)]" />
+                        {topUsers.map((user) => (
+                          <img key={user.id} src={user.avatar} alt={user.name} className="w-10 h-10 rounded-full border-2 border-[var(--color-primary-100)] bg-[var(--color-primary-50)]" />
                         ))}
+                        <div className="w-10 h-10 rounded-full bg-[var(--color-primary-50)] border-2 border-[var(--color-primary-100)] flex items-center justify-center text-xs text-[var(--color-primary-500)]">
+                  +886
+                </div>
                       </div>
                       <div>
                         <div className="flex items-center gap-1">

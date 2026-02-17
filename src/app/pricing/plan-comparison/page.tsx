@@ -2162,7 +2162,7 @@ export default function PlanComparisonPage() {
   const visibleFeatures = showAllFeatures ? filteredFeatures : filteredFeatures.slice(0, 24)
 
   return (
-    <div className="min-h-screen bg-[var(--bg-primary)] text-[var(--text-primary)] font-sans overflow-x-hidden selection:bg-[var(--color-primary-200)]">
+    <div className="min-h-screen  text-[var(--text-primary)] font-sans overflow-x-hidden selection:bg-[var(--color-primary-200)]">
       <Head>
         <title>Plan Comparison | See All Features Side by Side | StayPilot</title>
         <meta name="description" content="Complete feature comparison of StayPilot plans. Compare Starter (Free), Professional ($49/user), and Enterprise (Custom) side by side. 100+ features detailed." />
@@ -2238,13 +2238,13 @@ export default function PlanComparisonPage() {
       </section>
 
       {/* 💰 PRICING CARDS STRIP */}
-      <section className="sticky top-0 z-40 bg-white/80 backdrop-blur-xl border-b border-[var(--border-light)] shadow-sm">
+      <section className="sticky top-0 z-40  backdrop-blur-xl border-b border-[var(--border-light)] shadow-sm">
         <div className="max-w-7xl mx-auto px-[var(--space-4)] sm:px-[var(--space-6)] lg:px-[var(--space-8)]">
-          <div className="grid grid-cols-4 gap-4 py-4">
-            <div className="hidden lg:block" /> {/* Spacer for feature column */}
+          <div className="grid grid-cols-3 gap-4 py-4">
+             {/* Spacer for feature column */}
             
             {/* Starter */}
-            <div className="text-center p-4 rounded-xl bg-[var(--bg-secondary)] border border-[var(--border-light)]">
+            <div className="text-center p-4 rounded-xl bg-[var(--color-primary-50)] border border-[var(--border-light)]">
               <div className="font-bold text-lg text-[var(--text-primary)] mb-1">Starter</div>
               <div className="text-3xl font-extrabold text-[var(--color-success-600)] mb-1">Free</div>
               <div className="text-sm text-[var(--text-tertiary)]">Forever</div>
@@ -2282,7 +2282,7 @@ export default function PlanComparisonPage() {
       </section>
 
       {/* 🔍 SEARCH & FILTER */}
-      <section className="py-6 bg-[var(--bg-secondary)] border-b border-[var(--border-light)]">
+      <section className="py-6  border-b border-[var(--border-light)]">
         <div className="max-w-7xl mx-auto px-[var(--space-4)] sm:px-[var(--space-6)] lg:px-[var(--space-8)]">
           <div className="flex flex-col lg:flex-row gap-4 items-center justify-between">
             {/* Search */}
@@ -2316,7 +2316,7 @@ export default function PlanComparisonPage() {
                   className={`px-4 py-2 rounded-full text-sm font-bold transition-all flex items-center gap-2 ${
                     activeTab === cat.id 
                       ? 'bg-[var(--color-primary-600)] text-white' 
-                      : 'bg-white text-[var(--text-secondary)] hover:bg-[var(--bg-tertiary)]'
+                      : 'bg-[var(--color-primary-100)] text-[var(--text-secondary)] hover:bg-[var(--bg-tertiary)]'
                   }`}
                 >
                   <cat.icon className="w-4 h-4" />
@@ -2329,7 +2329,7 @@ export default function PlanComparisonPage() {
       </section>
 
       {/* 📊 COMPARISON TABLE */}
-      <section className="py-12 bg-[var(--bg-primary)]">
+      <section className="py-12">
         <div className="max-w-7xl mx-auto px-[var(--space-4)] sm:px-[var(--space-6)] lg:px-[var(--space-8)]">
           <motion.div
             initial="hidden"
@@ -2413,7 +2413,7 @@ export default function PlanComparisonPage() {
       </section>
 
       {/* 📋 QUICK COMPARISON CARDS */}
-      <section className="py-20 bg-[var(--bg-secondary)]">
+      <section className="py-20 ">
         <div className="max-w-7xl mx-auto px-[var(--space-4)] sm:px-[var(--space-6)] lg:px-[var(--space-8)]">
           <motion.div
             initial="hidden"
@@ -2540,7 +2540,7 @@ export default function PlanComparisonPage() {
       </section>
 
       {/* ❓ FAQ SECTION */}
-      <section className="py-20 bg-[var(--bg-primary)]">
+      <section className="py-20 ">
         <div className="max-w-3xl mx-auto px-[var(--space-4)] sm:px-[var(--space-6)] lg:px-[var(--space-8)]">
           <motion.div
             initial="hidden"
@@ -2609,30 +2609,7 @@ export default function PlanComparisonPage() {
         </div>
       </section>
 
-      {/* 🦶 FOOTER */}
-      <footer className="py-12 bg-[var(--bg-primary)] border-t border-[var(--border-light)]">
-        <div className="max-w-7xl mx-auto px-[var(--space-4)] sm:px-[var(--space-6)] lg:px-[var(--space-8)]">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[var(--color-primary-600)] to-[var(--color-secondary-600)] flex items-center justify-center">
-                <Building2 className="w-6 h-6 text-white" />
-              </div>
-              <span className="text-xl font-bold text-[var(--text-primary)]">StayPilot</span>
-            </div>
-            
-            <div className="flex items-center gap-8 text-sm text-[var(--text-secondary)]">
-              <a href="#" className="hover:text-[var(--color-primary-600)] transition-colors">Privacy</a>
-              <a href="#" className="hover:text-[var(--color-primary-600)] transition-colors">Terms</a>
-              <a href="#" className="hover:text-[var(--color-primary-600)] transition-colors">Security</a>
-              <a href="#" className="hover:text-[var(--color-primary-600)] transition-colors">Cookies</a>
-            </div>
-
-            <div className="text-sm text-[var(--text-tertiary)]">
-              © 2026 StayPilot. All rights reserved.
-            </div>
-          </div>
-        </div>
-      </footer>
+     
     </div>
   )
 }

@@ -30,7 +30,7 @@ function Trusted() {
       
       <div
         key={index}
-        className="flex flex-col items-center gap-1 min-w-[160px]  justify-center"
+        className="flex flex-col items-center gap-1 sm:min-w-[80px] md:min-w-[110px] lg:min-w-[160px]  justify-center"
       >
         <img
           src={brand.logo}

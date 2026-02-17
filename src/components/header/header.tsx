@@ -341,10 +341,10 @@ const toggleMobileItem = (label: string) => {
            return () => window.removeEventListener('scroll', handleScroll);
          }, []);
   return (
-   <div>
+   <div className=''>
   {/* Navigation */}
   <nav
-    className={`fixed top-0 left-0 right-0 z-50 transition-all duration-[var(--duration-normal)] ${
+    className={`fixed top-0 left-0 right-0 z-50 transition-all duration-[var(--duration-normal)]  ${
       scrolled
         ? "bg-[var(--bg-primary)]/80 backdrop-blur-xl shadow-sm"
         : "bg-transparent"
@@ -390,16 +390,11 @@ const toggleMobileItem = (label: string) => {
               </button>
 
               {/* Mega Menu Dropdown */}
+
               {activeDropdown === item.label && item.dropdownContent && (
-                <div
-                  className={`absolute top-full left-1/2 -translate-x-1/2 pt-2 w-[720px]
-                  transition-all duration-200 ease-out
-                  ${
-                    isVisible
-                      ? "opacity-100 translate-y-0"
-                      : "opacity-0 -translate-y-2 pointer-events-none"
-                  }`}
-                >
+               <div className={`absolute top-full left-1/2 -translate-x-1/2 pt-2 w-[720px] transition-all duration-200 ease-out 
+               ${ isVisible ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-2 pointer-events-none" }`} >
+
                   <div className="bg-[var(--bg-primary)] rounded-2xl shadow-2xl border border-[var(--border-light)] overflow-hidden">
                     {/* Header */}
                     <div className="bg-[var(--bg-secondary)] px-6 py-4 border-b border-[var(--border-light)]">
@@ -410,7 +405,6 @@ const toggleMobileItem = (label: string) => {
                         {item.dropdownContent.description}
                       </p>
                     </div>
-
                     {/* Content Grid */}
                     <div className="p-6 grid grid-cols-2 gap-8">
                       {item.dropdownContent.sections.map((section, idx) => (
@@ -504,9 +498,35 @@ const toggleMobileItem = (label: string) => {
         </button>
       </div>
     </div>
-
-{isMenuOpen && (
-  <div className="md:hidden bg-[var(--bg-primary)] border-t border-[var(--border-light)] absolute w-full max-h-[80vh] overflow-y-auto">
+{/* humburger */}
+{/* Overlay */}
+<div
+  onClick={() => setIsMenuOpen(false)}
+  className={`
+    fixed inset-0 bg-black/50 backdrop-blur-sm z-10
+    transition-opacity duration-300
+    ${isMenuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"}
+  `}
+/>
+  
+ <div
+  className={`
+    md:hidden
+    bg-[var(--color-primary-50))]
+    border-t border-[var(--border-light)]
+    absolute top-0 right-0 w-full  max-h-[100vh] overflow-y-auto
+    transition-all duration-300 ease-[cubic-bezier(0.22,1,0.36,1)]
+    transform z-20
+    ${isMenuOpen
+      ? "opacity-100 translate-x-0 pointer-events-auto"
+      : "opacity-0 translate-x-full pointer-events-none"}
+  `}
+>
+  <div className='flex justify-between items-center'>
+ <Link href="/">  <img width={220} height={220} src="/assets/bnb-green-logo.png" /></Link>
+ <div onClick={() => {setIsMenuOpen(!isMenuOpen)
+  setOpenMobileItem(null)}
+ } className={`  w-fit absolute p-1 right-2 shadow-xl rounded-md bg-[var(--color-primary-100)] ${isMenuOpen ? 'block' : 'hidden'}`}> <X className="w-6 h-6" /></div></div>
     <div className="px-[var(--space-4)] py-[var(--space-6)] space-y-6">
 
       {navItems.map((item) => (
@@ -572,8 +592,8 @@ const toggleMobileItem = (label: string) => {
         </div>
       ))}
 
-      <hr className="border-[var(--border-light)]" />
-
+      {/* <hr className="border-[var(--border-light)]" /> */}
+<div className='sticky bottom-0 bg-[var(--color-primary-50)] border-t border-neutral-50'>
       {/* Auth Buttons */}
       <button className="w-full py-[var(--space-3)] text-[var(--text-secondary)] font-medium">
         Log in
@@ -582,9 +602,10 @@ const toggleMobileItem = (label: string) => {
       <button className="w-full py-[var(--space-3)] bg-[var(--color-primary-600)] text-[var(--text-inverse)] font-semibold rounded-[var(--radius-xl)]">
         Start Free Trial
       </button>
+      </div>
     </div>
   </div>
-)}
+
 
 
   </nav>
