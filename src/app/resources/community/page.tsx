@@ -507,7 +507,7 @@ const EventCard = ({ event }: { event: Event }) => {
   const [registered, setRegistered] = useState(event.isRegistered);
 
   return (
-    <div className="bg-[var(--bg-primary)] rounded-xl border border-[var(--border-light)] p-5 hover:shadow-lg transition-all">
+    <div className=" rounded-xl border border-[var(--border-light)] p-5 hover:shadow-lg transition-all">
       <div className="flex items-start justify-between mb-3">
         <span className={`px-2 py-1 rounded-lg text-xs font-medium ${
           event.type === 'webinar' ? 'bg-blue-100 text-blue-700' :
@@ -577,17 +577,17 @@ export default function CommunityPage() {
   });
 
   return (
-    <div className="min-h-screen bg-[var(--bg-secondary)] text-[var(--text-primary)]">
+    <div className="min-h-screen text-[var(--text-primary)]">
       <Head>
         <title>Community | Join the Conversation</title>
       </Head>
 
       {/* Hero */}
-      <div className="bg-gradient-to-br from-[var(--color-primary-600)] to-[var(--color-secondary-600)] text-white">
+      <div className="bg-gradient-to-t from-[var(--color-primary-600)] via-[var(--color-secondary-700)] to-[var(--color-secondary-600)] pt-18 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
           <div className="flex flex-col md:flex-row items-center justify-between gap-6">
             <div>
-              <h1 className="text-3xl md:text-4xl font-bold mb-2">Join the Conversation</h1>
+              <h1 className="text-3xl md:text-4xl font-bold mb-2 text-[var(--color-primary-700)]">Join the Conversation</h1>
               <p className="text-white/80">Connect with 15,000+ CRM professionals. Share knowledge, get help, grow together.</p>
             </div>
             <div className="flex items-center gap-4">

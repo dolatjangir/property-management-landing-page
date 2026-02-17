@@ -465,8 +465,8 @@ const IntegrationCard = ({ name, category, icon: Icon, status }: { name: string,
 
 // Security Feature
 const SecurityFeature = ({ icon: Icon, title, description, certification }: { icon: any, title: string, description: string, certification?: string }) => (
-  <div className="bg-white rounded-2xl p-6 shadow-lg border border-[var(--border-light)] hover:shadow-xl transition-shadow">
-    <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-slate-100 to-slate-200 flex items-center justify-center mb-4">
+  <div className="bg-[var(--color-primary-50)] rounded-2xl p-6 shadow-lg border border-[var(--border-light)] hover:shadow-xl transition-shadow">
+    <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-[var(--color-primary-100)] to-[var(--color-primary-200)] flex items-center justify-center mb-4">
       <Icon className="w-7 h-7 text-slate-700" />
     </div>
     <h4 className="text-lg font-bold text-[var(--text-primary)] mb-2">{title}</h4>
@@ -782,7 +782,7 @@ export default function EnterprisePage() {
   ]
 
   return (
-    <div className="min-h-screen bg-[var(--bg-primary)] text-[var(--text-primary)] font-sans overflow-x-hidden selection:bg-[var(--color-primary-200)]">
+    <div className="min-h-screen  text-[var(--text-primary)] font-sans overflow-x-hidden selection:bg-[var(--color-primary-200)]">
       <Head>
         <title>Enterprise Solutions | Custom Pricing | StayPilot</title>
         <meta name="description" content="Enterprise-grade hospitality management for hotel chains, vacation rental companies, and property management firms. Custom pricing, dedicated support, unlimited scale." />
@@ -790,109 +790,172 @@ export default function EnterprisePage() {
       </Head>
 
       {/* 🎯 HERO SECTION */}
-      <section className="relative min-h-screen flex items-center overflow-hidden bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 text-white">
+   <section className="relative min-h-screen flex items-center overflow-hidden text-[var(--text-primary)]">
+
+  {/* Animated Background */}
+  <div className="absolute inset-0 overflow-hidden pointer-events-none">
+    <div
+      className="absolute top-0 left-1/4 w-96 h-96 rounded-full blur-3xl animate-pulse"
+      style={{ background: "rgba(0, 104, 56, 0.12)" }}
+    />
+    <div
+      className="absolute bottom-0 right-1/4 w-96 h-96 rounded-full blur-3xl animate-pulse delay-1000"
+      style={{ background: "rgba(30, 143, 90, 0.12)" }}
+    />
+    <div
+      className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full blur-3xl"
+      style={{ background: "var(--gradient-card)", opacity: 0.08 }}
+    />
+  </div>
+
+  <div className="relative z-10 max-w-7xl mx-auto px-[var(--space-4)] sm:px-[var(--space-6)] lg:px-[var(--space-8)] py-20">
+    <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+      
+      {/* Left Content */}
+      <motion.div initial="hidden" animate="visible" variants={staggerContainer}>
         
-        {/* Animated Background */}
-        <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-500/20 rounded-full blur-3xl animate-pulse" />
-          <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-indigo-500/20 rounded-full blur-3xl animate-pulse delay-1000" />
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-to-r from-blue-600/10 to-purple-600/10 rounded-full blur-3xl" />
-        </div>
+        <motion.div variants={fadeInUp} className="mb-6">
+          <Badge variant="enterprise" size="lg" glow>
+            <Crown className="w-4 h-4" />
+            Enterprise Solutions
+          </Badge>
+        </motion.div>
 
-        <div className="relative z-10 max-w-7xl mx-auto px-[var(--space-4)] sm:px-[var(--space-6)] lg:px-[var(--space-8)] py-20">
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-            
-            {/* Left Content */}
-            <motion.div
-              initial="hidden"
-              animate="visible"
-              variants={staggerContainer}
-            >
-              <motion.div variants={fadeInUp} className="mb-6">
-                <Badge variant="enterprise" size="lg" glow>
-                  <Crown className="w-4 h-4" />
-                  Enterprise Solutions
-                </Badge>
-              </motion.div>
+        <motion.h1
+          variants={fadeInUp}
+          className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight mb-6"
+        >
+          Hospitality Management at
+          <span
+            className="block bg-clip-text text-transparent"
+            style={{ backgroundImage: "var(--gradient-primary)" }}
+          >
+            Enterprise Scale
+          </span>
+        </motion.h1>
 
-              <motion.h1 variants={fadeInUp} className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight mb-6">
-                Hospitality Management at
-                <span className="block bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
-                  Enterprise Scale
-                </span>
-              </motion.h1>
+        <motion.p
+          variants={fadeInUp}
+          className="text-xl mb-8 max-w-xl leading-relaxed text-[var(--text-secondary)]"
+        >
+          Custom-built solutions for hotel chains, vacation rental companies,
+          and property management firms managing thousands of units. Unlimited
+          scale, bespoke integrations, and white-glove support.
+        </motion.p>
 
-              <motion.p variants={fadeInUp} className="text-xl text-blue-100 mb-8 max-w-xl leading-relaxed">
-                Custom-built solutions for hotel chains, vacation rental companies, and property management firms managing thousands of units. Unlimited scale, bespoke integrations, and white-glove support.
-              </motion.p>
+        <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row gap-4 mb-8">
+          
+          {/* Primary Button */}
+          <button
+            className="group relative px-8 py-4 rounded-[var(--radius-full)] font-bold shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 flex items-center justify-center gap-2"
+            style={{
+              background: "var(--gradient-primary)",
+              color: "white"
+            }}
+          >
+            <Handshake className="w-5 h-5" />
+            Request Custom Quote
+            <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+          </button>
 
-              <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row gap-4 mb-8">
-                <button className="group relative px-8 py-4 bg-white text-blue-900 rounded-[var(--radius-full)] font-bold shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 flex items-center justify-center gap-2">
-                  <Handshake className="w-5 h-5" />
-                  Request Custom Quote
-                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                </button>
-                <button className="group px-8 py-4 rounded-[var(--radius-full)] font-bold text-white border border-white/30 hover:border-white hover:bg-white/10 transition-all duration-300 flex items-center justify-center gap-2">
-                  <Phone className="w-5 h-5" />
-                  Call Sales: +1 (888) 555-0123
-                </button>
-              </motion.div>
+          {/* Secondary Button */}
+          <button
+            className="group px-8 py-4 rounded-[var(--radius-full)] font-bold border transition-all duration-300 flex items-center justify-center gap-2"
+            style={{
+              borderColor: "var(--border-medium)",
+              color: "var(--text-primary)",
+              background: "var(--bg-primary)"
+            }}
+          >
+            <Phone className="w-5 h-5" />
+            Call Sales: +1 (888) 555-0123
+          </button>
+        </motion.div>
 
-              {/* Trust Indicators */}
-              <motion.div variants={fadeInUp} className="flex flex-wrap items-center gap-6 text-sm text-blue-200">
-                <div className="flex items-center gap-2">
-                  <ShieldCheck className="w-5 h-5" />
-                  <span>SOC 2 Certified</span>
+        {/* Trust Indicators */}
+        <motion.div
+          variants={fadeInUp}
+          className="flex flex-wrap items-center gap-6 text-sm text-[var(--text-secondary)]"
+        >
+          <div className="flex items-center gap-2">
+            <ShieldCheck className="w-5 h-5 text-[var(--color-primary-600)]" />
+            <span>SOC 2 Certified</span>
+          </div>
+          <div className="flex items-center gap-2">
+            <Clock className="w-5 h-5 text-[var(--color-primary-600)]" />
+            <span>24/7 Enterprise Support</span>
+          </div>
+          <div className="flex items-center gap-2">
+            <Zap className="w-5 h-5 text-[var(--color-primary-600)]" />
+            <span>99.99% Uptime SLA</span>
+          </div>
+        </motion.div>
+      </motion.div>
+
+      {/* Right Content */}
+      <motion.div
+        initial={{ opacity: 0, x: 50 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.8, delay: 0.3 }}
+        className="relative"
+      >
+        <div
+          className="rounded-[var(--radius-3xl)] p-8 border shadow-xl backdrop-blur-xl"
+          style={{
+            background: "rgba(255,255,255,0.6)",
+            borderColor: "var(--border-light)"
+          }}
+        >
+          <div className="grid grid-cols-2 gap-6">
+            {stats.map((stat, i) => (
+              <div
+                key={i}
+                className="text-center p-4 rounded-2xl"
+                style={{ background: "rgba(255,255,255,0.5)" }}
+              >
+                <div className="text-4xl font-extrabold text-[var(--text-primary)] mb-1">
+                  <AnimatedCounter value={stat.value} suffix={stat.suffix} />
                 </div>
-                <div className="flex items-center gap-2">
-                  <Clock className="w-5 h-5" />
-                  <span>24/7 Enterprise Support</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <Zap className="w-5 h-5" />
-                  <span>99.99% Uptime SLA</span>
-                </div>
-              </motion.div>
-            </motion.div>
-
-            {/* Right Content - Stats Card */}
-            <motion.div
-              initial={{ opacity: 0, x: 50 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: 0.3 }}
-              className="relative"
-            >
-              <div className="bg-white/10 backdrop-blur-xl rounded-[var(--radius-3xl)] p-8 border border-white/20">
-                <div className="grid grid-cols-2 gap-6">
-                  {stats.map((stat, i) => (
-                    <div key={i} className="text-center p-4 rounded-2xl bg-white/5">
-                      <div className="text-4xl font-extrabold text-white mb-1">
-                        <AnimatedCounter value={stat.value} suffix={stat.suffix} />
-                      </div>
-                      <div className="text-sm text-blue-200">{stat.label}</div>
-                    </div>
-                  ))}
-                </div>
-                
-                <div className="mt-6 p-4 rounded-xl bg-gradient-to-r from-blue-600 to-purple-600">
-                  <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center">
-                      <Building2 className="w-5 h-5 text-white" />
-                    </div>
-                    <div>
-                      <div className="font-bold text-white">Trusted by Industry Leaders</div>
-                      <div className="text-sm text-blue-100">500+ enterprise clients worldwide</div>
-                    </div>
-                  </div>
+                <div className="text-[var(--text-secondary)]">
+                  {stat.label}
                 </div>
               </div>
-            </motion.div>
+            ))}
           </div>
+          
+          <div
+            className="mt-6 p-4 rounded-xl text-white"
+            style={{ background: "var(--gradient-primary)" }}
+          >
+            <div className="flex items-center gap-3">
+              <div
+                className="w-10 h-10 rounded-full flex items-center justify-center"
+                style={{ background: "rgba(255,255,255,0.2)" }}
+              >
+                <Building2 className="w-5 h-5 text-white" />
+              </div>
+              <div>
+                <div className="font-bold">
+                  Trusted by Industry Leaders
+                </div>
+                <div className="text-sm opacity-90">
+                  500+ enterprise clients worldwide
+                </div>
+              </div>
+            </div>
+          </div>
+
         </div>
-      </section>
+      </motion.div>
+
+    </div>
+  </div>
+</section>
+
+
 
       {/* 🏢 SOLUTIONS BY INDUSTRY */}
-      <section className="relative py-24 lg:py-32 bg-[var(--bg-primary)]">
+      <section className="relative py-24 lg:py-32 ">
         <div className="max-w-7xl mx-auto px-[var(--space-4)] sm:px-[var(--space-6)] lg:px-[var(--space-8)]">
           <motion.div
             initial="hidden"
@@ -921,7 +984,7 @@ export default function EnterprisePage() {
       </section>
 
       {/* ⚡ ENTERPRISE FEATURES GRID */}
-      <section className="relative py-24 lg:py-32 bg-[var(--bg-secondary)]">
+      <section className="relative py-24 lg:py-32 ">
         <div className="max-w-7xl mx-auto px-[var(--space-4)] sm:px-[var(--space-6)] lg:px-[var(--space-8)]">
           <motion.div
             initial="hidden"
@@ -958,8 +1021,8 @@ export default function EnterprisePage() {
       </section>
 
       {/* 🔒 SECURITY & COMPLIANCE */}
-      <section className="relative py-24 lg:py-32 bg-slate-900 text-white overflow-hidden">
-        <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2260%22%20height%3D%2260%22%20viewBox%3D%220%200%2060%2060%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cg%20fill%3D%22%23ffffff%22%20fill-opacity%3D%220.05%22%3E%3Cpath%20d%3D%22M36%2034v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6%2034v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6%204V0H4v4H0v2h4v4h2V6h4V4H6z%22/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-20" />
+      <section className="relative py-24 lg:py-32 bg-linear-to-br from-[var(--color-primary-800)] to-[var(--color-secondary-600)] text-white overflow-hidden">
+        <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2260%22%20height%3D%2260%22%20viewBox%3D%220%200%2060%2060%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cg%20fill%3D%22%23ffffff%22%20fill-opacity%3D%220.05%22%3E%3Cpath%20d%3D%22M36%2034v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6%2034v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6%204V0H4v4H0v2h4v4h2V6h4V4H6z%22/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-70" />
         
         <div className="relative z-10 max-w-7xl mx-auto px-[var(--space-4)] sm:px-[var(--space-6)] lg:px-[var(--space-8)]">
           <motion.div
@@ -970,10 +1033,10 @@ export default function EnterprisePage() {
             className="text-center mb-16"
           >
             <motion.div variants={fadeInUp} className="mb-4">
-              <Badge variant="dark">Security First</Badge>
+              <Badge variant="primary">Security First</Badge>
             </motion.div>
             <motion.h2 variants={fadeInUp} className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
-              Enterprise <span className="text-blue-400">Security</span> & Compliance
+              Enterprise <span className="text-[var(--color-primary-300)]">Security</span> & Compliance
             </motion.h2>
             <motion.p variants={fadeInUp} className="text-lg text-slate-300 max-w-3xl mx-auto">
               Bank-grade security with comprehensive compliance certifications.
@@ -985,7 +1048,7 @@ export default function EnterprisePage() {
             whileInView="visible"
             viewport={{ once: true }}
             variants={staggerContainer}
-            className="grid md:grid-cols-2 lg:grid-cols-3 gap-6"
+            className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 "
           >
             {securityFeatures.map((feature, i) => (
               <motion.div key={i} variants={fadeInUp}>
@@ -1007,7 +1070,7 @@ export default function EnterprisePage() {
       </section>
 
       {/* 🔌 INTEGRATIONS */}
-      <section className="relative py-24 lg:py-32 bg-[var(--bg-primary)]">
+      <section className="relative py-24 lg:py-32 ">
         <div className="max-w-7xl mx-auto px-[var(--space-4)] sm:px-[var(--space-6)] lg:px-[var(--space-8)]">
           <motion.div
             initial="hidden"
@@ -1020,7 +1083,7 @@ export default function EnterprisePage() {
               <Badge variant="accent">Integrations</Badge>
             </motion.div>
             <motion.h2 variants={fadeInUp} className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 text-[var(--text-primary)]">
-              Connect Your <GradientText variant="accent">Tech Stack</GradientText>
+              Connect Your <GradientText variant="primary">Tech Stack</GradientText>
             </motion.h2>
             <motion.p variants={fadeInUp} className="text-lg text-[var(--text-secondary)] max-w-3xl mx-auto">
               200+ native integrations plus custom API development for your proprietary systems.
@@ -1051,7 +1114,7 @@ export default function EnterprisePage() {
       </section>
 
       {/* 💬 TESTIMONIALS */}
-      <section className="relative py-24 lg:py-32 bg-[var(--bg-secondary)]">
+      <section className="relative py-24 lg:py-32 ">
         <div className="max-w-7xl mx-auto px-[var(--space-4)] sm:px-[var(--space-6)] lg:px-[var(--space-8)]">
           <motion.div
             initial="hidden"
@@ -1061,13 +1124,13 @@ export default function EnterprisePage() {
             className="text-center mb-16"
           >
             <motion.div variants={fadeInUp} className="mb-4">
-              <Badge variant="gold">
+              <Badge variant="primary">
                 <Star className="w-4 h-4 fill-current" />
                 Customer Success
               </Badge>
             </motion.div>
             <motion.h2 variants={fadeInUp} className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 text-[var(--text-primary)]">
-              Trusted by <GradientText variant="gold">Industry Leaders</GradientText>
+              Trusted by <GradientText variant="primary">Industry Leaders</GradientText>
             </motion.h2>
           </motion.div>
 
@@ -1131,8 +1194,8 @@ export default function EnterprisePage() {
       </section>
 
       {/* 📞 CONTACT FORM SECTION */}
-      <section className="relative py-24 lg:py-32 bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 text-white overflow-hidden">
-        <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2260%22%20height%3D%2260%22%20viewBox%3D%220%200%2060%2060%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cg%20fill%3D%22%23ffffff%22%20fill-opacity%3D%220.05%22%3E%3Cpath%20d%3D%22M36%2034v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6%2034v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6%204V0H4v4H0v2h4v4h2V6h4V4H6z%22/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-20" />
+      <section className="relative py-24 lg:py-32 bg-gradient-to-br from-[var(--color-primary-300)] via-[var(--color-primary-800)] to-[var(--color-secondary-900)] text-white overflow-hidden">
+        <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2260%22%20height%3D%2260%22%20viewBox%3D%220%200%2060%2060%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cg%20fill%3D%22%23ffffff%22%20fill-opacity%3D%220.05%22%3E%3Cpath%20d%3D%22M36%2034v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6%2034v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6%204V0H4v4H0v2h4v4h2V6h4V4H6z%22/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-70" />
         
         <div className="relative z-10 max-w-6xl mx-auto px-[var(--space-4)] sm:px-[var(--space-6)] lg:px-[var(--space-8)]">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
@@ -1143,19 +1206,19 @@ export default function EnterprisePage() {
               variants={staggerContainer}
             >
               <motion.div variants={fadeInUp} className="mb-6">
-                <Badge variant="dark">Contact Sales</Badge>
+                <Badge variant="primary">Contact Sales</Badge>
               </motion.div>
               <motion.h2 variants={fadeInUp} className="text-4xl lg:text-5xl font-bold mb-6">
                 Ready to Transform Your Operations?
               </motion.h2>
-              <motion.p variants={fadeInUp} className="text-xl text-blue-100 mb-8">
+              <motion.p variants={fadeInUp} className="text-xl text-[var(--color-primary-100)] mb-8">
                 Get a custom quote tailored to your enterprise needs. Our solutions team will analyze your requirements and design the perfect implementation plan.
               </motion.p>
               
               <motion.div variants={fadeInUp} className="space-y-6">
                 <div className="flex items-center gap-4">
                   <div className="w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center">
-                    <Phone className="w-6 h-6 text-blue-400" />
+                    <Phone className="w-6 h-6 text-[var(--color-primary-400)]" />
                   </div>
                   <div>
                     <div className="font-bold">Call Us Directly</div>
@@ -1164,7 +1227,7 @@ export default function EnterprisePage() {
                 </div>
                 <div className="flex items-center gap-4">
                   <div className="w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center">
-                    <Mail className="w-6 h-6 text-blue-400" />
+                    <Mail className="w-6 h-6 text-[var(--color-primary-400)]" />
                   </div>
                   <div>
                     <div className="font-bold">Email Sales</div>
@@ -1173,11 +1236,11 @@ export default function EnterprisePage() {
                 </div>
                 <div className="flex items-center gap-4">
                   <div className="w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center">
-                    <Clock className="w-6 h-6 text-blue-400" />
+                    <Clock className="w-6 h-6 text-[var(--color-primary-400)]" />
                   </div>
                   <div>
                     <div className="font-bold">Response Time</div>
-                    <div className="text-blue-200">Within 24 hours</div>
+                    <div className="text-[var(--color-primary-200)]">Within 24 hours</div>
                   </div>
                 </div>
               </motion.div>
@@ -1196,7 +1259,7 @@ export default function EnterprisePage() {
                     <input 
                       type="text" 
                       required
-                      className="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white placeholder:text-white/50 focus:border-blue-400 outline-none"
+                      className="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white placeholder:text-white/50 focus:border-[var(--color-primary-400)] outline-none"
                       placeholder="John"
                       value={formData.firstName}
                       onChange={(e) => setFormData({...formData, firstName: e.target.value})}
@@ -1207,7 +1270,7 @@ export default function EnterprisePage() {
                     <input 
                       type="text" 
                       required
-                      className="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white placeholder:text-white/50 focus:border-blue-400 outline-none"
+                      className="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white placeholder:text-white/50 focus:border-[var(--color-primary-400)] outline-none"
                       placeholder="Doe"
                       value={formData.lastName}
                       onChange={(e) => setFormData({...formData, lastName: e.target.value})}
@@ -1220,7 +1283,7 @@ export default function EnterprisePage() {
                   <input 
                     type="email" 
                     required
-                    className="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white placeholder:text-white/50 focus:border-blue-400 outline-none"
+                    className="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white placeholder:text-white/50 focus:border-[var(--color-primary-400)] outline-none"
                     placeholder="john@company.com"
                     value={formData.email}
                     onChange={(e) => setFormData({...formData, email: e.target.value})}
@@ -1233,7 +1296,7 @@ export default function EnterprisePage() {
                     <input 
                       type="text" 
                       required
-                      className="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white placeholder:text-white/50 focus:border-blue-400 outline-none"
+                      className="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white placeholder:text-white/50 focus:border-[var(--color-primary-400)] outline-none"
                       placeholder="Company Name"
                       value={formData.company}
                       onChange={(e) => setFormData({...formData, company: e.target.value})}
@@ -1243,7 +1306,7 @@ export default function EnterprisePage() {
                     <label className="block text-sm font-bold mb-2">Phone</label>
                     <input 
                       type="tel" 
-                      className="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white placeholder:text-white/50 focus:border-blue-400 outline-none"
+                      className="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white placeholder:text-white/50 focus:border-[var(--color-primary-400)] outline-none"
                       placeholder="+1 (555) 000-0000"
                       value={formData.phone}
                       onChange={(e) => setFormData({...formData, phone: e.target.value})}
@@ -1254,7 +1317,7 @@ export default function EnterprisePage() {
                 <div className="mb-4">
                   <label className="block text-sm font-bold mb-2">Number of Properties</label>
                   <select 
-                    className="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white focus:border-blue-400 outline-none"
+                    className="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white focus:border-[var(--color-primary-400)] outline-none"
                     value={formData.properties}
                     onChange={(e) => setFormData({...formData, properties: e.target.value})}
                   >
@@ -1270,14 +1333,14 @@ export default function EnterprisePage() {
                   <label className="block text-sm font-bold mb-2">Message (Optional)</label>
                   <textarea 
                     rows={4}
-                    className="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white placeholder:text-white/50 focus:border-blue-400 outline-none resize-none"
+                    className="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white placeholder:text-white/50 focus:border-[var(--color-primary-400)] outline-none resize-none"
                     placeholder="Tell us about your specific needs..."
                     value={formData.message}
                     onChange={(e) => setFormData({...formData, message: e.target.value})}
                   />
                 </div>
 
-                <button type="submit" className="w-full py-4 bg-white text-blue-900 rounded-xl font-bold hover:bg-blue-50 transition-colors flex items-center justify-center gap-2 group">
+                <button type="submit" className="w-full py-4 bg-white text-[var(--color-primary-900)] rounded-xl font-bold hover:bg-blue-50 transition-colors flex items-center justify-center gap-2 group">
                   <Handshake className="w-5 h-5" />
                   Request Custom Quote
                   <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -1292,30 +1355,7 @@ export default function EnterprisePage() {
         </div>
       </section>
 
-      {/* 🦶 FOOTER */}
-      <footer className="relative py-12 border-t border-[var(--border-light)] bg-[var(--bg-primary)]">
-        <div className="max-w-7xl mx-auto px-[var(--space-4)] sm:px-[var(--space-6)] lg:px-[var(--space-8)]">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-slate-700 to-blue-900 flex items-center justify-center">
-                <Building2 className="w-6 h-6 text-white" />
-              </div>
-              <span className="text-xl font-bold text-[var(--text-primary)]">StayPilot Enterprise</span>
-            </div>
-            
-            <div className="flex items-center gap-8 text-sm text-[var(--text-secondary)]">
-              <a href="#" className="hover:text-[var(--color-primary-600)] transition-colors">Privacy</a>
-              <a href="#" className="hover:text-[var(--color-primary-600)] transition-colors">Security</a>
-              <a href="#" className="hover:text-[var(--color-primary-600)] transition-colors">SLA</a>
-              <a href="#" className="hover:text-[var(--color-primary-600)] transition-colors">Status</a>
-            </div>
-
-            <div className="text-sm text-[var(--text-tertiary)]">
-              © 2026 StayPilot. All rights reserved.
-            </div>
-          </div>
-        </div>
-      </footer>
+     
     </div>
   )
 }

@@ -481,13 +481,13 @@ export default function ProfessionalPlanPage() {
   return (
     <div className="min-h-screen bg-[var(--bg-primary)] text-[var(--text-primary)] font-sans overflow-x-hidden selection:bg-[var(--color-primary-200)]">
       <Head>
-        <title>Professional Plan | $49/User/Month | StayPilot</title>
+        <title>Professional Plan | $49/User/Month | BNB Management</title>
         <meta name="description" content="Unlock unlimited properties, AI dynamic pricing, and advanced automation. $49 per user per month with 14-day free trial. Scale your hospitality business with StayPilot Professional." />
         <meta name="keywords" content="vacation rental software pricing, airbnb management tool, property management system, hotel software $49 per month" />
       </Head>
 
       {/* 🎯 HERO SECTION */}
-      <section className="relative min-h-[90vh] flex items-center overflow-hidden bg-gradient-to-br from-[var(--bg-primary)] via-blue-50/50 to-[var(--bg-secondary)]">
+      <section className="relative min-h-[90vh] pt-8 flex items-center overflow-hidden bg-gradient-to-br from-[var(--bg-primary)] via-blue-50/50 to-[var(--bg-secondary)]">
         
         {/* Background Decorations */}
         <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-[var(--color-primary-200)]/20 rounded-full blur-3xl -translate-y-1/2 translate-x-1/4" />
@@ -556,10 +556,10 @@ export default function ProfessionalPlanPage() {
               transition={{ duration: 0.8, delay: 0.3 }}
               className="relative"
             >
-              <div className="bg-white rounded-[var(--radius-3xl)] p-8 shadow-2xl border-2 border-[var(--color-primary-200)] relative overflow-hidden">
+              <div className="bg-white rounded-[var(--radius-3xl)] p-8 shadow-2xl border-2 border-[var(--color-primary-200)]  overflow-hidden">
                 {/* Popular Badge */}
-                <div className="absolute -top-4 left-1/2 -translate-x-1/2">
-                  <Badge variant="dark" size="lg">
+                <div className="absolute -top-4 left-1/2 -translate-x-1/2 z-50">
+                  <Badge variant="primary" size="lg">
                     <Sparkles className="w-4 h-4" />
                     Best Value
                   </Badge>
@@ -619,7 +619,7 @@ export default function ProfessionalPlanPage() {
               <motion.div 
                 animate={{ y: [0, -10, 0] }}
                 transition={{ duration: 4, repeat: Infinity }}
-                className="absolute -top-6 -right-6 w-20 h-20 bg-gradient-to-br from-amber-400 to-orange-500 rounded-2xl flex items-center justify-center shadow-xl"
+                className="absolute -top-6 -right-6 w-20 h-20 bg-gradient-to-br from-transprant to-[var(--color-primary-700)] rounded-2xl flex items-center justify-center shadow-xl"
               >
                 <Percent className="w-10 h-10 text-white" />
               </motion.div>  
@@ -627,7 +627,7 @@ export default function ProfessionalPlanPage() {
               <motion.div 
                 animate={{ y: [0, 10, 0] }}
                 transition={{ duration: 5, repeat: Infinity, delay: 1 }}
-                className="absolute -bottom-4 -left-4 w-16 h-16 bg-gradient-to-br from-emerald-400 to-teal-500 rounded-full flex items-center justify-center shadow-xl"
+                className="absolute -bottom-4 -left-4 w-16 h-16 bg-gradient-to-br from-[var(--color-primary-500)] to-[var(--color-secondary-500)] rounded-full flex items-center justify-center shadow-xl"
               >
                 <TrendingUp className="w-8 h-8 text-white" />
               </motion.div>
@@ -659,7 +659,7 @@ export default function ProfessionalPlanPage() {
       </section>
 
       {/* ✨ FEATURES GRID */}
-      <section className="relative py-24 lg:py-32 bg-[var(--bg-primary)]">
+      <section className="relative py-24 lg:py-32">
         <div className="max-w-7xl mx-auto px-[var(--space-4)] sm:px-[var(--space-6)] lg:px-[var(--space-8)]">
           <motion.div
             initial="hidden"
@@ -696,7 +696,7 @@ export default function ProfessionalPlanPage() {
       </section>
 
       {/* 📋 DETAILED COMPARISON */}
-      <section className="relative py-24 lg:py-32 bg-[var(--bg-secondary)]">
+      <section className="relative py-24 lg:py-32 ">
         <div className="max-w-6xl mx-auto px-[var(--space-4)] sm:px-[var(--space-6)] lg:px-[var(--space-8)]">
           <motion.div
             initial="hidden"
@@ -775,7 +775,7 @@ export default function ProfessionalPlanPage() {
       </section>
 
       {/* 💬 TESTIMONIALS */}
-      <section className="relative py-24 lg:py-32 bg-[var(--bg-primary)]">
+      <section className="relative py-24 lg:py-32">
         <div className="max-w-7xl mx-auto px-[var(--space-4)] sm:px-[var(--space-6)] lg:px-[var(--space-8)]">
           <motion.div
             initial="hidden"
@@ -785,13 +785,13 @@ export default function ProfessionalPlanPage() {
             className="text-center mb-16"
           >
             <motion.div variants={fadeInUp} className="mb-4">
-              <Badge variant="gold">
+              <Badge variant="primary">
                 <Star className="w-4 h-4 fill-current" />
                 Customer Success
               </Badge>
             </motion.div>
             <motion.h2 variants={fadeInUp} className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 text-[var(--text-primary)]">
-              Trusted by <GradientText variant="gold">Industry Leaders</GradientText>
+              Trusted by <GradientText variant="primary">Industry Leaders</GradientText>
             </motion.h2>
             <motion.p variants={fadeInUp} className="text-lg text-[var(--text-secondary)]">
               See why hospitality professionals choose StayPilot Professional.
@@ -815,7 +815,7 @@ export default function ProfessionalPlanPage() {
       </section>
 
       {/* ❓ FAQ SECTION */}
-      <section className="relative py-24 lg:py-32 bg-[var(--bg-secondary)]">
+      <section className="relative py-24 lg:py-32 ">
         <div className="max-w-3xl mx-auto px-[var(--space-4)] sm:px-[var(--space-6)] lg:px-[var(--space-8)]">
           <motion.div
             initial="hidden"
@@ -878,7 +878,7 @@ export default function ProfessionalPlanPage() {
       </section>
 
       {/* 🚀 FINAL CTA */}
-      <section className="relative py-24 lg:py-32 overflow-hidden bg-[var(--bg-primary)]">
+      <section className="relative py-24 lg:py-32 overflow-hidden ">
         <div className="absolute inset-0 bg-gradient-to-t from-blue-50/50 to-transparent" />
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-[var(--color-primary-200)]/20 rounded-full blur-[120px]" />
 
@@ -949,30 +949,6 @@ export default function ProfessionalPlanPage() {
         </div>
       </section>
 
-      {/* 🦶 FOOTER */}
-      <footer className="relative py-12 border-t border-[var(--border-light)] bg-[var(--bg-primary)]">
-        <div className="max-w-7xl mx-auto px-[var(--space-4)] sm:px-[var(--space-6)] lg:px-[var(--space-8)]">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[var(--color-primary-600)] to-[var(--color-secondary-600)] flex items-center justify-center">
-                <Building2 className="w-6 h-6 text-white" />
-              </div>
-              <span className="text-xl font-bold text-[var(--text-primary)]">StayPilot</span>
-            </div>
-            
-            <div className="flex items-center gap-8 text-sm text-[var(--text-secondary)]">
-              <a href="#" className="hover:text-[var(--color-primary-600)] transition-colors">Privacy</a>
-              <a href="#" className="hover:text-[var(--color-primary-600)] transition-colors">Terms</a>
-              <a href="#" className="hover:text-[var(--color-primary-600)] transition-colors">Security</a>
-              <a href="#" className="hover:text-[var(--color-primary-600)] transition-colors">Cookies</a>
-            </div>
-
-            <div className="text-sm text-[var(--text-tertiary)]">
-              © 2026 StayPilot. All rights reserved.
-            </div>
-          </div>
-        </div>
-      </footer>
     </div>
   )
 }

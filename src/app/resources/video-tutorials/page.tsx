@@ -462,77 +462,43 @@ export default function VideoTutorialsPage() {
   });
 
   return (
-    <div className="min-h-screen bg-gray-50 text-gray-800 font-sans selection:bg-blue-200">
+    <div className="min-h-screen  text-gray-800 font-sans ">
+      {/* selection:bg-blue-200 */}
       <Head>
         <title>Video Academy | StayPilot</title>
         <meta name="description" content="Master StayPilot with step-by-step video tutorials." />
       </Head>
 
-      {/* --- Header --- */}
-      <header className="sticky top-0 z-40 bg-white/80 backdrop-blur-xl border-b border-gray-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16">
-            <div className="flex items-center gap-3">
-              <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center shadow-lg shadow-blue-500/20">
-                <Play className="w-4 h-4 text-white fill-white" />
-              </div>
-              <span className="font-bold text-gray-900 text-lg tracking-tight">StayPilot <span className="text-gray-500 font-normal">Academy</span></span>
-            </div>
-
-            <div className="hidden md:flex items-center gap-6">
-              <div className="relative">
-                <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
-                <input 
-                  type="text" 
-                  placeholder="Search tutorials..."
-                  value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
-                  className="bg-gray-100 border border-gray-200 rounded-full pl-10 pr-4 py-2 text-sm text-gray-800 focus:outline-none focus:border-blue-400 focus:ring-1 focus:ring-blue-400 w-64 transition-all"
-                />
-              </div>
-              <div className="h-4 w-px bg-gray-300" />
-              <button className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">My Learning</button>
-              <button className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">Instructors</button>
-              <div className="w-8 h-8 rounded-full bg-gray-200 border border-gray-300 overflow-hidden">
-                <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=100&h=100&fit=crop" alt="User" />
-              </div>
-            </div>
-            
-            <button className="md:hidden p-2 text-gray-600">
-              <Menu className="w-6 h-6" />
-            </button>
-          </div>
-        </div>
-      </header>
+     
 
       {/* --- Main Content --- */}
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-8 pt-20">
         
         {/* Hero / Featured */}
         {!activeTutorial && (
           <section className="mb-12">
             <div className="relative rounded-3xl overflow-hidden bg-white border border-gray-200 shadow-xl">
-              <div className="absolute inset-0 bg-gradient-to-r from-blue-100/50 to-indigo-100/50 mix-blend-multiply" />
+              <div className="absolute inset-0 bg-gradient-to-r from-[var(--color-primary-300)]/50 to-indigo-100/50 mix-blend-multiply" />
               <div className="absolute inset-0 bg-gradient-to-t from-white via-transparent to-transparent" />
               
               <div className="relative z-10 flex flex-col md:flex-row items-end md:items-center gap-8 p-8 md:p-12">
                 <div className="flex-1 space-y-4">
-                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-100 border border-blue-200 text-blue-700 text-xs font-bold uppercase tracking-wider">
+                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--color-primary-100)] border border-[var(--color-primary-200)] text-[var(--color-primary-700)] text-xs font-bold uppercase tracking-wider">
                     <Zap className="w-3 h-3" /> Featured Series
                   </div>
                   <h1 className="text-3xl md:text-5xl font-bold text-gray-900 leading-tight">
                     Master the Art of <br/>
-                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">
+                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-[var(--color-primary-600)] to-[var(--color-secondary-600)]">
                       Hospitality Tech
                     </span>
                   </h1>
                   <p className="text-gray-600 max-w-xl text-lg">
-                    New to StayPilot? Start with our core certification path designed to take you from zero to automation hero in 2 weeks.
+                    New to BNB property management solution? Start with our core certification path designed to take you from zero to automation hero in 2 weeks.
                   </p>
                   <div className="flex flex-wrap gap-4 pt-2">
                     <button 
                       onClick={() => setActiveTutorial(tutorialsData[0])}
-                      className="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-xl font-semibold flex items-center gap-2 transition-all shadow-lg shadow-blue-600/25"
+                      className="px-6 py-3 bg-[var(--color-primary-600)] hover:bg-[var(--color-primary-700)] text-white rounded-xl font-semibold flex items-center gap-2 transition-all shadow-lg shadow-blue-600/25"
                     >
                       <Play className="w-5 h-5 fill-white" /> Start First Lesson
                     </button>
@@ -580,15 +546,15 @@ export default function VideoTutorialsPage() {
                     onClick={() => setActiveCategory(cat.id)}
                     className={`w-full flex items-center justify-between px-3 py-2 rounded-lg text-sm font-medium transition-all ${
                       activeCategory === cat.id 
-                        ? 'bg-blue-100 text-blue-700' 
+                        ? 'bg-[var(--color-primary-100)] text-[var(--color-primary-700)]' 
                         : 'text-gray-600 hover:text-gray-900 hover:bg-gray-100'
                     }`}
                   >
                     <div className="flex items-center gap-3">
-                      <cat.icon className={`w-4 h-4 ${activeCategory === cat.id ? 'text-blue-600' : 'text-gray-400'}`} />
+                      <cat.icon className={`w-4 h-4 ${activeCategory === cat.id ? 'text-[var(--color-primary-600)]' : 'text-gray-400'}`} />
                       {cat.name}
                     </div>
-                    <span className={`text-xs ${activeCategory === cat.id ? 'text-blue-600/60' : 'text-gray-400'}`}>
+                    <span className={`text-xs ${activeCategory === cat.id ? 'text-[var(--color-primary-600)]/60' : 'text-gray-400'}`}>
                       {cat.count}
                     </span>
                   </button>
@@ -598,11 +564,11 @@ export default function VideoTutorialsPage() {
 
             <div className="p-4 rounded-2xl bg-gradient-to-br from-indigo-50 to-purple-50 border border-indigo-200">
               <div className="flex items-center gap-2 mb-2">
-                <Terminal className="w-5 h-5 text-indigo-600" />
+                <Terminal className="w-5 h-5 text-[var(--color-secondary-600)]" />
                 <h4 className="font-bold text-gray-900 text-sm">Dev Corner</h4>
               </div>
               <p className="text-xs text-gray-600 mb-3">Explore our API documentation and webhook guides.</p>
-              <button className="w-full py-2 bg-indigo-100 hover:bg-indigo-200 text-indigo-700 text-xs font-semibold rounded-lg transition-colors border border-indigo-200">
+              <button className="w-full py-2 bg-[var(--color-primary-100)] hover:bg-[var(--color-secondary-200)] text-[var(--color-secondary-700)] text-xs font-semibold rounded-lg transition-colors border border-indigo-200">
                 View API Docs
               </button>
             </div>
@@ -642,7 +608,7 @@ export default function VideoTutorialsPage() {
                   animate={{ opacity: 1, scale: 1 }}
                   whileHover={{ y: -4 }}
                   key={tutorial.id}
-                  className={`group bg-white rounded-2xl border border-gray-200 overflow-hidden hover:border-blue-300 hover:shadow-xl hover:shadow-gray-200/50 transition-all flex ${viewMode === 'list' ? 'flex-row' : 'flex-col'}`}
+                  className={`group bg-white rounded-2xl border border-gray-200 overflow-hidden hover:border-[var(--color-primary-300)] hover:shadow-xl hover:shadow-gray-200/50 transition-all flex ${viewMode === 'list' ? 'flex-row' : 'flex-col'}`}
                 >
                   {/* Thumbnail */}
                   <div 
@@ -659,7 +625,7 @@ export default function VideoTutorialsPage() {
                     {/* Play Overlay */}
                     <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
                       <div className="w-12 h-12 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center border border-white shadow-lg">
-                        <Play className="w-5 h-5 text-blue-600 fill-blue-600" />
+                        <Play className="w-5 h-5 text-[var(--color-primary-600)] fill-[var(--color-primary-600)]" />
                       </div>
                     </div>
 
@@ -674,7 +640,7 @@ export default function VideoTutorialsPage() {
                   {/* Content */}
                   <div className="p-5 flex flex-col flex-1">
                     <div className="flex items-start justify-between gap-2 mb-2">
-                      <h3 className="font-bold text-gray-900 leading-snug line-clamp-2 group-hover:text-blue-600 transition-colors cursor-pointer" onClick={() => setActiveTutorial(tutorial)}>
+                      <h3 className="font-bold text-gray-900 leading-snug line-clamp-2 group-hover:text-[var(--color-primary-600)] transition-colors cursor-pointer" onClick={() => setActiveTutorial(tutorial)}>
                         {tutorial.title}
                       </h3>
                     </div>

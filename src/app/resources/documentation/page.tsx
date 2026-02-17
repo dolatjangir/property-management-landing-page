@@ -418,7 +418,7 @@ const Sidebar = ({
       <motion.aside
         className={`fixed lg:sticky top-0 left-0 h-screen w-72 bg-[var(--bg-primary)] border-r border-[var(--border-light)] overflow-y-auto z-50 lg:z-0 transform ${isOpen ? 'translate-x-0' : '-translate-x-full'} lg:translate-x-0 transition-transform duration-300`}
       >
-        <div className="p-4">
+        <div className="p-4 pt-24">
           <div className="flex items-center justify-between mb-6">
             <Link href="/" className="flex items-center gap-2">
               <div className="w-8 h-8 rounded-lg bg-[var(--color-primary-600)] flex items-center justify-center">
@@ -565,14 +565,14 @@ print(booking.id)`
   }
 
   return (
-    <div className="prose prose-slate max-w-none">
+    <div className="prose prose-slate max-w-none pt-7">
       {/* Introduction */}
       {activeSection === 'introduction' && (
         <motion.div initial="hidden" animate="visible" variants={staggerContainer}>
           <motion.div variants={fadeInUp}>
             <h1 className="text-4xl font-bold text-[var(--text-primary)] mb-4">Introduction</h1>
             <p className="text-lg text-[var(--text-secondary)] mb-6">
-              Welcome to the StayPilot API documentation. Our REST API enables you to build powerful integrations 
+              Welcome to the BNB property Management solution API documentation. Our REST API enables you to build powerful integrations 
               for property management, channel synchronization, booking automation, and revenue optimization.
             </p>
           </motion.div>
@@ -1249,65 +1249,7 @@ export default function DocumentationPage() {
         <meta name="keywords" content="staypilot api documentation, property management api, rest api docs, webhook integration, sdk documentation" />
       </Head>
 
-      {/* Header */}
-      <header className="sticky top-0 z-30 bg-white/80 backdrop-blur-xl border-b border-[var(--border-light)]">
-        <div className="max-w-7xl mx-auto px-[var(--space-4)] sm:px-[var(--space-6)] lg:px-[var(--space-8)]">
-          <div className="flex items-center justify-between h-16">
-            {/* Left: Logo & Mobile Menu */}
-            <div className="flex items-center gap-4">
-              <button 
-                onClick={() => setSidebarOpen(true)}
-                className="lg:hidden p-2 -ml-2 rounded-lg hover:bg-[var(--bg-secondary)]"
-              >
-                <Menu className="w-5 h-5 text-[var(--text-primary)]" />
-              </button>
-              
-              <Link href="/" className="flex items-center gap-2">
-                <div className="w-8 h-8 rounded-lg bg-[var(--color-primary-600)] flex items-center justify-center">
-                  <BookOpen className="w-4 h-4 text-white" />
-                </div>
-                <span className="font-bold text-[var(--text-primary)] hidden sm:block">StayPilot Docs</span>
-              </Link>
-            </div>
-
-            {/* Center: Search */}
-            <div className="flex-1 max-w-md mx-4 hidden md:block">
-              <div className="relative">
-                <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[var(--text-tertiary)]" />
-                <input
-                  type="text"
-                  placeholder="Search documentation..."
-                  value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-full pl-10 pr-4 py-2 rounded-lg bg-[var(--bg-secondary)] border border-[var(--border-light)] text-sm text-[var(--text-primary)] placeholder:text-[var(--text-tertiary)] outline-none focus:border-[var(--color-primary-400)] focus:ring-2 focus:ring-[var(--color-primary-100)]"
-                />
-                <kbd className="absolute right-3 top-1/2 -translate-y-1/2 px-2 py-0.5 bg-white rounded text-xs text-[var(--text-tertiary)] border border-[var(--border-light)]">
-                  ⌘K
-                </kbd>
-              </div>
-            </div>
-
-            {/* Right: Actions */}
-            <div className="flex items-center gap-3">
-              <a 
-                href="https://github.com/staypilot" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="hidden sm:flex items-center gap-2 px-3 py-2 rounded-lg text-sm font-medium text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-secondary)] transition-colors"
-              >
-                <GithubIcon className="w-4 h-4" />
-                GitHub
-              </a>
-              <a 
-                href="#"
-                className="flex items-center gap-2 px-4 py-2 rounded-lg bg-[var(--color-primary-600)] text-white text-sm font-bold hover:bg-[var(--color-primary-700)] transition-colors"
-              >
-                Get API Key
-              </a>
-            </div>
-          </div>
-        </div>
-      </header>
+    
 
       {/* Main Layout */}
       <div className="max-w-7xl mx-auto px-[var(--space-4)] sm:px-[var(--space-6)] lg:px-[var(--space-8)]">

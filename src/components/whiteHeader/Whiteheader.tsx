@@ -306,18 +306,12 @@ const navItems: NavItem[] = [
     }
   }
 ];
-function Header() {
+function WhiteHeader() {
      const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
      const [isVisible, setIsVisible] = useState(false);
      const [scrolled, setScrolled] = useState(false);
       const [isMenuOpen, setIsMenuOpen] = useState(false);
      const timeoutRef = useRef<NodeJS.Timeout | null>(null);
-     const [openMobileItem, setOpenMobileItem] = useState<string | null>(null);
-
-const toggleMobileItem = (label: string) => {
-  setOpenMobileItem(prev => (prev === label ? null : label));
-};
-
      
            const handleMouseEnter = (label: string) => {
          if (timeoutRef.current) {
@@ -346,7 +340,7 @@ const toggleMobileItem = (label: string) => {
   <nav
     className={`fixed top-0 left-0 right-0 z-50 transition-all duration-[var(--duration-normal)] ${
       scrolled
-        ? "bg-[var(--bg-primary)]/80 backdrop-blur-xl shadow-sm"
+        ? "bg-gradient-to-br from-[var(--color-primary-600)] via-[var(--color-secondary-700)] to-[var(--color-secondary-600)]  backdrop-blur-xl shadow-sm"
         : "bg-transparent"
     }`}
   >
@@ -359,7 +353,7 @@ const toggleMobileItem = (label: string) => {
               boxShadow: "0 10px 15px -3px var(--color-primary-600)/25",
             }}
           >
-           <Link href="/">  <img width={220} height={220} src="/assets/bnb-green-logo.png" /></Link>
+           <Link href="/">  <img width={220} height={220} src="/assets/white-bnb-logo.png" /></Link>
           </div>
         </div>
 
@@ -376,7 +370,7 @@ const toggleMobileItem = (label: string) => {
                 className={`flex items-center gap-1 px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
                   activeDropdown === item.label
                     ? "text-[var(--color-primary-600)] bg-[var(--color-primary-50)]"
-                    : "text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-tertiary)]"
+                    : "text-[var(--color-secondary-100)] hover:text-[var(--color-primary-200)] hover:bg-[var(--bg-tertiary)]"
                 }`}
               >
                 {item.label}
@@ -476,9 +470,9 @@ const toggleMobileItem = (label: string) => {
             </div>
           ))}
         </nav>
-
+          {/* phone navigation */}
         <div className="hidden md:flex items-center gap-[var(--space-4)]">
-          <button className="text-[var(--text-secondary)] hover:text-[var(--color-primary-600)] font-medium transition-colors duration-[var(--duration-fast)]">
+          <button className="text-[var(--color-secondary-100)] hover:text-[var(--color-primary-600)] font-medium transition-colors duration-[var(--duration-fast)]">
             Log in
           </button>
 
@@ -505,92 +499,50 @@ const toggleMobileItem = (label: string) => {
       </div>
     </div>
 
-{isMenuOpen && (
-  <div className="md:hidden bg-[var(--bg-primary)] border-t border-[var(--border-light)] absolute w-full max-h-[80vh] overflow-y-auto">
-    <div className="px-[var(--space-4)] py-[var(--space-6)] space-y-6">
-
-      {navItems.map((item) => (
-        <div key={item.label} className="space-y-3">
-
-          {/* Section Title (Clickable) */}
-          <button
-            onClick={() => toggleMobileItem(item.label)}
-            className="w-full flex justify-between items-center text-sm font-semibold text-[var(--text-primary)]"
+    {isMenuOpen && (
+      <div className="md:hidden bg-[var(--bg-primary)] border-t border-[var(--border-light)] absolute w-full">
+        <div className="px-[var(--space-4)] py-[var(--space-6)] space-y-[var(--space-4)]">
+          <a
+            href="#features"
+            className="block text-[var(--color-secondary-100)] font-medium"
           >
-            {item.label}
-            <ChevronDown
-              className={`w-4 h-4 transition-transform ${
-                openMobileItem === item.label ? "rotate-180" : ""
-              }`}
-            />
+            Features
+          </a>
+          <a
+            href="#how-it-works"
+            className="block text-[var(--color-secondary-100)] font-medium"
+          >
+            How it Works
+          </a>
+          <a
+            href="#pricing"
+            className="block text-[var(--color-secondary-100)] font-medium"
+          >
+            Pricing
+          </a>
+          <a
+            href="#testimonials"
+            className="block text-[var(--color-secondary-100)] font-medium"
+          >
+            Reviews
+          </a>
+
+          <hr className="border-[var(--border-light)]" />
+
+          <button className="w-full py-[var(--space-3)] text-[var(--color-secondary-100)] font-medium">
+            Log in
           </button>
 
-          {/* Dropdown Content */}
-          {openMobileItem === item.label && (
-            <>
-              {item.dropdownContent?.sections.map((section, idx) => (
-                <div key={idx} className="space-y-2">
-
-                  <div className="text-xs uppercase tracking-wide text-[var(--text-tertiary)]">
-                    {section.title}
-                  </div>
-
-                  {section.items.map((subItem, subIdx) => (
-                    <Link
-                      key={subIdx}
-                      href={subItem.href}
-                      onClick={() => setIsMenuOpen(false)}
-                      className="flex items-start gap-3 p-2 rounded-lg hover:bg-[var(--bg-tertiary)] transition"
-                    >
-                      <div className="w-8 h-8 rounded-lg bg-[var(--color-primary-50)] text-[var(--color-primary-600)] flex items-center justify-center">
-                        {subItem.icon}
-                      </div>
-
-                      <div className="flex-1">
-                        <div className="flex items-center gap-2">
-                          <span className="text-sm font-medium text-[var(--text-primary)]">
-                            {subItem.title}
-                          </span>
-
-                          {subItem.badge && (
-                            <span className="px-1.5 py-0.5 text-[10px] font-semibold bg-[var(--color-primary-100)] text-[var(--color-primary-700)] rounded-full">
-                              {subItem.badge}
-                            </span>
-                          )}
-                        </div>
-
-                        <p className="text-xs text-[var(--text-tertiary)]">
-                          {subItem.description}
-                        </p>
-                      </div>
-                    </Link>
-                  ))}
-                </div>
-              ))}
-            </>
-          )}
+          <button className="w-full py-[var(--space-3)] bg-[var(--color-primary-600)] text-[var(--text-inverse)] font-semibold rounded-[var(--radius-xl)]">
+            Get Started
+          </button>
         </div>
-      ))}
-
-      <hr className="border-[var(--border-light)]" />
-
-      {/* Auth Buttons */}
-      <button className="w-full py-[var(--space-3)] text-[var(--text-secondary)] font-medium">
-        Log in
-      </button>
-
-      <button className="w-full py-[var(--space-3)] bg-[var(--color-primary-600)] text-[var(--text-inverse)] font-semibold rounded-[var(--radius-xl)]">
-        Start Free Trial
-      </button>
-    </div>
-  </div>
-)}
-
-
+      </div>
+    )}
   </nav>
 </div>
 
   )
 }
 
-export default Header
+export default WhiteHeader

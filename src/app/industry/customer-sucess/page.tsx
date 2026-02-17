@@ -575,7 +575,7 @@ export default function CustomerSuccessPage() {
               <div className="relative">
                 {/* Main Health Score Card */}
                 <GlassCard elevated={true} className="p-8 relative z-10" hover={false}>
-                  <div className="absolute -top-4 -right-4 bg-gradient-to-r from-[var(--color-success-500)] to-[var(--color-primary-500)] text-white px-4 py-2 rounded-full text-sm font-bold shadow-lg animate-pulse">
+                  <div className="absolute -top-2 -right-2  bg-gradient-to-r from-[var(--color-success-500)] to-[var(--color-primary-500)] text-white px-4 py-2 rounded-full text-sm font-bold shadow-lg animate-pulse">
                     Live Health Score
                   </div>
 
@@ -650,10 +650,10 @@ export default function CustomerSuccessPage() {
                 {/* Orbiting Mini Cards */}
                 <motion.div 
                   animate={{ 
-                    rotate: [0, 360],
+                    rotate: [0, 0],
                   }}
                   transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                  className="absolute -top-8 right-0"
+                  className="absolute -top-16 right-0"
                 >
                   <div className="bg-white rounded-xl p-3 shadow-xl border border-[var(--border-light)]">
                     <div className="flex items-center gap-2">

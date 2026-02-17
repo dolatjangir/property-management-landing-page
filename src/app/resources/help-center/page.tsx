@@ -600,16 +600,16 @@ export default function HelpCenterPage() {
   });
 
   return (
-    <div className="min-h-screen bg-[var(--bg-secondary)] text-[var(--text-primary)]">
+    <div className="min-h-screen text-[var(--text-primary)]">
       <Head>
         <title>Help Center | ibigdata Support</title>
       </Head>
 
       {/* Hero Section */}
-      <div className="bg-gradient-to-br from-[var(--color-primary-600)] to-[var(--color-secondary-600)] text-white">
+      <div className="bg-gradient-to-br from-[var(--color-primary-600)] to-[var(--color-secondary-600)] pt-8 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
           <div className="text-center max-w-3xl mx-auto">
-            <h1 className="text-4xl md:text-5xl font-bold mb-4">How can we help you?</h1>
+            <h1 className="text-4xl md:text-5xl font-bold mb-4 text-[var(--color-primary-600)]">How can we help you?</h1>
             <p className="text-lg text-white/80 mb-8">Search our knowledge base, browse FAQs, or troubleshoot technical issues</p>
             
             <div className="relative max-w-2xl mx-auto">

@@ -127,10 +127,10 @@ const DeploymentCard = ({
   cta: string
   highlighted?: boolean
 }) => (
-  <div className={`relative rounded-2xl p-8 ${highlighted ? 'bg-slate-900 text-white' : 'bg-white border border-[var(--border-light)]'}`}>
+  <div className={`relative rounded-2xl p-8 ${highlighted ? 'bg-[var(--color-primary-900)] text-white' : 'bg-white border border-[var(--border-light)]'}`}>
     {highlighted && (
       <div className="absolute -top-4 left-1/2 -translate-x-1/2">
-        <span className="px-4 py-1.5 rounded-full bg-blue-500 text-white text-sm font-bold">
+        <span className="px-4 py-1.5 rounded-full bg-[var(--color-primary-500)] text-white text-sm font-bold">
           Enterprise Standard
         </span>
       </div>
@@ -160,8 +160,8 @@ const DeploymentCard = ({
     <ul className="space-y-3 mb-8">
       {features.map((feature, i) => (
         <li key={i} className="flex items-start gap-3">
-          <Check className={`w-5 h-5 flex-shrink-0 mt-0.5 ${highlighted ? 'text-blue-400' : 'text-[var(--color-success-600)]'}`} />
-          <span className={`text-sm ${highlighted ? 'text-slate-200' : 'text-[var(--text-primary)]'}`}>
+          <Check className={`w-5 h-5 flex-shrink-0 mt-0.5 ${highlighted ? 'text-[var(--color-primary-400)]' : 'text-[var(--color-success-600)]'}`} />
+          <span className={`text-sm ${highlighted ? 'text-[var(--color-secondary-200)]' : 'text-[var(--text-primary)]'}`}>
             {feature}
           </span>
         </li>
@@ -386,7 +386,7 @@ export default function CloudVsOnPremPage() {
   ]
 
   return (
-    <div className="min-h-screen bg-[var(--bg-primary)] text-[var(--text-primary)] font-sans selection:bg-[var(--color-primary-200)]">
+    <div className="min-h-screen text-[var(--text-primary)] font-sans selection:bg-[var(--color-primary-200)]">
       <Head>
         <title>Cloud vs On-Premises | Deployment Options | StayPilot</title>
         <meta name="description" content="Compare cloud SaaS and on-premises deployment options for StayPilot. Find the right infrastructure for your hospitality business." />
@@ -394,51 +394,88 @@ export default function CloudVsOnPremPage() {
       </Head>
 
       {/* HERO SECTION */}
-      <section className="relative py-20 bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 text-white overflow-hidden">
-        <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2260%22%20height%3D%2260%22%20viewBox%3D%220%200%2060%2060%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cg%20fill%3D%22%23ffffff%22%20fill-opacity%3D%220.03%22%3E%3Cpath%20d%3D%22M36%2034v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6%2034v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6%204V0H4v4H0v2h4v4h2V6h4V4H6z%22/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-20" />
-        
-        <div className="relative z-10 max-w-7xl mx-auto px-[var(--space-4)] sm:px-[var(--space-6)] lg:px-[var(--space-8)]">
-          <motion.div
-            initial="hidden"
-            animate="visible"
-            variants={staggerContainer}
-            className="text-center max-w-4xl mx-auto"
-          >
-            <motion.div variants={fadeInUp} className="mb-6">
-              <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/20 text-sm font-bold">
-                <Scale className="w-4 h-4" />
-                Deployment Guide
-              </span>
-            </motion.div>
+   <section
+  className="relative py-30 text-[var(--text-inverse)] overflow-hidden"
+  style={{ background: "var(--gradient-secondary)" }}
+>
+  {/* Pattern Overlay */}
+  <div className="absolute inset-0 opacity-70 bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2260%22%20height%3D%2260%22%20viewBox%3D%220%200%2060%2060%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cg%20fill%3D%22%23ffffff%22%20fill-opacity%3D%220.03%22%3E%3Cpath%20d%3D%22M36%2034v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6%2034v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6%204V0H4v4H0v2h4v4h2V6h4V4H6z%22/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')]"
+  />
 
-            <motion.h1 variants={fadeInUp} className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight mb-6">
-              Cloud vs <span className="text-blue-400">On-Premises</span>
-            </motion.h1>
+  <div className="relative z-10 max-w-7xl mx-auto px-[var(--space-4)] sm:px-[var(--space-6)] lg:px-[var(--space-8)]">
+    <motion.div
+      initial="hidden"
+      animate="visible"
+      variants={staggerContainer}
+      className="text-center max-w-4xl mx-auto"
+    >
+      {/* Badge */}
+      <motion.div variants={fadeInUp} className="mb-6">
+        <span
+          className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-bold border"
+          style={{
+            background: "rgba(255,255,255,0.08)",
+            borderColor: "rgba(255,255,255,0.2)",
+          }}
+        >
+          <Scale className="w-4 h-4" />
+          Deployment Guide
+        </span>
+      </motion.div>
 
-            <motion.p variants={fadeInUp} className="text-xl text-blue-100 mb-8 max-w-3xl mx-auto leading-relaxed">
-              Choose the right deployment model for your hospitality business. Compare infrastructure, security, development options, and total cost of ownership.
-            </motion.p>
+      {/* Heading */}
+      <motion.h1
+        variants={fadeInUp}
+        className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight mb-6"
+      >
+        Cloud vs{" "}
+        <span
+          className="bg-clip-text text-transparent"
+          style={{ backgroundImage: "var(--gradient-primary)" }}
+        >
+          On-Premises
+        </span>
+      </motion.h1>
 
-            <motion.div variants={fadeInUp} className="flex flex-wrap items-center justify-center gap-6 text-sm text-blue-200">
-              <div className="flex items-center gap-2">
-                <Check className="w-5 h-5 text-emerald-400" />
-                <span>Same core features</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <Check className="w-5 h-5 text-emerald-400" />
-                <span>Seamless migration path</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <Check className="w-5 h-5 text-emerald-400" />
-                <span>Hybrid options available</span>
-              </div>
-            </motion.div>
-          </motion.div>
+      {/* Description */}
+      <motion.p
+        variants={fadeInUp}
+        className="text-xl mb-8 max-w-3xl mx-auto leading-relaxed"
+        style={{ color: "var(--color-neutral-200)" }}
+      >
+        Choose the right deployment model for your hospitality business.
+        Compare infrastructure, security, development options, and total cost
+        of ownership.
+      </motion.p>
+
+      {/* Features */}
+      <motion.div
+        variants={fadeInUp}
+        className="flex flex-wrap items-center justify-center gap-6 text-sm"
+        style={{ color: "var(--color-neutral-300)" }}
+      >
+        <div className="flex items-center gap-2">
+          <Check className="w-5 h-5 text-[var(--color-success-500)]" />
+          <span>Same core features</span>
         </div>
-      </section>
+
+        <div className="flex items-center gap-2">
+          <Check className="w-5 h-5 text-[var(--color-success-500)]" />
+          <span>Seamless migration path</span>
+        </div>
+
+        <div className="flex items-center gap-2">
+          <Check className="w-5 h-5 text-[var(--color-success-500)]" />
+          <span>Hybrid options available</span>
+        </div>
+      </motion.div>
+    </motion.div>
+  </div>
+</section>
+
 
       {/* DEPLOYMENT OPTIONS CARDS */}
-      <section className="py-16 bg-[var(--bg-primary)]">
+      <section className="py-16 ">
         <div className="max-w-7xl mx-auto px-[var(--space-4)] sm:px-[var(--space-6)] lg:px-[var(--space-8)]">
           <motion.div
             initial="hidden"
@@ -465,7 +502,7 @@ export default function CloudVsOnPremPage() {
       </section>
 
       {/* DETAILED COMPARISON */}
-      <section className="py-16 bg-[var(--bg-secondary)]">
+      <section className="py-16">
         <div className="max-w-6xl mx-auto px-[var(--space-4)] sm:px-[var(--space-6)] lg:px-[var(--space-8)]">
           <motion.div
             initial="hidden"
@@ -556,7 +593,7 @@ export default function CloudVsOnPremPage() {
       </section>
 
       {/* PRICING CARDS */}
-      <section className="py-16 bg-[var(--bg-primary)]">
+      <section className="py-16">
         <div className="max-w-5xl mx-auto px-[var(--space-4)] sm:px-[var(--space-6)] lg:px-[var(--space-8)]">
           <motion.div
             initial="hidden"
@@ -616,7 +653,7 @@ export default function CloudVsOnPremPage() {
       </section>
 
       {/* DECISION GUIDE */}
-      <section className="py-16 bg-[var(--bg-secondary)]">
+      <section className="py-16 ">
         <div className="max-w-6xl mx-auto px-[var(--space-4)] sm:px-[var(--space-6)] lg:px-[var(--space-8)]">
           <motion.div
             initial="hidden"
@@ -663,7 +700,7 @@ export default function CloudVsOnPremPage() {
       </section>
 
       {/* DEVELOPMENT OPTIONS */}
-      <section className="py-16 bg-[var(--bg-primary)]">
+      <section className="py-16 ">
         <div className="max-w-6xl mx-auto px-[var(--space-4)] sm:px-[var(--space-6)] lg:px-[var(--space-8)]">
           <motion.div
             initial="hidden"
@@ -772,7 +809,7 @@ export default function CloudVsOnPremPage() {
       </section>
 
       {/* MIGRATION PATH */}
-      <section className="py-16 bg-[var(--bg-secondary)]">
+      <section className="py-16 ">
         <div className="max-w-5xl mx-auto px-[var(--space-4)] sm:px-[var(--space-6)] lg:px-[var(--space-8)]">
           <motion.div
             initial="hidden"
@@ -791,7 +828,7 @@ export default function CloudVsOnPremPage() {
 
               <div className="grid md:grid-cols-3 gap-6 text-left">
                 <div className="bg-white rounded-xl p-6 shadow-md">
-                  <div className="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center mb-4 text-blue-600 font-bold">1</div>
+                  <div className="w-10 h-10 rounded-full bg-[var(--color-primary-100)] flex items-center justify-center mb-4 text-[var(--color-primary-600)] font-bold">1</div>
                   <h3 className="font-bold text-[var(--text-primary)] mb-2">Export Data</h3>
                   <p className="text-sm text-[var(--text-secondary)]">
                     Full database export in standard formats (SQL, JSON, CSV). No vendor lock-in.
@@ -799,7 +836,7 @@ export default function CloudVsOnPremPage() {
                 </div>
 
                 <div className="bg-white rounded-xl p-6 shadow-md">
-                  <div className="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center mb-4 text-blue-600 font-bold">2</div>
+                  <div className="w-10 h-10 rounded-full bg-[var(--color-primary-100)] flex items-center justify-center mb-4 text-[var(--color-primary-600)] font-bold">2</div>
                   <h3 className="font-bold text-[var(--text-primary)] mb-2">Transform</h3>
                   <p className="text-sm text-[var(--text-secondary)]">
                     Automated schema conversion and data validation. Custom field mapping supported.
@@ -807,7 +844,7 @@ export default function CloudVsOnPremPage() {
                 </div>
 
                 <div className="bg-white rounded-xl p-6 shadow-md">
-                  <div className="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center mb-4 text-blue-600 font-bold">3</div>
+                  <div className="w-10 h-10 rounded-full bg-[var(--color-primary-100)] flex items-center justify-center mb-4 text-[var(--color-primary-600)] font-bold">3</div>
                   <h3 className="font-bold text-[var(--text-primary)] mb-2">Go Live</h3>
                   <p className="text-sm text-[var(--text-secondary)]">
                     Parallel running supported. Cutover with zero downtime using our migration tools.
@@ -839,30 +876,7 @@ export default function CloudVsOnPremPage() {
         </div>
       </section>
 
-      {/* FOOTER */}
-      <footer className="py-12 bg-[var(--bg-primary)] border-t border-[var(--border-light)]">
-        <div className="max-w-7xl mx-auto px-[var(--space-4)] sm:px-[var(--space-6)] lg:px-[var(--space-8)]">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[var(--color-primary-600)] to-[var(--color-secondary-600)] flex items-center justify-center">
-                <Building2 className="w-6 h-6 text-white" />
-              </div>
-              <span className="text-xl font-bold text-[var(--text-primary)]">StayPilot</span>
-            </div>
-            
-            <div className="flex items-center gap-8 text-sm text-[var(--text-secondary)]">
-              <a href="#" className="hover:text-[var(--color-primary-600)] transition-colors">Security</a>
-              <a href="#" className="hover:text-[var(--color-primary-600)] transition-colors">Compliance</a>
-              <a href="#" className="hover:text-[var(--color-primary-600)] transition-colors">SLA</a>
-              <a href="#" className="hover:text-[var(--color-primary-600)] transition-colors">Contact</a>
-            </div>
-
-            <div className="text-sm text-[var(--text-tertiary)]">
-              © 2026 StayPilot. All rights reserved.
-            </div>
-          </div>
-        </div>
-      </footer>
+    
     </div>
   )
 }

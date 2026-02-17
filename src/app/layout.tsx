@@ -1,8 +1,11 @@
+
 import type { Metadata } from "next";
 import { Inter, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/header/header";
 import Footer from "@/components/footer/footer";
+import HeaderSwitcher from "@/components/HeaderSwitcher/Headerswitcher";
+
 
 const inter = Inter({ 
   subsets: ["latin"],
@@ -28,7 +31,7 @@ export default function RootLayout({
     <html lang="en">
       
       <body className={`${inter.variable} ${spaceGrotesk.variable} antialiased text-slate-900 `}>
-        <Header/>
+        <HeaderSwitcher/>
         <div className=" bg-[var(--bg-secondary)]">
         {children}
         </div>

@@ -145,12 +145,12 @@ export default function ContactSupportPage() {
   const SelectedIcon = inquiryTypes.find(t => t.id === selectedInquiry)?.icon || HelpCircle;
 
   return (
-    <div className="min-h-screen bg-[var(--bg-secondary)] text-[var(--text-primary)]">
+    <div className="min-h-screen  text-[var(--text-primary)]">
       <Head>
         <title>Contact Support | 24/7 Expert Assistance</title>
         <meta name="description" content="Get 24/7 expert support from our dedicated team. Live chat, phone, email, and callback options available." />
       </Head>
-
+    <div ></div>
       {/* Hero Section */}
       <div className="relative bg-gradient-to-br from-[var(--color-primary-700)] via-[var(--color-primary-600)] to-[var(--color-secondary-600)] text-white overflow-hidden">
         {/* Background Pattern */}

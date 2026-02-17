@@ -668,45 +668,7 @@ export default function CRMAcademyPage() {
         <meta name="description" content="Master CRM with our free certification courses. From Foundation to Expert level." />
       </Head>
 
-      {/* Header */}
-      <header className="sticky top-0 z-40 bg-[var(--bg-primary)]/80 backdrop-blur-xl border-b border-[var(--border-light)]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16">
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[var(--color-primary-600)] to-[var(--color-secondary-600)] flex items-center justify-center shadow-lg">
-                <GraduationCap className="w-5 h-5 text-white" />
-              </div>
-              <div>
-                <span className="font-bold text-lg tracking-tight text-[var(--text-primary)]">CRM Academy</span>
-                <span className="ml-2 px-2 py-0.5 bg-emerald-100 text-emerald-700 text-xs font-bold rounded-full">FREE</span>
-              </div>
-            </div>
-
-            <div className="hidden md:flex items-center gap-6">
-              <div className="relative">
-                <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[var(--text-tertiary)]" />
-                <input 
-                  type="text" 
-                  placeholder="Search courses..."
-                  className="bg-[var(--bg-secondary)] border border-[var(--border-medium)] rounded-full pl-10 pr-4 py-2 text-sm text-[var(--text-primary)] placeholder:text-[var(--text-tertiary)] focus:outline-none focus:border-[var(--color-primary-400)] w-64"
-                />
-              </div>
-              <nav className="flex items-center gap-4 text-sm font-medium">
-                <a href="#" className="text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors">My Learning</a>
-                <a href="#" className="text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors">Certifications</a>
-                <a href="#" className="text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors">Community</a>
-              </nav>
-              <div className="w-8 h-8 rounded-full bg-[var(--bg-tertiary)] border border-[var(--border-medium)] overflow-hidden">
-                <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=100&h=100&fit=crop" alt="User" />
-              </div>
-            </div>
-
-            <button onClick={() => setSidebarOpen(true)} className="md:hidden p-2 text-[var(--text-secondary)]">
-              <Menu className="w-6 h-6" />
-            </button>
-          </div>
-        </div>
-      </header>
+     
 
       {/* Hero Banner */}
       <div className="bg-[var(--bg-primary)] border-b border-[var(--border-light)]">
