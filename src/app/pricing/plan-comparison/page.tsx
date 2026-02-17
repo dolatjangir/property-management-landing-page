@@ -2240,7 +2240,7 @@ export default function PlanComparisonPage() {
       {/* 💰 PRICING CARDS STRIP */}
       <section className="sticky top-0 z-40  backdrop-blur-xl border-b border-[var(--border-light)] shadow-sm">
         <div className="max-w-7xl mx-auto px-[var(--space-4)] sm:px-[var(--space-6)] lg:px-[var(--space-8)]">
-          <div className="grid grid-cols-3 gap-4 py-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 py-4">
              {/* Spacer for feature column */}
             
             {/* Starter */}
@@ -2432,7 +2432,7 @@ export default function PlanComparisonPage() {
 
           <motion.div 
             variants={staggerContainer}
-            className="grid md:grid-cols-3 gap-8"
+            className="grid md:grid-cols-3 gap-12 lg:gap-8"
           >
             {/* Starter Card */}
             <motion.div variants={fadeInUp} className="bg-white rounded-2xl p-8 shadow-lg border border-[var(--border-light)]">

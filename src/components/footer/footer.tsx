@@ -61,7 +61,7 @@ function Footer() {
           ))}
         </div>
       </div>
-
+          
       {/* Product */}
       <div>
         <h4 className="text-[var(--text-primary)] font-semibold mb-[var(--space-4)]">
