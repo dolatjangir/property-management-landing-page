@@ -20,6 +20,14 @@ const spaceGrotesk = Space_Grotesk({
 export const metadata: Metadata = {
   title: "BNB Pro | Next-Gen Property Management",
   description: "Turn your property into a revenue engine with data-driven management.",
+
+    manifest: "/manifest.json",
+
+  themeColor: "#10b981",
+
+  icons: {
+    apple: "/icons/icon-192.png",
+  },
 };
 
 export default function RootLayout({
