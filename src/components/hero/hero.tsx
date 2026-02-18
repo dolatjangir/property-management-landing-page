@@ -36,7 +36,7 @@ function hero() {
                       <span>Trusted by 10,000+ property managers</span>
                     </div>
                     
-                    <h1 className="text-4xl lg:text-6xl font-bold leading-tight tracking-tight text-[var(--text-primary)]">
+                    <h1 className="text-4xl lg:text-6xl font-bold leading-tight tracking-tight text-[var(--text-primary)] dark:text-white">
                       Manage All Your{" "}
                       <span className="bg-[var(--color-primary-600)] bg-clip-text text-transparent">
                         Properties
