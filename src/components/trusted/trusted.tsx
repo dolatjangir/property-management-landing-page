@@ -6,7 +6,7 @@ function Trusted() {
     <div>
       <section className="py-[var(--space-12)] border-y border-[var(--border-light)] ">
         <div className="max-w-7xl mx-auto px-[var(--space-4)] sm:px-[var(--space-6)] lg:px-[var(--space-8)]">
-          <p className="text-center text-sm font-semibold text-[var(--text-tertiary)] dark:text-white uppercase tracking-wider mb-[var(--space-8)]">
+          <p className="text-center text-sm font-semibold text-[var(--text-tertiary)]  uppercase tracking-wider mb-[var(--space-8)]">
             Trusted by leading hospitality brands
           </p>
          <div className="relative overflow-hidden w-full py-6">
@@ -37,7 +37,7 @@ function Trusted() {
           alt={brand.name}
           className="h-12 w-12   transition-all duration-300"
         />
-        <span className="font-semibold text-xl text-[var(--color-primary-800)] dark:text-white">
+        <span className="font-semibold text-xl text-[var(--color-primary-800)] ">
           {brand.name}
         </span>
       </div>

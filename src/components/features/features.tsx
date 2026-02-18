@@ -44,8 +44,8 @@ function Features() {
         <section id="features" className="py-[var(--space-24)] ">
         <div className="max-w-7xl mx-auto px-[var(--space-4)] sm:px-[var(--space-6)] lg:px-[var(--space-8)]">
           <div className="text-center max-w-3xl mx-auto mb-[var(--space-16)]">
-            <h2 className="text-4xl font-bold mb-[var(--space-4)] text-[var(--text-primary)] dark:text-white">Everything You Need to Scale</h2>
-            <p className="text-xl text-[var(--text-secondary)] dark:text-neutral-600">Powerful tools designed specifically for modern property managers and hospitality entrepreneurs.</p>
+            <h2 className="text-4xl font-bold mb-[var(--space-4)] text-[var(--text-primary)]">Everything You Need to Scale</h2>
+            <p className="text-xl text-[var(--text-secondary)] ">Powerful tools designed specifically for modern property managers and hospitality entrepreneurs.</p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-[var(--space-8)]">

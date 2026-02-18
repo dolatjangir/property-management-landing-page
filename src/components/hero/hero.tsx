@@ -36,7 +36,7 @@ function hero() {
                       <span>Trusted by 10,000+ property managers</span>
                     </div>
                     
-                    <h1 className="text-4xl lg:text-6xl font-bold leading-tight tracking-tight text-[var(--text-primary)] dark:text-white">
+                    <h1 className="text-4xl lg:text-6xl font-bold leading-tight tracking-tight text-[var(--text-primary)] ">
                       Manage All Your{" "}
                       <span className="bg-[var(--color-primary-600)] bg-clip-text text-transparent">
                         Properties
@@ -54,7 +54,7 @@ function hero() {
                         <ArrowRight className="w-5 h-5 hover:translate-x-1 transition-transform duration-[var(--duration-fast)]" />
                       </button>
                       <button className="group px-[var(--space-8)] py-[var(--space-4)] bg-[var(--bg-primary)] hover:bg-[var(--bg-secondary)] text-[var(--text-primary)] font-semibold rounded-[var(--radius-full)] transition-all duration-[var(--duration-fast)] border border-[var(--border-medium)] shadow-lg flex items-center justify-center gap-[var(--space-2)]">
-                        <Play className="w-5 h-5 text-[var(--color-primary-600)] dark:text-white" />
+                        <Play className="w-5 h-5 text-[var(--color-primary-600)] " />
                         Book a Demo
                       </button>
                     </div>
@@ -89,7 +89,7 @@ function hero() {
                            className="rounded-2xl w-full h-auto object-cover"
                          />
                          <div className="absolute bottom-6 lg:bottom-10 -left-3 lg:-left-8 bg-[var(--color-bg-card)] border border-[var(--color-primary-600)] p-3 lg:p-4 rounded-2xl shadow-xl flex items-center gap-4 z-20 animate-float-reverse">
-                           <div className="w-10 h-10 rounded-full bg-[var(--color-primary-500)]/20 text-[var(--color-primary-600)] dark:text-white flex items-center justify-center font-bold text-xl">+</div>
+                           <div className="w-10 h-10 rounded-full bg-[var(--color-primary-500)]/20 text-[var(--color-primary-600)]  flex items-center justify-center font-bold text-xl">+</div>
                            <div>
                              <div className="font-bold text-white lg:text-lg">32% Increase</div>
                              <div className="text-xs text-[var(--color-text-muted)]">vs. Traditional Rent</div>
