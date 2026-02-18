@@ -38,7 +38,7 @@ function hero() {
                     
                     <h1 className="text-4xl lg:text-6xl font-bold leading-tight tracking-tight text-[var(--text-primary)]">
                       Manage All Your{" "}
-                      <span className="bg-blue-600 bg-clip-text text-transparent">
+                      <span className="bg-[var(--color-primary-600)] bg-clip-text text-transparent">
                         Properties
                       </span>{" "}
                       in One Smart Dashboard

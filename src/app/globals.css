@@ -202,9 +202,9 @@ body {
     --bg-secondary: var(--color-neutral-800);
     --bg-tertiary: var(--color-neutral-700);
     
-    --text-primary: #ffffff;
-    --text-secondary: var(--color-neutral-300);
-    --text-tertiary: var(--color-neutral-400);
+    --text-primary: #16a34a;
+    --text-secondary: var(--color-primary-300);
+    --text-tertiary: var(--color-primary-400);
     
     --border-light: var(--color-neutral-800);
     --border-medium: var(--color-neutral-700);
