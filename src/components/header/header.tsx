@@ -472,10 +472,11 @@ const toggleMobileItem = (label: string) => {
         </nav>
 
         <div className="hidden md:flex items-center gap-[var(--space-4)]">
+          <Link href="https://bnb.ibigdata.in/admin" target='_blank'>
           <button className="text-[var(--text-secondary)] hover:text-[var(--color-primary-600)] font-medium transition-colors duration-[var(--duration-fast)]">
             Log in
-          </button>
-
+          </button></Link>
+          <Link href="https://bnb.ibigdata.in/register" target='_blank'>
           <button
             className="px-[var(--space-6)] py-[var(--space-2)] bg-[var(--color-primary-600)] hover:bg-[var(--color-primary-700)] text-[var(--text-inverse)] font-semibold rounded-lg transition-all duration-[var(--duration-fast)] shadow-lg hover:shadow-xl"
             style={{
@@ -483,7 +484,7 @@ const toggleMobileItem = (label: string) => {
             }}
           >
             Start For Free Trial
-          </button>
+          </button></Link>
         </div>
 
         <button

@@ -1,155 +1,140 @@
-import { Building2, Facebook, Instagram, Linkedin, Twitter } from 'lucide-react'
-import React from 'react'
+
+"use client"
+import React from "react"
+import Link from "next/link"
+import {
+  Facebook,
+  Instagram,
+  Linkedin,
+  Twitter,
+  ArrowRight,
+} from "lucide-react"
 
 function Footer() {
   return (
-  <div>
- <footer className="bg-linear-to-b from-[var(--bg-secondary)]  to-[var(--bg-tertiary)] text-[var(--text-secondary)] py-[var(--space-16)]">
-  <div className="max-w-7xl mx-auto px-[var(--space-4)] sm:px-[var(--space-6)] lg:px-[var(--space-8)]">
+    <footer className="bg-linear-to-b from-[var(--bg-secondary)] to-[var(--bg-tertiary)] text-[var(--text-secondary)] pt-[var(--space-6)] pb-[var(--space-10)]">
+      <div className="max-w-7xl mx-auto px-[var(--space-4)] sm:px-[var(--space-6)] lg:px-[var(--space-8)]">
 
-    <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-[var(--space-12)] mb-[var(--space-12)]">
+        {/* Top Section */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-[var(--space-12)] mb-[var(--space-14)]">
 
-      {/* Logo Section */}
-      <div className="lg:col-span-2">
-        <div className="flex items-center gap-[var(--space-2)] mb-[var(--space-6)]">
+          {/* Brand */}
+          <div className="lg:col-span-2">
+            <Link href="/" className="flex items-center gap-3 mb-[var(--space-2)]">
+              <img
+                src="/assets/bnb-green-logo.png"
+                width={200}
+                height={70}
+                alt="BNB"
+              />
+            </Link>
 
-          <div
-            className="w-10 h-10 rounded-[var(--radius-xl)] flex items-center justify-center"
-            style={{ background: "var(--gradient-primary)" }}
-          >
-            <Building2 className="w-6 h-6 text-[var(--text-inverse)]" />
+            <p className="max-w-sm mb-[var(--space-3)] text-[var(--text-secondary)]">
+              The modern platform for hotel owners, Airbnb hosts, and property
+              managers. Automate operations, increase bookings, and grow revenue.
+            </p>
+
+            {/* Social */}
+            <div className="flex gap-3">
+              {[Twitter, Linkedin, Instagram, Facebook].map((Icon, i) => (
+                <a
+                  key={i}
+                  href="#"
+                  className="w-10 h-10 rounded-full bg-white border border-[var(--border-light)]
+                  flex items-center justify-center text-[var(--text-primary)]
+                  hover:bg-[var(--color-primary-600)] hover:text-white
+                  transition-all duration-200 shadow-sm"
+                >
+                  <Icon className="w-5 h-5" />
+                </a>
+              ))}
+            </div>
           </div>
 
-          <span className="text-2xl font-bold text-[var(--text-primary)]">
-            BNB Management
-          </span>
+          {/* Platform */}
+          <div>
+            <h4 className="text-[var(--text-primary)] font-semibold mb-[var(--space-2)]">
+              Platform
+            </h4>
+            <ul className="space-y-3 text-sm">
+              <li><Link href="/features/contact-management" className="hover:text-[var(--color-primary-600)]">Contact Management</Link></li>
+              <li><Link href="/features/lead-scoring" className="hover:text-[var(--color-primary-600)]">Lead Scoring</Link></li>
+              <li><Link href="/features/sales-pipeline" className="hover:text-[var(--color-primary-600)]">Sales Pipeline</Link></li>
+              <li><Link href="/features/workflow-automation" className="hover:text-[var(--color-primary-600)]">Automation</Link></li>
+            </ul>
+          </div>
+
+          {/* Solutions */}
+          <div>
+            <h4 className="text-[var(--text-primary)] font-semibold mb-[var(--space-4)]">
+              Solutions
+            </h4>
+            <ul className="space-y-3 text-sm">
+              <li><Link href="/industry/enterprise" className="hover:text-[var(--color-primary-600)]">Enterprise</Link></li>
+              <li><Link href="/industry/startup" className="hover:text-[var(--color-primary-600)]">Startups</Link></li>
+              <li><Link href="/industry/agencies" className="hover:text-[var(--color-primary-600)]">Agencies</Link></li>
+              <li><Link href="/industry/sales-team" className="hover:text-[var(--color-primary-600)]">Sales Teams</Link></li>
+            </ul>
+          </div>
+
+          {/* Resources */}
+          <div>
+            <h4 className="text-[var(--text-primary)] font-semibold mb-[var(--space-4)]">
+              Resources
+            </h4>
+            <ul className="space-y-3 text-sm">
+              <li><Link href="/resources/documentation" className="hover:text-[var(--color-primary-600)]">Documentation</Link></li>
+              <li><Link href="/resources/video-tutorials" className="hover:text-[var(--color-primary-600)]">Video Tutorials</Link></li>
+              <li><Link href="/resources/help-center" className="hover:text-[var(--color-primary-600)]">Help Center</Link></li>
+              <li><Link href="/about-us" className="hover:text-[var(--color-primary-600)]">about-us</Link></li>
+            </ul>
+          </div>
         </div>
 
-        <p className="text-[var(--text-secondary)] mb-[var(--space-6)] max-w-sm">
-          The modern platform for hotel owners, Airbnb hosts, and property managers. Automate, optimize, and grow.
-        </p>
+        {/* CTA Banner */}
+        <div className="bg-[var(--bg-primary)] border border-[var(--border-light)] rounded-2xl p-4 md:p-6 flex flex-col md:flex-row items-center justify-between gap-6 mb-[var(--space-6)] mt-2 shadow-sm">
+          <div>
+            <h3 className="text-lg font-semibold text-[var(--text-primary)]">
+              Ready to grow your business?
+            </h3>
+            <p className="text-sm text-[var(--text-secondary)] mt-1">
+              Start your free trial today. No credit card required.
+            </p>
+          </div>
 
-        {/* Social Icons */}
-        <div className="flex gap-[var(--space-4)]">
-          {[
-            { name: "Twitter", icon: <Twitter className="w-5 h-5" /> },
-            { name: "LinkedIn", icon: <Linkedin className="w-5 h-5" /> },
-            { name: "Instagram", icon: <Instagram className="w-5 h-5" /> },
-            { name: "Facebook", icon: <Facebook className="w-5 h-5" /> },
-          ].map((social) => (
-            <a
-              key={social.name}
-              href="#"
-              className="
-                w-10 h-10
-                rounded-full
-                bg-white
-                flex items-center
-                justify-center
-                text-[var(--text-primary)]
-                border border-[var(--border-primary)]
-                hover:bg-[var(--color-primary-600)]
-                hover:text-[var(--text-inverse)]
-                transition-all
-                duration-[var(--duration-fast)]
-                shadow-sm
-              "
-            >
-              <span className="sr-only">{social.name}</span>
-              {social.icon}
-            </a>
-          ))}
+          <Link
+            href="/signup"
+            className="flex items-center gap-2 px-6 py-3 rounded-lg
+            bg-[var(--color-primary-600)] hover:bg-[var(--color-primary-700)]
+            text-white font-semibold transition-all shadow-lg"
+          >
+            Start Free Trial
+            <ArrowRight className="w-4 h-4" />
+          </Link>
         </div>
+
+        {/* Bottom */}
+        <div className="pt-3 border-t border-[var(--border-light)] flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-[var(--text-tertiary)]">
+
+          <p>© 2026 BNB Management. All rights reserved.</p>
+
+          <div className="flex gap-6">
+            <Link href="/privacy" className="hover:text-[var(--color-primary-600)]">
+              Privacy Policy
+            </Link>
+            <Link href="/terms" className="hover:text-[var(--color-primary-600)]">
+              Terms of Service
+            </Link>
+            <Link href="/cookies" className="hover:text-[var(--color-primary-600)]">
+              Cookies
+            </Link>
+          </div>
+        </div>
+
       </div>
-          
-      {/* Product */}
-      <div>
-        <h4 className="text-[var(--text-primary)] font-semibold mb-[var(--space-4)]">
-          Product
-        </h4>
-
-        <ul className="space-y-[var(--space-3)]">
-          {["Features", "Pricing", "Integrations", "API", "Updates"].map((item) => (
-            <li key={item}>
-              <a
-                href="#"
-                className="hover:text-[var(--color-primary-600)] transition-colors duration-[var(--duration-fast)]"
-              >
-                {item}
-              </a>
-            </li>
-          ))}
-        </ul>
-      </div>
-
-      {/* Company */}
-      <div>
-        <h4 className="text-[var(--text-primary)] font-semibold mb-[var(--space-4)]">
-          Company
-        </h4>
-
-        <ul className="space-y-[var(--space-3)]">
-          {["About", "Blog", "Careers", "Press", "Partners"].map((item) => (
-            <li key={item}>
-              <a
-                href="#"
-                className="hover:text-[var(--color-primary-600)] transition-colors duration-[var(--duration-fast)]"
-              >
-                {item}
-              </a>
-            </li>
-          ))}
-        </ul>
-      </div>
-
-      {/* Support */}
-      <div>
-        <h4 className="text-[var(--text-primary)] font-semibold mb-[var(--space-4)]">
-          Support
-        </h4>
-
-        <ul className="space-y-[var(--space-3)]">
-          {["Help Center", "Contact", "Status", "Privacy", "Terms"].map((item) => (
-            <li key={item}>
-              <a
-                href="#"
-                className="hover:text-[var(--color-primary-600)] transition-colors duration-[var(--duration-fast)]"
-              >
-                {item}
-              </a>
-            </li>
-          ))}
-        </ul>
-      </div>
-    </div>
-
-    {/* Bottom Bar */}
-    <div className="pt-[var(--space-8)] border-t border-[var(--border-primary)] flex flex-col md:flex-row justify-between items-center gap-[var(--space-4)]">
-
-      <p className="text-sm text-[var(--text-tertiary)]">
-        © 2026 StayPilot Inc. All rights reserved.
-      </p>
-
-      <div className="flex items-center gap-[var(--space-6)] text-sm text-[var(--text-tertiary)]">
-        <a href="#" className="hover:text-[var(--color-primary-600)] transition-colors duration-[var(--duration-fast)]">
-          Privacy Policy
-        </a>
-
-        <a href="#" className="hover:text-[var(--color-primary-600)] transition-colors duration-[var(--duration-fast)]">
-          Terms of Service
-        </a>
-
-        <a href="#" className="hover:text-[var(--color-primary-600)] transition-colors duration-[var(--duration-fast)]">
-          Cookie Settings
-        </a>
-      </div>
-    </div>
-
-  </div>
-</footer>
-</div>
-
+    </footer>
   )
 }
 
 export default Footer
+
