@@ -57,7 +57,7 @@ const Analytics = () => {
     <>
     <section id="analytics" className="py-20 ">
       <div className="container mx-auto px-4">
-        <h2 className="font-['var(--font-head)] text-3xl md:text-4xl text-center mb-4">
+        <h2 className="font-['var(--font-head)] text-black dark:text-white text-3xl md:text-4xl text-center mb-4">
           Performance by the Numbers
         </h2>
         <p className="text-center text-[var(--color-text-muted)] max-w-2xl mx-auto mb-16 text-lg">
@@ -142,8 +142,8 @@ const Analytics = () => {
           <section id="how-it-works" className="py-[var(--space-24)] ">
             <div className="max-w-7xl   mx-auto px-[var(--space-4)] sm:px-[var(--space-6)] lg:px-[var(--space-8)]">
               <div className="text-center max-w-3xl mx-auto mb-[var(--space-16)]">
-                <h2 className="text-4xl font-bold mb-[var(--space-4)] ">Get Started in Minutes</h2>
-                <p className="text-xl text-[var(--text-secondary)]">Three simple steps to transform your property management.</p>
+                <h2 className="text-4xl font-bold mb-[var(--space-4)] text-[var(--color-primary-600)] dark:text-white">Get Started in Minutes</h2>
+                <p className="text-xl text-[var(--text-secondary)] ">Three simple steps to transform your property management.</p>
               </div>
     
               <div className="grid lg:grid-cols-3  w-full gap-[var(--space-2)] lg:gap-[var(--space-8)]">

@@ -537,7 +537,7 @@ const StayPilotLanding = () => {
       <section id="how-it-works" className="py-[var(--space-24)] ">
         <div className="max-w-7xl mx-auto px-[var(--space-4)] sm:px-[var(--space-6)] lg:px-[var(--space-8)]">
           <div className="text-center max-w-3xl mx-auto mb-[var(--space-16)]">
-            <h2 className="text-4xl font-bold mb-[var(--space-4)] text-[var(--text-primary)]">Get Started in Minutes</h2>
+            <h2 className="text-4xl font-bold mb-[var(--space-4)] text-[var(--text-primary)] dark:text-white">Get Started in Minutes</h2>
             <p className="text-xl text-[var(--text-secondary)]">Three simple steps to transform your property management.</p>
           </div>
 
@@ -647,7 +647,7 @@ const StayPilotLanding = () => {
               <div>
                 <h2 className="text-4xl lg:text-5xl font-bold mb-[var(--space-6)]">Why Property Managers Choose BNB <span className="text-[var(--color-secondary-800)]">Management</span></h2>
                 <p className="text-xl text-[var(--color-primary-100)] mb-[var(--space-8)]">Join thousands of hosts who have transformed their business with our intelligent platform.</p>
-                <button className="px-[var(--space-8)] py-[var(--space-4)] bg-[var(--bg-primary)] text-[var(--color-primary-600)] font-semibold rounded-[var(--radius-full)] hover:bg-[var(--color-primary-50)] transition-colors duration-[var(--duration-fast)] shadow-xl">
+                <button className="px-[var(--space-8)] py-[var(--space-4)] bg-[var(--bg-primary)] dark:bg-white text-[var(--color-primary-600)] font-semibold rounded-[var(--radius-full)] hover:bg-[var(--color-primary-50)] transition-colors duration-[var(--duration-fast)] shadow-xl">
                   See All Benefits
                 </button>
               </div>
@@ -671,7 +671,7 @@ const StayPilotLanding = () => {
       <section id="testimonials" className="py-[var(--space-24)] ">
         <div className="max-w-7xl mx-auto px-[var(--space-4)] sm:px-[var(--space-6)] lg:px-[var(--space-8)]">
           <div className="text-center max-w-3xl mx-auto mb-[var(--space-16)]">
-            <h2 className="text-4xl font-bold mb-[var(--space-4)] text-[var(--color-primary-500)]">Loved by Hospitality Professionals</h2>
+            <h2 className="text-4xl font-bold mb-[var(--space-4)] text-[var(--color-primary-500)] dark:text-white">Loved by Hospitality Professionals</h2>
             <p className="text-xl text-[var(--text-secondary)]">See how StayPilot is transforming properties worldwide.</p>
           </div>
 
@@ -706,7 +706,7 @@ const StayPilotLanding = () => {
       <section id="pricing" className="py-[var(--space-24)] ">
         <div className="max-w-7xl mx-auto px-[var(--space-4)] sm:px-[var(--space-6)] lg:px-[var(--space-8)]">
           <div className="text-center max-w-3xl mx-auto mb-[var(--space-12)]">
-            <h2 className="text-4xl font-bold mb-[var(--space-4)] text-[var(--color-primary-500)]">Simple, Transparent Pricing</h2>
+            <h2 className="text-4xl font-bold mb-[var(--space-4)] text-[var(--color-primary-500)] dark:text-white">Simple, Transparent Pricing</h2>
             <p className="text-xl text-[var(--text-secondary)] mb-[var(--space-8)]">Start free, scale as you grow. No hidden fees.</p>
             
             <div className="inline-flex items-center gap-[var(--space-4)] p-1.5 bg-[var(--bg-secondary)] rounded-[var(--radius-full)]">
@@ -726,7 +726,7 @@ const StayPilotLanding = () => {
             </div>
           </div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-[var(--space-8)] max-w-6xl mx-auto">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-[var(--space-10)] max-w-6xl mx-auto">
             {pricingPlans.map((plan, idx) => (
               <div 
                 key={idx} 
@@ -739,7 +739,7 @@ const StayPilotLanding = () => {
                 )}
                 
                 <div className="mb-[var(--space-8)]">
-                  <h3 className="text-2xl font-bold mb-[var(--space-2)]">{plan.name}</h3>
+                  <h3 className="text-2xl font-bold mb-[var(--space-2)] dark:text-white">{plan.name}</h3>
                   <p className={`text-sm ${plan.popular ? 'text-[var(--text-tertiary)]' : 'text-[var(--text-tertiary)]'}`}>{plan.description}</p>
                 </div>
 
@@ -785,7 +785,7 @@ const StayPilotLanding = () => {
         <HelpCircle className="w-8 h-8 text-white" />
       </div>
 
-      <h2 className="text-4xl font-bold mb-[var(--space-4)] text-[var(--text-primary)]">
+      <h2 className="text-4xl font-bold mb-[var(--space-4)] text-[var(--text-primary)] dark:text-white">
         Frequently Asked Questions
       </h2>
 
@@ -808,7 +808,7 @@ const StayPilotLanding = () => {
             {/* Question */}
             <button
               onClick={() => toggleFAQ(index)}
-              className="w-full text-left p-6 md:p-8 flex items-start justify-between gap-4"
+              className="w-full text-left p-4 md:p-6 lg:p-8 flex items-start justify-between gap-4"
             >
               <div className="flex-1">
 
@@ -816,7 +816,7 @@ const StayPilotLanding = () => {
 
                   {/* Number */}
                   <span
-                    className="flex items-center justify-center w-8 h-8 rounded-full text-sm font-bold transition-all duration-300"
+                    className="flex items-center justify-center min-w-8 min-h-8  rounded-full text-sm font-bold transition-all duration-300"
                     style={{
                       backgroundColor: isOpen
                         ? "var(--color-primary-600)"
@@ -830,10 +830,10 @@ const StayPilotLanding = () => {
                   </span>
 
                   <h3
-                    className="text-md md:text-xl font-bold transition-colors duration-300"
+                    className="text-sm md:text-md lg:text-xl font-bold transition-colors duration-300"
                     style={{
                       color: isOpen
-                        ? "var(--color-primary-600)"
+                        ? "var(--color-primary-600) dark:text-white"
                         : "var(--text-primary)"
                     }}
                   >
@@ -960,7 +960,7 @@ const StayPilotLanding = () => {
               onChange={(e) => setEmail(e.target.value)}
               className="flex-1 px-6 py-3 rounded-full placeholder:text-[var(--color-primary-50)] border border-[var(--color-glass-border)] bg-black/50 text-white outline-none min-w-[200px] focus:border-[var(--color-primary)]"
             />
-            <button type="submit" className="px-6 py-3 rounded-full bg-gradient-to-r from-[var(--color-secondary-600)] to-[var(--color-secondary-700)] text-white font-semibold shadow-[0_4px_15px_var(--color-primary-glow)] hover:shadow-[0_8px_25px_var(--color-primary-glow)] hover:-translate-y-0.5 transition-all">
+            <button type="submit" className="px-6 py-3 rounded-full text-sm md:text-md lg:text-lg bg-gradient-to-r from-[var(--color-secondary-600)] to-[var(--color-secondary-700)] text-white font-semibold shadow-[0_4px_15px_var(--color-primary-500)] hover:shadow-[0_8px_25px_var(--color-primary-glow)] hover:-translate-y-0.5 transition-all">
               Get Started
             </button>
           </form>

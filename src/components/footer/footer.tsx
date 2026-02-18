@@ -12,7 +12,7 @@ import {
 
 function Footer() {
   return (
-    <footer className="bg-linear-to-b from-[var(--bg-secondary)] to-[var(--bg-tertiary)] text-[var(--text-secondary)] pt-[var(--space-6)] pb-[var(--space-10)]">
+    <footer className="bg-linear-to-b from-[var(--bg-secondary)] to-[var(--bg-tertiary)] text-[var(--text-secondary)] pt-[var(--space-6)] pb-[var(--space-10)] border-t border-neutral-700">
       <div className="max-w-7xl mx-auto px-[var(--space-4)] sm:px-[var(--space-6)] lg:px-[var(--space-8)]">
 
         {/* Top Section */}
@@ -79,7 +79,7 @@ function Footer() {
 
           {/* Resources */}
           <div>
-            <h4 className="text-[var(--text-primary)] font-semibold mb-[var(--space-4)]">
+            <h4 className="text-[var(--text-primary)] font-semibold mb-[var(--space-4)] ">
               Resources
             </h4>
             <ul className="space-y-3 text-sm">
