@@ -1,4 +1,7 @@
 @import "tailwindcss";
+html {
+  color-scheme: light;
+}
 
 :root {
   --background: #ffffff;
@@ -12,12 +15,12 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
   }
-}
+} */
 
 body {
   background: var(--background);
@@ -196,7 +199,7 @@ body {
 }
 
 /* Dark Mode Support */
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
   :root {
     --bg-primary: var(--color-neutral-900);
     --bg-secondary: var(--color-neutral-800);
@@ -210,7 +213,7 @@ body {
     --border-medium: var(--color-neutral-700);
     --border-dark: var(--color-neutral-600);
   }
-}
+} */
 
 /* Utility Classes using CSS Variables */
 @layer utilities {
