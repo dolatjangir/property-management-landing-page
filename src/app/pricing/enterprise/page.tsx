@@ -532,12 +532,12 @@ const FAQItem = ({ question, answer, isOpen, onClick, index }: {
   <div className="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden border border-[var(--border-light)]">
     <button 
       onClick={onClick}
-      className="w-full text-left p-6 md:p-8 flex items-start justify-between gap-4 group"
+      className="w-full text-left p-3 sm:p-6 md:p-8 flex items-start justify-between gap-4 group"
     >
       <div className="flex-1">
-        <div className="flex items-center gap-3 mb-2">
+        <div className="flex items-center gap-2 md:gap-3 mb-2">
           <span 
-            className="flex items-center justify-center w-8 h-8 rounded-full text-sm font-bold transition-all duration-300"
+            className="flex items-center justify-center min-w-8 min-h-8 rounded-full text-sm font-bold transition-all duration-300"
             style={{
               backgroundColor: isOpen ? 'var(--color-primary-600)' : 'var(--color-primary-100)',
               color: isOpen ? 'white' : 'var(--color-primary-600)'
@@ -546,7 +546,7 @@ const FAQItem = ({ question, answer, isOpen, onClick, index }: {
             {index + 1}
           </span>
           <h3 
-            className="text-xl md:text-2xl font-bold transition-colors duration-300"
+            className="text-md sm:text-xl md:text-2xl font-bold transition-colors duration-300"
             style={{ color: isOpen ? 'var(--color-primary-600)' : 'var(--text-primary)' }}
           >
             {question}
@@ -847,7 +847,7 @@ export default function EnterprisePage() {
           
           {/* Primary Button */}
           <button
-            className="group relative px-8 py-4 rounded-[var(--radius-full)] font-bold shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 flex items-center justify-center gap-2"
+            className="group relative px-4 sm:px-8 py-4 rounded-[var(--radius-full)] font-bold shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 flex items-center justify-center gap-2"
             style={{
               background: "var(--gradient-primary)",
               color: "white"
@@ -860,7 +860,7 @@ export default function EnterprisePage() {
 
           {/* Secondary Button */}
           <button
-            className="group px-8 py-4 rounded-[var(--radius-full)] font-bold border transition-all duration-300 flex items-center justify-center gap-2"
+            className="group px-4 sm:px-8 py-4 rounded-[var(--radius-full)] font-bold border transition-all duration-300 flex items-center justify-center gap-2"
             style={{
               borderColor: "var(--border-medium)",
               color: "var(--text-primary)",
@@ -913,10 +913,10 @@ export default function EnterprisePage() {
                 className="text-center p-4 rounded-2xl"
                 style={{ background: "rgba(255,255,255,0.5)" }}
               >
-                <div className="text-4xl font-extrabold text-[var(--text-primary)] mb-1">
+                <div className="text-xl  sm:text-2xl md:text-4xl font-extrabold text-[var(--text-primary)] mb-1">
                   <AnimatedCounter value={stat.value} suffix={stat.suffix} />
                 </div>
-                <div className="text-[var(--text-secondary)]">
+                <div className="text-sm sm:text-md text-[var(--text-secondary)]">
                   {stat.label}
                 </div>
               </div>
@@ -1194,7 +1194,7 @@ export default function EnterprisePage() {
       </section>
 
       {/* 📞 CONTACT FORM SECTION */}
-      <section className="relative py-24 lg:py-32 bg-gradient-to-br from-[var(--color-primary-300)] via-[var(--color-primary-800)] to-[var(--color-secondary-900)] text-white overflow-hidden">
+      <section className="relative py-24 lg:py-32 bg-gradient-to-br from-[var(--color-primary-500)] via-[var(--color-primary-800)] to-[var(--color-secondary-900)] text-white overflow-hidden">
         <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2260%22%20height%3D%2260%22%20viewBox%3D%220%200%2060%2060%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cg%20fill%3D%22%23ffffff%22%20fill-opacity%3D%220.05%22%3E%3Cpath%20d%3D%22M36%2034v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6%2034v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6%204V0H4v4H0v2h4v4h2V6h4V4H6z%22/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-70" />
         
         <div className="relative z-10 max-w-6xl mx-auto px-[var(--space-4)] sm:px-[var(--space-6)] lg:px-[var(--space-8)]">
@@ -1340,7 +1340,7 @@ export default function EnterprisePage() {
                   />
                 </div>
 
-                <button type="submit" className="w-full py-4 bg-white text-[var(--color-primary-900)] rounded-xl font-bold hover:bg-blue-50 transition-colors flex items-center justify-center gap-2 group">
+                <button type="submit" className="w-full px-4 sm:px-0 text-xs sm:text-lg py-4 bg-white text-[var(--color-primary-900)] rounded-xl font-bold hover:bg-blue-50 transition-colors flex items-center justify-center gap-2 group">
                   <Handshake className="w-5 h-5" />
                   Request Custom Quote
                   <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />

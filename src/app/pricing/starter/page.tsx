@@ -156,11 +156,12 @@ const GradientText = ({ children, className = "", variant = "primary" }: {
 }
 
 // Badge Component - Light Theme
-const Badge = ({ children, variant = "primary", size = "md", glow = false }: { 
+const Badge = ({ children, variant = "primary", size = "md", glow = false,className }: { 
   children: React.ReactNode
   variant?: "primary" | "secondary" | "accent" | "success" | "gold"
   size?: "sm" | "md" | "lg"
   glow?: boolean
+   className?: string;
 }) => {
   const sizes = {
     sm: "px-3 py-1 text-xs",
@@ -177,7 +178,7 @@ const Badge = ({ children, variant = "primary", size = "md", glow = false }: {
   }
   
   return (
-    <span className={`inline-flex items-center gap-2 rounded-full font-bold border ${sizes[size]} ${variants[variant]} ${glow ? 'shadow-lg shadow-[var(--color-primary-500)]/20' : ''}`}>
+    <span className={`${className} inline-flex items-center gap-2 rounded-full font-bold border ${sizes[size]} ${variants[variant]} ${glow ? 'shadow-lg shadow-[var(--color-primary-500)]/20' : ''}`}>
       {children}
     </span>
   )
@@ -268,7 +269,7 @@ const FAQItem = ({ question, answer, isOpen, onClick, index }: { question: strin
       <div className="flex-1">
         <div className="flex items-center gap-3 mb-2">
           <span 
-            className="flex items-center justify-center w-8 h-8 rounded-full text-sm font-bold transition-all duration-300"
+            className="flex items-center justify-center min-w-8 min-h-8 rounded-full text-sm font-bold transition-all duration-300"
             style={{
               backgroundColor: isOpen ? 'var(--color-primary-600)' : 'var(--color-primary-100)',
               color: isOpen ? 'white' : 'var(--color-primary-600)'
@@ -277,7 +278,7 @@ const FAQItem = ({ question, answer, isOpen, onClick, index }: { question: strin
             {index + 1}
           </span>
           <h3 
-            className="text-xl md:text-2xl font-bold transition-colors duration-300"
+            className="text-sm sm:text-xl md:text-2xl font-semibold sm:font-bold transition-colors duration-300"
             style={{ color: isOpen ? 'var(--color-primary-600)' : 'var(--text-primary)' }}
           >
             {question}
@@ -568,9 +569,9 @@ export default function StarterPage() {
             >
               <GlassCard className="p-8 relative overflow-visible border-2 border-[var(--color-primary-200)]" gradient color="primary">
                 {/* Popular Badge */}
-                <div className="absolute -top-4 left-1/2 -translate-x-1/2">
-                  <Badge variant="success" size="lg" glow>
-                    <Sparkles className="w-4 h-4" />
+                <div className="absolute -top-4 left-1/2 -translate-x-1/2 ">
+                  <Badge variant="success"  glow  className="text-xs sm:text-base lg:text-lg">
+                    <Sparkles className="w-4 h-4 " />
                     Most Popular for Starters
                   </Badge>
                 </div>
@@ -620,7 +621,7 @@ export default function StarterPage() {
               <motion.div 
                 animate={{ y: [0, -10, 0] }}
                 transition={{ duration: 4, repeat: Infinity }}
-                className="absolute -top-6 -right-6 w-20 h-20 bg-gradient-to-br from-[var(--color-success-400)] to-[var(--color-success-600)] rounded-2xl flex items-center justify-center shadow-xl"
+                className="absolute -top-6 -right-3 sm:-right-6 w-20 h-20 bg-gradient-to-br from-[var(--color-success-400)] to-[var(--color-success-600)] rounded-2xl flex items-center justify-center shadow-xl"
               >
                 <Percent className="w-10 h-10 text-white" />
               </motion.div>
@@ -628,7 +629,7 @@ export default function StarterPage() {
               <motion.div 
                 animate={{ y: [0, 10, 0] }}
                 transition={{ duration: 5, repeat: Infinity, delay: 1 }}
-                className="absolute -bottom-4 -left-4 w-16 h-16 bg-gradient-to-br from-[var(--color-warning-400)] to-[var(--color-warning-600)] rounded-full flex items-center justify-center shadow-xl"
+                className="absolute -bottom-4 -left-2 sm:-left-4 w-16 h-16 bg-gradient-to-br from-[var(--color-warning-400)] to-[var(--color-warning-600)] rounded-full flex items-center justify-center shadow-xl"
               >
                 <Heart className="w-8 h-8 text-white" />
               </motion.div>
@@ -938,30 +939,7 @@ export default function StarterPage() {
         </div>
       </section>
 
-      {/* 🦶 FOOTER - Simple version matching your style */}
-      <footer className="relative py-12 border-t border-[var(--border-light)] bg-[var(--bg-primary)]">
-        <div className="max-w-7xl mx-auto px-[var(--space-4)] sm:px-[var(--space-6)] lg:px-[var(--space-8)]">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[var(--color-primary-600)] to-[var(--color-secondary-600)] flex items-center justify-center">
-                <Building2 className="w-6 h-6 text-white" />
-              </div>
-              <span className="text-xl font-bold text-[var(--text-primary)]">StayPilot</span>
-            </div>
             
-            <div className="flex items-center gap-8 text-sm text-[var(--text-secondary)]">
-              <a href="#" className="hover:text-[var(--color-primary-600)] transition-colors">Privacy</a>
-              <a href="#" className="hover:text-[var(--color-primary-600)] transition-colors">Terms</a>
-              <a href="#" className="hover:text-[var(--color-primary-600)] transition-colors">Security</a>
-              <a href="#" className="hover:text-[var(--color-primary-600)] transition-colors">Cookies</a>
-            </div>
-
-            <div className="text-sm text-[var(--text-tertiary)]">
-              © 2026 StayPilot. All rights reserved.
-            </div>
-          </div>
-        </div>
-      </footer>
     </div>
   )
 }

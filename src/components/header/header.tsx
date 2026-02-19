@@ -524,7 +524,7 @@ const toggleMobileItem = (label: string) => {
   `}
 >
   <div className='flex justify-between items-center'>
- <Link href="/">  <img width={220} height={220} src="/assets/bnb-green-logo.png" /></Link>
+ <Link href="/">  <img width={200} height={200} className='p-2' src="/assets/green-logo.png" /></Link>
  <div onClick={() => {setIsMenuOpen(!isMenuOpen)
   setOpenMobileItem(null)}
  } className={`  w-fit absolute p-1 right-2 shadow-xl rounded-md bg-[var(--color-primary-100)] ${isMenuOpen ? 'block' : 'hidden'}`}> <X className="w-6 h-6 text-[var(--color-primary-800)]" /></div></div>

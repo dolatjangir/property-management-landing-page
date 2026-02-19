@@ -124,11 +124,12 @@ const GradientText = ({ children, className = "", variant = "primary" }: {
 }
 
 // Badge Component
-const Badge = ({ children, variant = "primary", size = "md", glow = false }: { 
+const Badge = ({ children, variant = "primary", size = "md", glow = false, className }: { 
   children: React.ReactNode
   variant?: "primary" | "secondary" | "accent" | "success" | "gold" | "dark"
   size?: "sm" | "md" | "lg"
   glow?: boolean
+  className?: string
 }) => {
   const sizes = {
     sm: "px-3 py-1 text-xs",
@@ -146,7 +147,7 @@ const Badge = ({ children, variant = "primary", size = "md", glow = false }: {
   }
   
   return (
-    <span className={`inline-flex items-center gap-2 rounded-full font-bold border ${sizes[size]} ${variants[variant]} ${glow ? 'shadow-lg shadow-[var(--color-primary-500)]/20' : ''}`}>
+    <span className={` ${className} inline-flex items-center gap-2 rounded-full font-bold border ${sizes[size]} ${variants[variant]} ${glow ? 'shadow-lg shadow-[var(--color-primary-500)]/20' : ''}`}>
       {children}
     </span>
   )
@@ -268,12 +269,12 @@ const FAQItem = ({ question, answer, isOpen, onClick, index }: {
   <div className="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden border border-[var(--border-light)]">
     <button 
       onClick={onClick}
-      className="w-full text-left p-6 md:p-8 flex items-start justify-between gap-4 group"
+      className="w-full text-left p-3 sm:p-6 md:p-8 flex items-start justify-between gap-4 group"
     >
       <div className="flex-1">
-        <div className="flex items-center gap-3 mb-2">
+        <div className="flex items-center gap-1 sm:gap-3 mb-2">
           <span 
-            className="flex items-center justify-center w-8 h-8 rounded-full text-sm font-bold transition-all duration-300"
+            className="flex items-center justify-center min-w-8 min-h-8 rounded-full text-sm font-bold transition-all duration-300"
             style={{
               backgroundColor: isOpen ? 'var(--color-primary-600)' : 'var(--color-primary-100)',
               color: isOpen ? 'white' : 'var(--color-primary-600)'
@@ -282,7 +283,7 @@ const FAQItem = ({ question, answer, isOpen, onClick, index }: {
             {index + 1}
           </span>
           <h3 
-            className="text-xl md:text-2xl font-bold transition-colors duration-300"
+            className="text-sm sm:text-xl md:text-2xl font-semibold sm:font-bold transition-colors duration-300"
             style={{ color: isOpen ? 'var(--color-primary-600)' : 'var(--text-primary)' }}
           >
             {question}
@@ -323,31 +324,52 @@ const FAQItem = ({ question, answer, isOpen, onClick, index }: {
 )
 
 // Pricing Toggle
-const PricingToggle = ({ isYearly, setIsYearly }: { isYearly: boolean, setIsYearly: (v: boolean) => void }) => (
-  <div className="inline-flex items-center gap-[var(--space-4)] p-1.5 bg-[var(--bg-secondary)] rounded-[var(--radius-full)] border border-[var(--border-light)]">
+const PricingToggle = ({
+  isYearly,
+  setIsYearly,
+}: {
+  isYearly: boolean;
+  setIsYearly: (v: boolean) => void;
+}) => (
+  <div className="inline-flex items-center gap-1 sm:gap-2 p-1 bg-[var(--bg-secondary)] 
+  rounded-[var(--radius-full)] border border-[var(--border-light)] w-full sm:w-auto justify-center">
+
+    {/* Monthly */}
     <button
       onClick={() => setIsYearly(false)}
-      className={`px-[var(--space-6)] py-[var(--space-2)] rounded-[var(--radius-full)] font-semibold transition-all duration-[var(--duration-fast)] ${
-        !isYearly 
-          ? 'bg-[var(--bg-primary)] text-[var(--color-primary-600)] shadow-sm' 
-          : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)]'
+      className={`px-3 sm:px-5 lg:px-6 py-1.5 sm:py-2 rounded-[var(--radius-full)] 
+      text-xs sm:text-sm font-semibold whitespace-nowrap
+      transition-all duration-[var(--duration-fast)] ${
+        !isYearly
+          ? "bg-[var(--bg-primary)] text-[var(--color-primary-600)] shadow-sm"
+          : "text-[var(--text-secondary)] hover:text-[var(--text-primary)]"
       }`}
     >
       Monthly
     </button>
+
+    {/* Yearly */}
     <button
       onClick={() => setIsYearly(true)}
-      className={`px-[var(--space-6)] py-[var(--space-2)] rounded-[var(--radius-full)] font-semibold transition-all duration-[var(--duration-fast)] flex items-center gap-[var(--space-2)] ${
-        isYearly 
-          ? 'bg-[var(--bg-primary)] text-[var(--color-primary-600)] shadow-sm' 
-          : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)]'
+      className={`px-3 sm:px-5 lg:px-6 py-1.5 sm:py-2 rounded-[var(--radius-full)] 
+      text-xs sm:text-sm font-semibold flex items-center gap-1 sm:gap-2 whitespace-nowrap
+      transition-all duration-[var(--duration-fast)] ${
+        isYearly
+          ? "bg-[var(--bg-primary)] text-[var(--color-primary-600)] shadow-sm"
+          : "text-[var(--text-secondary)] hover:text-[var(--text-primary)]"
       }`}
     >
       Yearly
-      <span className="text-xs bg-[var(--color-success-100)] text-[var(--color-success-700)] px-[var(--space-2)] py-0.5 rounded-[var(--radius-full)]">Save 20%</span>
+
+      <span className="hidden xs:inline text-[10px] sm:text-xs 
+      bg-[var(--color-success-100)] text-[var(--color-success-700)] 
+      px-1.5 sm:px-2 py-0.5 rounded-[var(--radius-full)]">
+        Save 20%
+      </span>
     </button>
   </div>
-)
+);
+
 
 export default function ProfessionalPlanPage() {
   const [isYearly, setIsYearly] = useState(true)
@@ -556,70 +578,88 @@ export default function ProfessionalPlanPage() {
               transition={{ duration: 0.8, delay: 0.3 }}
               className="relative"
             >
-              <div className="bg-white rounded-[var(--radius-3xl)] p-8 shadow-2xl border-2 border-[var(--color-primary-200)]  overflow-hidden">
-                {/* Popular Badge */}
-                <div className="absolute -top-4 left-1/2 -translate-x-1/2 z-50">
-                  <Badge variant="primary" size="lg">
-                    <Sparkles className="w-4 h-4" />
-                    Best Value
-                  </Badge>
-                </div>
+             <div className="relative w-full max-w-md mx-auto lg:max-w-none bg-white rounded-[var(--radius-3xl)] 
+p-5 sm:p-6 lg:p-8 shadow-2xl border-2 border-[var(--color-primary-200)] overflow-hidden">
 
-                <div className="text-center mb-8 pt-4">
-                  <h3 className="text-2xl font-bold text-[var(--text-primary)] mb-2">Professional</h3>
-                  <p className="text-[var(--text-secondary)]">For growing hospitality businesses</p>
-                </div>
+  {/* Popular Badge */}
+  <div className="absolute -top-2 sm:-top-4 left-1/2 -translate-x-1/2 z-50">
+    <Badge variant="primary"  className="text-sm sm:text-lg">
+      <Sparkles className="w-4 h-4" />
+      Best Value
+    </Badge>
+  </div>
 
-                <div className="text-center mb-8">
-                  <div className="flex items-baseline justify-center gap-2">
-                    <span className="text-7xl font-extrabold text-[var(--color-primary-600)]">
-                      ${isYearly ? '39' : '49'}
-                    </span>
-                    <span className="text-xl text-[var(--text-tertiary)]">/user/mo</span>
-                  </div>
-                  {isYearly && (
-                    <p className="text-sm text-[var(--color-success-600)] font-medium mt-2">
-                      Billed annually (Save 20%)
-                    </p>
-                  )}
-                  <div className="mt-4 flex justify-center">
-                    <PricingToggle isYearly={isYearly} setIsYearly={setIsYearly} />
-                  </div>
-                </div>
+  {/* Header */}
+  <div className="text-center mb-6 sm:mb-8 pt-4">
+    <h3 className="text-xl sm:text-2xl font-bold text-[var(--text-primary)] mb-2">
+      Professional
+    </h3>
+    <p className="text-sm sm:text-base text-[var(--text-secondary)]">
+      For growing hospitality businesses
+    </p>
+  </div>
 
-                <div className="space-y-3 mb-8">
-                  {[
-                    "Unlimited properties & channels",
-                    "AI dynamic pricing",
-                    "Advanced analytics & reporting",
-                    "Priority support (2h response)",
-                    "Full API access",
-                    "Unlimited team members"
-                  ].map((feature, i) => (
-                    <div key={i} className="flex items-center gap-3">
-                      <div className="w-5 h-5 rounded-full bg-[var(--color-success-100)] flex items-center justify-center flex-shrink-0">
-                        <Check className="w-3 h-3 text-[var(--color-success-600)]" />
-                      </div>
-                      <span className="text-[var(--text-primary)] font-medium">{feature}</span>
-                    </div>
-                  ))}
-                </div>
+  {/* Price */}
+  <div className="text-center mb-6 sm:mb-8">
+    <div className="flex items-end justify-center gap-2 flex-wrap">
+      <span className="text-4xl sm:text-5xl lg:text-7xl font-extrabold text-[var(--color-primary-600)] leading-none">
+        ${isYearly ? "39" : "49"}
+      </span>
+      <span className="text-sm sm:text-lg text-[var(--text-tertiary)] mb-1">
+        /user/mo
+      </span>
+    </div>
 
-                <button className="w-full py-4 bg-gradient-to-r from-[var(--color-primary-600)] to-[var(--color-secondary-600)] text-white rounded-[var(--radius-xl)] font-bold hover:shadow-lg transition-all duration-300 flex items-center justify-center gap-2 group">
-                  Start Free Trial
-                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                </button>
+    {isYearly && (
+      <p className="text-xs sm:text-sm text-[var(--color-success-600)] font-medium mt-2">
+        Billed annually (Save 20%)
+      </p>
+    )}
 
-                <p className="text-center text-sm text-[var(--text-tertiary)] mt-4">
-                  14 days free • No credit card required
-                </p>
-              </div>
+    <div className="mt-3 sm:mt-4 flex justify-center">
+      <PricingToggle isYearly={isYearly} setIsYearly={setIsYearly} />
+    </div>
+  </div>
+
+  {/* Features */}
+  <div className="space-y-2 sm:space-y-3 mb-6 sm:mb-8">
+    {[
+      "Unlimited properties & channels",
+      "AI dynamic pricing",
+      "Advanced analytics & reporting",
+      "Priority support (2h response)",
+      "Full API access",
+      "Unlimited team members",
+    ].map((feature, i) => (
+      <div key={i} className="flex items-start gap-3">
+        <div className="w-4 h-4 sm:w-5 sm:h-5 rounded-full bg-[var(--color-success-100)] flex items-center justify-center flex-shrink-0 mt-0.5">
+          <Check className="w-2.5 h-2.5 sm:w-3 sm:h-3 text-[var(--color-success-600)]" />
+        </div>
+        <span className="text-sm sm:text-base text-[var(--text-primary)] font-medium">
+          {feature}
+        </span>
+      </div>
+    ))}
+  </div>
+
+  {/* CTA */}
+  <button className="w-full py-3 sm:py-4 bg-gradient-to-r from-[var(--color-primary-600)] to-[var(--color-secondary-600)] 
+  text-white rounded-[var(--radius-xl)] text-sm sm:text-base font-bold hover:shadow-lg 
+  transition-all duration-300 flex items-center justify-center gap-2 group">
+    Start Free Trial
+    <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" />
+  </button>
+
+  <p className="text-center text-xs sm:text-sm text-[var(--text-tertiary)] mt-3 sm:mt-4">
+    14 days free • No credit card required
+  </p>
+</div>
 
               {/* Floating Elements */}
               <motion.div 
                 animate={{ y: [0, -10, 0] }}
                 transition={{ duration: 4, repeat: Infinity }}
-                className="absolute -top-6 -right-6 w-20 h-20 bg-gradient-to-br from-transprant to-[var(--color-primary-700)] rounded-2xl flex items-center justify-center shadow-xl"
+                className="absolute -top-6 -right-4 sm:-right-6 w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-transprant to-[var(--color-primary-700)] rounded-2xl flex items-center justify-center shadow-xl"
               >
                 <Percent className="w-10 h-10 text-white" />
               </motion.div>  
@@ -627,7 +667,7 @@ export default function ProfessionalPlanPage() {
               <motion.div 
                 animate={{ y: [0, 10, 0] }}
                 transition={{ duration: 5, repeat: Infinity, delay: 1 }}
-                className="absolute -bottom-4 -left-4 w-16 h-16 bg-gradient-to-br from-[var(--color-primary-500)] to-[var(--color-secondary-500)] rounded-full flex items-center justify-center shadow-xl"
+                className="absolute -bottom-4 -left-2 sm:-left-4 w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-br from-[var(--color-primary-500)] to-[var(--color-secondary-500)] rounded-full flex items-center justify-center shadow-xl"
               >
                 <TrendingUp className="w-8 h-8 text-white" />
               </motion.div>

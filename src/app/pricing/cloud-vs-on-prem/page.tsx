@@ -130,7 +130,7 @@ const DeploymentCard = ({
   <div className={`relative rounded-2xl p-8 ${highlighted ? 'bg-[var(--color-primary-900)] text-white' : 'bg-white border border-[var(--border-light)]'}`}>
     {highlighted && (
       <div className="absolute -top-4 left-1/2 -translate-x-1/2">
-        <span className="px-4 py-1.5 rounded-full bg-[var(--color-primary-500)] text-white text-sm font-bold">
+        <span className="px-4 py-1.5 rounded-full bg-[var(--color-primary-500)] text-white text-xs sm:text-sm font-bold">
           Enterprise Standard
         </span>
       </div>

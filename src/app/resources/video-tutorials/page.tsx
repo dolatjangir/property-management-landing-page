@@ -297,7 +297,7 @@ const VideoPlayer = ({ tutorial, onClose }: { tutorial: VideoTutorial; onClose: 
                 initial={{ scale: 0.8, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
                 exit={{ scale: 0.8, opacity: 0 }}
-                className="relative z-10 w-20 h-20 bg-blue-600 rounded-full flex items-center justify-center shadow-2xl shadow-blue-600/40 group-hover:scale-110 transition-transform"
+                className="relative z-10 w-20 h-20 bg-[var(--color-primary-600)] rounded-full flex items-center justify-center shadow-2xl shadow-[var(--color-primary-600)]/40 group-hover:scale-110 transition-transform"
               >
                 <Play className="w-8 h-8 text-white fill-white ml-1" />
               </motion.div>
@@ -310,7 +310,7 @@ const VideoPlayer = ({ tutorial, onClose }: { tutorial: VideoTutorial; onClose: 
           {/* Progress Bar */}
           <div className="group h-1.5 bg-gray-700 rounded-full cursor-pointer mb-4 relative">
             <div 
-              className="absolute top-0 left-0 h-full bg-blue-500 rounded-full relative"
+              className="absolute top-0 left-0 h-full bg-[var(--color-primary-500)] rounded-full relative"
               style={{ width: `${progress}%` }}
             >
               <div className="absolute right-0 top-1/2 -translate-y-1/2 w-3 h-3 bg-white rounded-full shadow opacity-0 group-hover:opacity-100 transition-opacity" />
@@ -319,12 +319,12 @@ const VideoPlayer = ({ tutorial, onClose }: { tutorial: VideoTutorial; onClose: 
 
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-4">
-              <button onClick={togglePlay} className="text-white hover:text-blue-400 transition-colors">
+              <button onClick={togglePlay} className="text-white hover:text-[var(--color-primary-400)] transition-colors">
                 {isPlaying ? <Pause className="w-6 h-6 fill-current" /> : <Play className="w-6 h-6 fill-current" />}
               </button>
               
               <div className="flex items-center gap-2 group/volume">
-                <button onClick={toggleMute} className="text-white hover:text-blue-400">
+                <button onClick={toggleMute} className="text-white hover:text-[var(--color-primary-400)]">
                   {isMuted || volume === 0 ? <VolumeX className="w-5 h-5" /> : <Volume2 className="w-5 h-5" />}
                 </button>
                 <div className="w-0 overflow-hidden group-hover/volume:w-24 transition-all duration-300">
@@ -344,11 +344,11 @@ const VideoPlayer = ({ tutorial, onClose }: { tutorial: VideoTutorial; onClose: 
             </div>
 
             <div className="flex items-center gap-4">
-              <button className="text-sm font-medium text-white bg-blue-600/20 px-3 py-1 rounded border border-blue-500/30 hover:bg-blue-600/30 transition-colors">
+              <button className="text-sm font-medium text-white bg-[var(--color-primary-600)]/20 px-3 py-1 rounded border border-[var(--color-primary-500)]/30 hover:bg-[var(--color-primary-600)]/30 transition-colors">
                 1x
               </button>
-              <button className="text-white hover:text-blue-400"><Settings className="w-5 h-5" /></button>
-              <button className="text-white hover:text-blue-400"><Maximize className="w-5 h-5" /></button>
+              <button className="text-white hover:text-[var(--color-primary-400)]"><Settings className="w-5 h-5" /></button>
+              <button className="text-white hover:text-[var(--color-primary-400)]"><Maximize className="w-5 h-5" /></button>
             </div>
           </div>
         </div>
@@ -363,12 +363,12 @@ const VideoPlayer = ({ tutorial, onClose }: { tutorial: VideoTutorial; onClose: 
               key={tab}
               onClick={() => setActiveTab(tab as any)}
               className={`flex-1 py-4 text-sm font-medium capitalize transition-colors relative ${
-                activeTab === tab ? 'text-blue-600' : 'text-gray-500 hover:text-gray-700'
+                activeTab === tab ? 'text-[var(--color-primary-600)]' : 'text-[var(--color-secondary-500)] hover:text-[var(--color-secondary-700)]'
               }`}
             >
               {tab}
               {activeTab === tab && (
-                <motion.div layoutId="activeTab" className="absolute bottom-0 left-0 right-0 h-0.5 bg-blue-600" />
+                <motion.div layoutId="activeTab" className="absolute bottom-0 left-0 right-0 h-0.5 bg-[var(--color-primary-600)]" />
               )}
             </button>
           ))}
@@ -381,7 +381,7 @@ const VideoPlayer = ({ tutorial, onClose }: { tutorial: VideoTutorial; onClose: 
               <div>
                 <h3 className="text-lg font-bold text-gray-900 mb-1">{tutorial.title}</h3>
                 <div className="flex items-center gap-2 text-sm text-gray-500 mb-4">
-                  <span className="text-blue-600">{tutorial.instructor.name}</span>
+                  <span className="text-[var(--color-primary-600)]">{tutorial.instructor.name}</span>
                   <span>•</span>
                   <span>{tutorial.students.toLocaleString()} views</span>
                 </div>
@@ -395,12 +395,12 @@ const VideoPlayer = ({ tutorial, onClose }: { tutorial: VideoTutorial; onClose: 
                   >
                     <div className="flex-shrink-0 w-12 text-xs font-mono text-gray-400 pt-1">{step.timestamp}</div>
                     <div className="flex-1">
-                      <h4 className={`text-sm font-medium ${idx === 0 ? 'text-blue-600' : 'text-gray-700'}`}>
+                      <h4 className={`text-sm font-medium ${idx === 0 ? 'text-[var(--color-primary-600)]' : 'text-[var(--color-secondary-700)]'}`}>
                         {idx + 1}. {step.title}
                       </h4>
                       <p className="text-xs text-gray-500 mt-1 line-clamp-2">{step.description}</p>
                     </div>
-                    {idx === 0 && <div className="w-1.5 h-1.5 rounded-full bg-blue-600 mt-2" />}
+                    {idx === 0 && <div className="w-1.5 h-1.5 rounded-full bg-[var(--color-primary-600)] mt-2" />}
                   </div>
                 ))}
               </div>
@@ -414,19 +414,19 @@ const VideoPlayer = ({ tutorial, onClose }: { tutorial: VideoTutorial; onClose: 
                 <a 
                   key={idx} 
                   href={res.url} 
-                  className="flex items-center gap-3 p-4 rounded-xl bg-gray-50 border border-gray-200 hover:border-blue-300 hover:bg-blue-50 transition-all group"
+                  className="flex items-center gap-3 p-4 rounded-xl bg-[var(--color-secondary-200)] border border-[var(--color-secondary-200)] hover:border-[var(--color-primary-300)] hover:bg-blue-50 transition-all group"
                 >
-                  <div className="w-10 h-10 rounded-lg bg-gray-200 flex items-center justify-center group-hover:bg-blue-100 group-hover:text-blue-600 transition-colors text-gray-600">
+                  <div className="w-10 h-10 rounded-lg bg-[var(--color-secondary-200)] flex items-center justify-center group-hover:bg-[var(--color-primary-100)] group-hover:text-[var(--color-primary-600)] transition-colors text-[var(--color-secondary-600)]">
                     {res.type === 'pdf' && <FileText className="w-5 h-5" />}
                     {res.type === 'code' && <Code2 className="w-5 h-5" />}
                     {res.type === 'template' && <Download className="w-5 h-5" />}
                     {res.type === 'link' && <ExternalLink className="w-5 h-5" />}
                   </div>
                   <div className="flex-1">
-                    <h4 className="text-sm font-medium text-gray-800">{res.name}</h4>
-                    {res.size && <span className="text-xs text-gray-500">{res.size}</span>}
+                    <h4 className="text-sm font-medium text-[var(--color-secondary-800)]">{res.name}</h4>
+                    {res.size && <span className="text-xs text-[var(--color-secondary-500)]">{res.size}</span>}
                   </div>
-                  <Download className="w-4 h-4 text-gray-400 group-hover:text-blue-600" />
+                  <Download className="w-4 h-4 text-gray-400 group-hover:text-[var(--color-primary-600)]" />
                 </a>
               ))}
             </div>
@@ -434,10 +434,10 @@ const VideoPlayer = ({ tutorial, onClose }: { tutorial: VideoTutorial; onClose: 
 
           {activeTab === 'community' && (
             <div className="text-center py-10">
-              <MessageSquare className="w-12 h-12 text-gray-300 mx-auto mb-3" />
+              <MessageSquare className="w-12 h-12 text-[var(--color-secondary-300)] mx-auto mb-3" />
               <h3 className="text-gray-700 font-medium">Discussion Forum</h3>
               <p className="text-sm text-gray-500 mt-1">Ask questions and share tips with other learners.</p>
-              <button className="mt-4 px-4 py-2 bg-blue-600 text-white text-sm font-medium rounded-lg hover:bg-blue-700 transition-colors">
+              <button className="mt-4 px-4 py-2 bg-[var(--color-primary-600)] text-white text-sm font-medium rounded-lg hover:bg-[var(--color-primary-700)] transition-colors">
                 View Comments (12)
               </button>
             </div>
@@ -462,11 +462,11 @@ export default function VideoTutorialsPage() {
   });
 
   return (
-    <div className="min-h-screen  text-gray-800 font-sans ">
+    <div className="min-h-screen  text-[var(--color-secondary-800)] font-sans ">
       {/* selection:bg-blue-200 */}
       <Head>
-        <title>Video Academy | StayPilot</title>
-        <meta name="description" content="Master StayPilot with step-by-step video tutorials." />
+        <title>Video Academy | BNB Management</title>
+        <meta name="description" content="Master BNB Management with step-by-step video tutorials." />
       </Head>
 
      
@@ -477,8 +477,8 @@ export default function VideoTutorialsPage() {
         {/* Hero / Featured */}
         {!activeTutorial && (
           <section className="mb-12">
-            <div className="relative rounded-3xl overflow-hidden bg-white border border-gray-200 shadow-xl">
-              <div className="absolute inset-0 bg-gradient-to-r from-[var(--color-primary-300)]/50 to-indigo-100/50 mix-blend-multiply" />
+            <div className="relative rounded-3xl overflow-hidden bg-white border border-[var(--color-secondary-200)] shadow-xl">
+              <div className="absolute inset-0 bg-gradient-to-r from-[var(--color-primary-300)]/50 to-[var(--color-secondary-300)]/50 mix-blend-multiply" />
               <div className="absolute inset-0 bg-gradient-to-t from-white via-transparent to-transparent" />
               
               <div className="relative z-10 flex flex-col md:flex-row items-end md:items-center gap-8 p-8 md:p-12">

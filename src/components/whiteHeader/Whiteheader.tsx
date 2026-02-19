@@ -494,7 +494,7 @@ function WhiteHeader() {
         </div>
 
         <button
-          className="md:hidden p-2 text-[var(--text-secondary)]"
+          className="md:hidden p-2 text-white"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
         >
           {isMenuOpen ? (

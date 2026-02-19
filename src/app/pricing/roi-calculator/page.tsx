@@ -372,7 +372,7 @@ export default function ROICalculatorPage() {
 
       {/* 🎯 HERO SECTION */}
       <section className="relative py-16 bg-gradient-to-br from-[var(--bg-primary)] via-blue-50/50 to-[var(--bg-secondary)] border-b border-[var(--border-light)]">
-        <div className="max-w-7xl mx-auto px-[var(--space-4)] sm:px-[var(--space-6)] lg:px-[var(--space-8)]">
+        <div className="max-w-7xl mx-auto pt-6 px-[var(--space-4)] sm:px-[var(--space-6)] lg:px-[var(--space-8)]">
           <motion.div
             initial="hidden"
             animate="visible"
@@ -522,7 +522,7 @@ export default function ROICalculatorPage() {
               <motion.div variants={fadeInUp} className="bg-white rounded-2xl p-6 shadow-lg border border-[var(--border-light)]">
                 <h2 className="text-xl font-bold text-[var(--text-primary)] flex items-center gap-2 mb-6">
                   <Zap className="w-5 h-5 text-[var(--color-primary-600)]" />
-                  StayPilot Plan
+                  BNB property Plan
                 </h2>
 
                 <div className="space-y-4">
@@ -576,7 +576,7 @@ export default function ROICalculatorPage() {
               className="space-y-6"
             >
               {/* Main Result Cards */}
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <ResultCard
                   title="Annual ROI"
                   value={`${Math.round(calculations.roi)}%`}
@@ -874,30 +874,6 @@ export default function ROICalculatorPage() {
         </div>
       </section>
 
-      {/* 🦶 FOOTER */}
-      <footer className="py-12 bg-[var(--bg-primary)] border-t border-[var(--border-light)]">
-        <div className="max-w-7xl mx-auto px-[var(--space-4)] sm:px-[var(--space-6)] lg:px-[var(--space-8)]">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[var(--color-primary-600)] to-[var(--color-secondary-600)] flex items-center justify-center">
-                <Building2 className="w-6 h-6 text-white" />
-              </div>
-              <span className="text-xl font-bold text-[var(--text-primary)]">StayPilot</span>
-            </div>
-            
-            <div className="flex items-center gap-8 text-sm text-[var(--text-secondary)]">
-              <a href="#" className="hover:text-[var(--color-primary-600)] transition-colors">Privacy</a>
-              <a href="#" className="hover:text-[var(--color-primary-600)] transition-colors">Terms</a>
-              <a href="#" className="hover:text-[var(--color-primary-600)] transition-colors">Methodology</a>
-              <a href="#" className="hover:text-[var(--color-primary-600)] transition-colors">Contact</a>
-            </div>
-
-            <div className="text-sm text-[var(--text-tertiary)]">
-              © 2026 StayPilot. All rights reserved.
-            </div>
-          </div>
-        </div>
-      </footer>
     </div>
   )
 }

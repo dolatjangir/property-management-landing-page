@@ -565,12 +565,12 @@ print(booking.id)`
   }
 
   return (
-    <div className="prose prose-slate max-w-none pt-7">
+    <div className="prose prose-slate max-w-none pt-12">
       {/* Introduction */}
       {activeSection === 'introduction' && (
         <motion.div initial="hidden" animate="visible" variants={staggerContainer}>
           <motion.div variants={fadeInUp}>
-            <h1 className="text-4xl font-bold text-[var(--text-primary)] mb-4">Introduction</h1>
+            <h1 className="text-4xl font-bold text-[var(--color-primary-500)] mb-4">Introduction</h1>
             <p className="text-lg text-[var(--text-secondary)] mb-6">
               Welcome to the BNB property Management solution API documentation. Our REST API enables you to build powerful integrations 
               for property management, channel synchronization, booking automation, and revenue optimization.

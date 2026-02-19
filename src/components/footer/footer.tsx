@@ -22,7 +22,7 @@ function Footer() {
           <div className="lg:col-span-2">
             <Link href="/" className="flex items-center gap-3 mb-[var(--space-2)]">
               <img
-                src="/assets/bnb-green-logo.png"
+                src="/assets/green-logo.png"
                 width={200}
                 height={70}
                 alt="BNB"

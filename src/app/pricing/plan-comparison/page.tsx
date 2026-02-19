@@ -1899,11 +1899,12 @@ const GradientText = ({ children, className = "", variant = "primary" }: {
 
 // Badge Component
 
-const Badge = ({ children, variant = "primary", size = "md", glow = false }: { 
+const Badge = ({ children, variant = "primary", size = "md", glow = false ,className }: { 
   children: React.ReactNode
   variant?: "primary" | "secondary" | "accent" | "success" | "gold" | "dark"
   size?: "sm" | "md" | "lg"
   glow?: boolean
+  className?: string
 }) => {
   const sizes = {
     sm: "px-3 py-1 text-xs",
@@ -2179,7 +2180,7 @@ export default function PlanComparisonPage() {
             className="text-center max-w-4xl mx-auto"
           >
             <motion.div variants={fadeInUp} className="mb-6">
-              <Badge variant="primary" size="lg" glow>
+              <Badge variant="primary"  glow className="text-sm sm:text-lg">
                 <ScaleIcon className="w-4 h-4" />
                 Complete Feature Comparison
               </Badge>

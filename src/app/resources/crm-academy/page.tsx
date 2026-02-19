@@ -662,7 +662,7 @@ export default function CRMAcademyPage() {
   );
 
   return (
-    <div className="min-h-screen bg-[var(--bg-secondary)] text-[var(--text-primary)] font-sans">
+    <div className="min-h-screen bg-[var(--bg-secondary)] text-[var(--text-primary)]  font-sans">
       <Head>
         <title>CRM Academy | Free Certification Courses</title>
         <meta name="description" content="Master CRM with our free certification courses. From Foundation to Expert level." />
@@ -671,7 +671,7 @@ export default function CRMAcademyPage() {
      
 
       {/* Hero Banner */}
-      <div className="bg-[var(--bg-primary)] border-b border-[var(--border-light)]">
+      <div className="bg-[var(--bg-primary)] border-b pt-16 border-[var(--border-light)]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
           <div className="flex flex-col lg:flex-row gap-8">
             <div className="flex-1">
@@ -685,7 +685,7 @@ export default function CRMAcademyPage() {
                 </span>
               </div>
               
-              <h1 className="text-3xl lg:text-4xl font-bold text-[var(--text-primary)] mb-4 leading-tight">
+              <h1 className="text-3xl lg:text-4xl font-bold text-[var(--color-primary-600)] mb-4 leading-tight">
                 {activeCert.title}
               </h1>
               
