@@ -481,7 +481,7 @@ const FeatureGridSection = () => {
     <section className="py-24 ">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <h2 className="text-4xl lg:text-5xl font-bold text-[var(--text-primary)] mb-4">
+          <h2 className="text-4xl lg:text-5xl font-bold text-[var(--color-primary-500)] mb-4">
             Powerful Automation Tools
           </h2>
           <p className="text-lg text-[var(--text-secondary)]">
@@ -494,7 +494,7 @@ const FeatureGridSection = () => {
           {features.map((feature, idx) => (
             <div
               key={idx}
-              className="group relative bg-[var(--bg-secondary)] rounded-3xl p-8 border border-[var(--border-light)] hover:border-transparent transition-all duration-500 overflow-hidden"
+              className="group relative bg-[var(--color-primary-100)] rounded-3xl p-8 border border-[var(--border-light)] hover:border-transparent transition-all duration-500 overflow-hidden"
             >
               {/* Hover Gradient Background */}
               <div className={`absolute inset-0 bg-gradient-to-br ${feature.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-500`} />
@@ -516,7 +516,7 @@ const FeatureGridSection = () => {
                     <p className="text-2xl font-bold text-[var(--text-primary)]">{feature.stat}</p>
                     <p className="text-xs text-[var(--text-tertiary)]">{feature.statLabel}</p>
                   </div>
-                  <button className="w-10 h-10 rounded-full bg-[var(--bg-primary)] border border-[var(--border-medium)] flex items-center justify-center group-hover:bg-[var(--color-primary-600)] group-hover:text-white group-hover:border-transparent transition-all">
+                  <button className="w-10 h-10 rounded-full bg-[var(--bg-primary)] border border-[var(--border-medium)] flex items-center justify-center group-hover:bg-(--color-primary-600) group-hover:text-white text-[var(--color-primary-600)] group-hover:border-transparent transition-all">
                     <ArrowUpRight className="w-5 h-5" />
                   </button>
                 </div>
@@ -547,7 +547,7 @@ const IntegrationSection = () => {
     <section className="py-24  relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <h2 className="text-4xl font-bold text-[var(--text-primary)] mb-4">
+          <h2 className="text-4xl font-bold text-[var(--color-primary-500)] mb-4">
             Connects With Everything
           </h2>
           <p className="text-lg text-[var(--text-secondary)]">
@@ -767,7 +767,7 @@ const TestimonialsSection = () => {
     <section className="py-24 ">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <h2 className="text-4xl font-bold text-[var(--text-primary)] mb-4">
+          <h2 className="text-4xl font-bold text-[var(--color-primary-500)] mb-4">
             Loved by Hosts Worldwide
           </h2>
           <p className="text-lg text-[var(--text-secondary)]">
@@ -833,7 +833,7 @@ const CTASection = () => (
           <RocketIcon className="w-10 h-10 text-white" />
         </div>
 
-        <h2 className="text-4xl lg:text-5xl font-bold text-[var(--text-primary)] mb-6">
+        <h2 className="text-4xl lg:text-5xl font-bold text-[var(--color-primary-500)] mb-6">
           Ready to Automate Your Success?
         </h2>
         <p className="text-xl text-[var(--text-secondary)] mb-8 max-w-2xl mx-auto">
@@ -842,11 +842,11 @@ const CTASection = () => (
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
-          <button className="px-10 py-5 bg-gradient-to-r from-[var(--color-primary-600)] to-[var(--color-secondary-600)] text-white font-bold text-lg rounded-full hover:shadow-2xl hover:shadow-[var(--color-primary-500)]/40 hover:-translate-y-1 transition-all duration-300 flex items-center justify-center gap-2">
+          <button className="px-10 py-5 bg-gradient-to-r from-[var(--color-primary-600)] to-[var(--color-secondary-600)] text-white font-bold text-sm md:text-lg rounded-full hover:shadow-2xl hover:shadow-[var(--color-primary-500)]/40 hover:-translate-y-1 transition-all duration-300 flex items-center justify-center gap-2">
             Start Free Trial
             <ArrowRight className="w-5 h-5" />
           </button>
-          <button className="px-10 py-5 bg-[var(--bg-secondary)] text-[var(--text-primary)] font-bold text-lg rounded-full border border-[var(--border-medium)] hover:border-[var(--color-primary-300)] hover:shadow-lg transition-all">
+          <button className="px-10 py-5 bg-[var(--bg-secondary)] text-[var(--text-primary)] font-bold text-sm md:text-lg rounded-full border border-[var(--border-medium)] hover:border-[var(--color-primary-300)] hover:shadow-lg transition-all">
             Schedule Demo
           </button>
         </div>

@@ -123,31 +123,79 @@ const AutomationFlow = () => {
   }, []);
 
   return (
-    <div className="relative bg-[var(--bg-dark)] rounded-[var(--radius-3xl)] p-8 overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-br from-[var(--color-primary-900)]/20 to-[var(--color-secondary-900)]/20" />
-      
-      <div className="relative z-10 flex items-center justify-between gap-4">
-        {steps.map((step, idx) => (
-          <React.Fragment key={idx}>
-            <div className={`flex flex-col items-center transition-all duration-500 ${activeStep === idx ? 'scale-110' : 'opacity-50'}`}>
-              <div className={`w-16 h-16 rounded-full flex items-center justify-center mb-3 transition-colors duration-500 ${activeStep === idx ? 'bg-gradient-to-br from-[var(--color-primary-500)] to-[var(--color-secondary-500)]' : 'bg-[var(--color-neutral-700)]'}`}>
-                <step.icon className="w-7 h-7 text-white" />
-              </div>
-              <div className="text-white font-semibold text-sm">{step.label}</div>
-              <div className="text-[var(--text-tertiary)] text-xs mt-1">{step.desc}</div>
+    <div className="relative bg-[var(--bg-dark)] rounded-[var(--radius-3xl)] p-4 sm:p-6 lg:p-8 overflow-hidden">
+  
+  <div className="absolute inset-0 bg-gradient-to-br from-[var(--color-primary-900)]/20 to-[var(--color-secondary-900)]/20" />
+
+  <div className="relative z-10 flex flex-col sm:flex-row lg:items-center lg:justify-between gap-6 lg:gap-4">
+    
+    {steps.map((step, idx) => (
+      <React.Fragment key={idx}>
+        
+        {/* STEP */}
+        <div
+          className={`flex flex-col items-center text-center transition-all duration-500 ${
+            activeStep === idx ? "scale-105 sm:scale-110" : "opacity-60"
+          }`}
+        >
+          <div
+            className={`w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 rounded-full flex items-center justify-center mb-2 sm:mb-3 transition-colors duration-500 ${
+              activeStep === idx
+                ? "bg-gradient-to-br from-[var(--color-primary-500)] to-[var(--color-secondary-500)]"
+                : "bg-[var(--color-neutral-700)]"
+            }`}
+          >
+            <step.icon className="w-5 h-5 sm:w-6 sm:h-6 lg:w-7 lg:h-7 text-white" />
+          </div>
+
+          <div className="text-white font-semibold text-xs sm:text-sm">
+            {step.label}
+          </div>
+
+          <div className="text-[var(--text-tertiary)] text-[10px] sm:text-xs mt-1 max-w-[120px] sm:max-w-none">
+            {step.desc}
+          </div>
+        </div>
+
+        {/* CONNECTOR */}
+        {idx < steps.length - 1 && (
+          <>
+            {/* Vertical line for mobile */}
+            <div className="sm:hidden w-0.5 h-6 mx-auto bg-[var(--color-neutral-700)] relative overflow-hidden">
+              <div
+                className="absolute bottom-0 left-0 right-0 bg-gradient-to-b from-[var(--color-primary-500)] to-[var(--color-secondary-500)] transition-all duration-1000"
+                style={{
+                  height:
+                    activeStep > idx
+                      ? "100%"
+                      : activeStep === idx
+                      ? "50%"
+                      : "0%",
+                }}
+              />
             </div>
-            {idx < steps.length - 1 && (
-              <div className="flex-1 h-0.5 bg-[var(--color-neutral-700)] relative overflow-hidden">
-                <div 
-                  className="absolute inset-0 bg-gradient-to-r from-[var(--color-primary-500)] to-[var(--color-secondary-500)] transition-all duration-1000"
-                  style={{ width: activeStep > idx ? '100%' : activeStep === idx ? '50%' : '0%' }}
-                />
-              </div>
-            )}
-          </React.Fragment>
-        ))}
-      </div>
-    </div>
+
+            {/* Horizontal line for desktop */}
+            <div className="hidden lg:block flex-1 h-0.5 bg-[var(--color-neutral-700)] relative overflow-hidden">
+              <div
+                className="absolute inset-0 bg-gradient-to-r from-[var(--color-primary-500)] to-[var(--color-secondary-500)] transition-all duration-1000"
+                style={{
+                  width:
+                    activeStep > idx
+                      ? "100%"
+                      : activeStep === idx
+                      ? "50%"
+                      : "0%",
+                }}
+              />
+            </div>
+          </>
+        )}
+      </React.Fragment>
+    ))}
+  </div>
+</div>
+
   );
 };
 
@@ -213,8 +261,8 @@ const FAQItem = ({ question, answer, isOpen, onClick }: { question: string; answ
       onClick={onClick}
       className="w-full flex items-center justify-between p-6 text-left hover:bg-[var(--bg-secondary)] transition-colors"
     >
-      <span className="font-semibold text-lg text-[var(--text-primary)] pr-8">{question}</span>
-      <div className={`w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 ${isOpen ? 'bg-[var(--color-primary-600)] text-white rotate-180' : 'bg-[var(--bg-secondary)] text-[var(--text-secondary)]'}`}>
+      <span className="font-semibold text-sm md:text-md lg:text-lg text-[var(--text-primary)] pr-3 md:pr-6 lg:pr-8">{question}</span>
+      <div className={`min-w-10 min-h-10 rounded-full flex items-center justify-center transition-all duration-300 ${isOpen ? 'bg-[var(--color-primary-600)] text-white rotate-180' : 'bg-[var(--bg-secondary)] text-[var(--text-secondary)]'}`}>
         <ChevronDown className="w-5 h-5" />
       </div>
     </button>
@@ -349,116 +397,201 @@ const InstantActionsPage = () => {
 
     
       {/* Hero Section */}
-      <section className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
-        {/* Background Effects */}
-        <div className="absolute inset-0 bg-gradient-to-br from-[var(--color-primary-50)] via-white to-[var(--color-secondary-50)]" />
-        <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-gradient-to-br from-[var(--color-primary-200)] to-[var(--color-secondary-200)] rounded-full blur-3xl opacity-30 -translate-y-1/2 translate-x-1/4" />
-        <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-gradient-to-tr from-[var(--color-secondary-200)] to-[var(--color-primary-200)] rounded-full blur-3xl opacity-30 translate-y-1/2 -translate-x-1/4" />
-        
-        <div className="relative z-10 max-w-7xl mx-auto px-6">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[var(--color-primary-100)] text-[var(--color-primary-700)] font-semibold text-sm mb-6 border border-[var(--color-primary-200)]">
-                <Sparkles className="w-4 h-4" />
-                New: AI-Powered Trigger Suggestions
-              </div>
-              
-              <h1 className="text-5xl lg:text-7xl font-bold leading-tight mb-6">
-                Automation That <br />
-                <GradientText>Reacts Instantly</GradientText>
-              </h1>
-              
-              <p className="text-xl text-[var(--text-secondary)] mb-8 leading-relaxed max-w-xl">
-                Build powerful trigger-based workflows that execute in milliseconds. Connect your entire tech stack, eliminate manual tasks, and scale operations without writing a single line of code.
-              </p>
+<section className="relative pt-20 pb-14 sm:pt-24 sm:pb-16 lg:pt-48 lg:pb-32 overflow-hidden">
 
-              <div className="flex flex-wrap gap-4 mb-12">
-                <button className="px-8 py-4 bg-gradient-to-r from-[var(--color-primary-600)] to-[var(--color-secondary-600)] text-white font-bold rounded-full hover:shadow-xl hover:shadow-[var(--color-primary-500)]/30 transition-all hover:-translate-y-1 flex items-center gap-2">
-                  Start Building Free
-                  <ArrowRight className="w-5 h-5" />
-                </button>
-                <button className="px-8 py-4 bg-white text-[var(--text-primary)] font-bold rounded-full border-2 border-[var(--border-medium)] hover:border-[var(--color-primary-300)] hover:bg-[var(--color-primary-50)] transition-all flex items-center gap-2">
-                  <Play className="w-5 h-5" />
-                  Watch Demo
-                </button>
-              </div>
+  {/* Background Effects */}
+  <div className="absolute inset-0 bg-gradient-to-br from-[var(--color-primary-50)] via-white to-[var(--color-secondary-50)]" />
 
-              <div className="flex items-center gap-6 text-sm text-[var(--text-tertiary)]">
-                <div className="flex items-center gap-2">
-                  <Check className="w-5 h-5 text-[var(--color-success-500)]" />
-                  Free 14-day trial
-                </div>
-                <div className="flex items-center gap-2">
-                  <Check className="w-5 h-5 text-[var(--color-success-500)]" />
-                  No credit card required
-                </div>
-                <div className="flex items-center gap-2">
-                  <Check className="w-5 h-5 text-[var(--color-success-500)]" />
-                  Cancel anytime
-                </div>
-              </div>
+  <div className="absolute top-0 right-0 w-[250px] h-[250px] sm:w-[400px] sm:h-[400px] lg:w-[800px] lg:h-[800px] bg-gradient-to-br from-[var(--color-primary-200)] to-[var(--color-secondary-200)] rounded-full blur-3xl opacity-30 -translate-y-1/2 translate-x-1/4" />
+
+  <div className="absolute bottom-0 left-0 w-[200px] h-[200px] sm:w-[300px] sm:h-[300px] lg:w-[600px] lg:h-[600px] bg-gradient-to-tr from-[var(--color-secondary-200)] to-[var(--color-primary-200)] rounded-full blur-3xl opacity-30 translate-y-1/2 -translate-x-1/4" />
+
+  <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6">
+    <div className="grid lg:grid-cols-2 gap-10 sm:gap-12 lg:gap-16 items-center">
+
+     {/* LEFT CONTENT */}
+<div
+  className={`transition-all duration-1000 ${
+    isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+  }`}
+>
+  {/* Badge */}
+  <div className="inline-flex items-center gap-2 px-3 py-2 rounded-full 
+  bg-[var(--color-primary-100)] text-[var(--color-primary-700)] 
+  font-semibold text-[10px] xs:text-xs sm:text-sm 
+  mb-4 sm:mb-6 border border-[var(--color-primary-200)]">
+    <Sparkles className="w-4 h-4" />
+    New: AI-Powered Trigger Suggestions
+  </div>
+
+  {/* Heading */}
+  <h1 className="
+    font-bold leading-tight 
+    text-[clamp(1.8rem,5vw,2.4rem)] 
+    sm:text-4xl lg:text-7xl 
+    mb-4 sm:mb-6
+  ">
+    Automation That{" "}
+    <span className="block">
+      <GradientText>Reacts Instantly</GradientText>
+    </span>
+  </h1>
+
+  {/* Description */}
+  <p  className="
+    text-xl text-[var(--text-secondary)] max-w-2xl leading-relaxed
+  ">
+    Build powerful trigger-based workflows that execute in milliseconds.
+    Connect your entire tech stack, eliminate manual tasks, and scale
+    operations without writing a single line of code.
+  </p>
+
+  {/* Buttons */}
+  <div className="flex flex-col xs:flex-row gap-3 sm:gap-4 mb-8 lg:mb-12">
+    
+    <button className="
+      w-full sm:w-auto
+      px-5 py-3 sm:px-6 sm:py-3 lg:px-8 lg:py-4
+      text-sm sm:text-base
+      bg-gradient-to-r from-[var(--color-primary-600)] to-[var(--color-secondary-600)] 
+      text-white font-bold rounded-full
+      hover:shadow-xl hover:shadow-[var(--color-primary-500)]/30
+      transition-all hover:-translate-y-1
+      flex items-center justify-center gap-2
+    ">
+      Start Building Free
+      <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
+    </button>
+
+    <button className="
+      w-full sm:w-auto
+      px-5 py-3 sm:px-6 sm:py-3 lg:px-8 lg:py-4
+      text-sm sm:text-base
+      bg-white text-[var(--text-primary)] font-bold rounded-full
+      border-2 border-[var(--border-medium)]
+      hover:border-[var(--color-primary-300)]
+      hover:bg-[var(--color-primary-50)]
+      transition-all
+      flex items-center justify-center gap-2
+    ">
+      <Play className="w-4 h-4 sm:w-5 sm:h-5" />
+      Watch Demo
+    </button>
+
+  </div>
+
+  {/* Features */}
+  <div className="
+    flex flex-col xs:flex-row xs:flex-wrap
+    gap-2 xs:gap-3 sm:gap-6
+    text-[11px] xs:text-xs sm:text-sm
+    text-[var(--text-tertiary)]
+  ">
+    <div className="flex items-center gap-2">
+      <Check className="w-4 h-4 sm:w-5 sm:h-5 text-[var(--color-success-500)] flex-shrink-0" />
+      Free 14-day trial
+    </div>
+
+    <div className="flex items-center gap-2">
+      <Check className="w-4 h-4 sm:w-5 sm:h-5 text-[var(--color-success-500)] flex-shrink-0" />
+      No credit card required
+    </div>
+
+    <div className="flex items-center gap-2">
+      <Check className="w-4 h-4 sm:w-5 sm:h-5 text-[var(--color-success-500)] flex-shrink-0" />
+      Cancel anytime
+    </div>
+  </div>
+</div>
+
+
+      {/* RIGHT CONTENT */}
+      <div className={`relative transition-all duration-1000 delay-300 ${
+          isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+        }`}
+      >
+        <div className="relative rounded-[var(--radius-3xl)] overflow-hidden shadow-2xl border border-[var(--border-light)] bg-white">
+          <div className="bg-[var(--bg-secondary)] px-4 py-3 border-b border-[var(--border-light)] flex items-center gap-2">
+            <div className="flex gap-2">
+              <div className="w-3 h-3 rounded-full bg-red-400" />
+              <div className="w-3 h-3 rounded-full bg-yellow-400" />
+              <div className="w-3 h-3 rounded-full bg-green-400" />
             </div>
+            <div className="ml-4 text-xs text-[var(--text-tertiary)] font-mono">
+              Workflow Builder
+            </div>
+          </div>
 
-            <div className={`relative transition-all duration-1000 delay-300 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-              <div className="relative rounded-[var(--radius-3xl)] overflow-hidden shadow-2xl border border-[var(--border-light)] bg-white">
-                <div className="bg-[var(--bg-secondary)] px-4 py-3 border-b border-[var(--border-light)] flex items-center gap-2">
-                  <div className="flex gap-2">
-                    <div className="w-3 h-3 rounded-full bg-red-400" />
-                    <div className="w-3 h-3 rounded-full bg-yellow-400" />
-                    <div className="w-3 h-3 rounded-full bg-green-400" />
-                  </div>
-                  <div className="ml-4 text-xs text-[var(--text-tertiary)] font-mono">Workflow Builder</div>
+          <div className="p-4 sm:p-6 space-y-4">
+            <AutomationFlow />
+
+            <div className="mt-4 sm:mt-6 p-4 rounded-[var(--radius-xl)] bg-[var(--color-primary-50)] border border-[var(--color-primary-200)]">
+              <div className="flex items-center gap-3 mb-3">
+                <div className="w-8 h-8 rounded-full bg-[var(--color-primary-600)] flex items-center justify-center">
+                  <Zap className="w-4 h-4 text-white" />
                 </div>
-                
-                <div className="p-6 space-y-4">
-                  <AutomationFlow />
-                  
-                  <div className="mt-6 p-4 rounded-[var(--radius-xl)] bg-[var(--color-primary-50)] border border-[var(--color-primary-200)]">
-                    <div className="flex items-center gap-3 mb-3">
-                      <div className="w-8 h-8 rounded-full bg-[var(--color-primary-600)] flex items-center justify-center">
-                        <Zap className="w-4 h-4 text-white" />
-                      </div>
-                      <div>
-                        <div className="font-semibold text-[var(--text-primary)]">Workflow Executed</div>
-                        <div className="text-xs text-[var(--text-tertiary)]">2 seconds ago</div>
-                      </div>
-                      <Badge variant="success">Success</Badge>
-                    </div>
-                    <div className="text-sm text-[var(--text-secondary)]">
-                      Lead <span className="font-mono text-[var(--color-primary-600)]">#4829</span> qualified and routed to Sales Team A
-                    </div>
+
+                <div className="flex-1">
+                  <div className="font-semibold text-sm sm:text-base text-[var(--text-primary)]">
+                    Workflow Executed
+                  </div>
+                  <div className="text-xs text-[var(--text-tertiary)]">
+                    2 seconds ago
                   </div>
                 </div>
+
+                <Badge variant="success">Success</Badge>
               </div>
 
-              {/* Floating Stats */}
-              <div className="absolute -bottom-6 -left-6 bg-white rounded-[var(--radius-2xl)] p-4 shadow-xl border border-[var(--border-light)]">
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-[var(--color-success-100)] flex items-center justify-center">
-                    <TrendingUp className="w-5 h-5 text-[var(--color-success-600)]" />
-                  </div>
-                  <div>
-                    <div className="text-2xl font-bold text-[var(--text-primary)]">98.5%</div>
-                    <div className="text-xs text-[var(--text-tertiary)]">Uptime</div>
-                  </div>
-                </div>
-              </div>
-
-              <div className="absolute -top-6 -right-6 bg-white rounded-[var(--radius-2xl)] p-4 shadow-xl border border-[var(--border-light)]">
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-[var(--color-primary-100)] flex items-center justify-center">
-                    <Clock className="w-5 h-5 text-[var(--color-primary-600)]" />
-                  </div>
-                  <div>
-                    <div className="text-2xl font-bold text-[var(--text-primary)]">50ms</div>
-                    <div className="text-xs text-[var(--text-tertiary)]">Avg Response</div>
-                  </div>
-                </div>
+              <div className="text-xs sm:text-sm text-[var(--text-secondary)]">
+                Lead{" "}
+                <span className="font-mono text-[var(--color-primary-600)]">
+                  #4829
+                </span>{" "}
+                qualified and routed to Sales Team A
               </div>
             </div>
           </div>
         </div>
-      </section>
+
+        {/* Floating Stats (Hide on mobile) */}
+        <div className="hidden md:block absolute -bottom-6 -left-6 bg-white rounded-[var(--radius-2xl)] p-4 shadow-xl border border-[var(--border-light)]">
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 rounded-full bg-[var(--color-success-100)] flex items-center justify-center">
+              <TrendingUp className="w-5 h-5 text-[var(--color-success-600)]" />
+            </div>
+            <div>
+              <div className="text-2xl font-bold text-[var(--text-primary)]">
+                98.5%
+              </div>
+              <div className="text-xs text-[var(--text-tertiary)]">
+                Uptime
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="hidden md:block absolute -top-6 -right-6 bg-white rounded-[var(--radius-2xl)] p-4 shadow-xl border border-[var(--border-light)]">
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 rounded-full bg-[var(--color-primary-100)] flex items-center justify-center">
+              <Clock className="w-5 h-5 text-[var(--color-primary-600)]" />
+            </div>
+            <div>
+              <div className="text-2xl font-bold text-[var(--text-primary)]">
+                50ms
+              </div>
+              <div className="text-xs text-[var(--text-tertiary)]">
+                Avg Response
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
 
       {/* Stats Bar */}
       <section className="py-12  border-y border-[var(--border-light)]">
@@ -499,7 +632,7 @@ const InstantActionsPage = () => {
         <div className="relative z-10 max-w-7xl mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div>
-              <h2 className="text-4xl lg:text-5xl font-bold mb-6 text-[var(--color-primary-700)]">
+              <h2 className="text-4xl lg:text-5xl font-bold mb-6 ">
                 Visual Workflow Builder
               </h2>
               <p className="text-xl text-[var(--color-primary-100)] mb-8 leading-relaxed">
@@ -576,14 +709,14 @@ const InstantActionsPage = () => {
 
                   <div className="grid grid-cols-2 gap-4">
                     <div className="p-4 rounded-[var(--radius-xl)] bg-green-500/10 border border-green-500/30">
-                      <div className="flex items-center gap-2 mb-2">
+                      <div className="flex flex-col sm:flex-row items-center gap-2 mb-2">
                         <Mail className="w-4 h-4 text-green-400" />
                         <span className="text-sm font-semibold text-green-400">Send to Sales</span>
                       </div>
                       <div className="text-xs text-[var(--text-tertiary)]">Priority: High</div>
                     </div>
                     <div className="p-4 rounded-[var(--radius-xl)] bg-yellow-500/10 border border-yellow-500/30">
-                      <div className="flex items-center gap-2 mb-2">
+                      <div className="flex flex-col sm:flex-row items-center gap-2 mb-2">
                         <Clock className="w-4 h-4 text-yellow-400" />
                         <span className="text-sm font-semibold text-yellow-400">Nurture Sequence</span>
                       </div>

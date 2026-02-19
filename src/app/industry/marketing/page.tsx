@@ -320,7 +320,7 @@ const ProcessStep = ({ number, title, description, icon: Icon, color = "primary"
   const colorMap = {
     primary: "from-[var(--color-primary-500)] to-[var(--color-primary-600)]",
     secondary: "from-[var(--color-secondary-500)] to-[var(--color-secondary-600)]",
-    accent: "from-[var(--color-accent-500)] to-[var(--color-accent-600)]"
+    accent: "from-[var(--color-primary-500)] to-[var(--color-secondary-600)]"
   }
 
   return (
@@ -590,15 +590,15 @@ const Icon = tabContent[activeTab].icon;
 
               <motion.h1 
                 variants={fadeInLeft}
-                className="text-6xl sm:text-7xl lg:text-8xl font-bold leading-[0.95] tracking-tight"
+                className="text-4xl sm:text-7xl lg:text-8xl font-bold leading-[0.95] tracking-tight"
               >
                 Align Your <br />
-                <GradientText variant="secondary">Revenue Teams</GradientText>
+                <GradientText variant="primary">Revenue Teams</GradientText>
               </motion.h1>
 
               <motion.p 
                 variants={fadeInLeft}
-                className="text-2xl text-[var(--text-secondary)] max-w-2xl leading-relaxed"
+                className="text-xl text-[var(--text-secondary)] max-w-2xl leading-relaxed"
               >
                 Unify sales and marketing with a single platform for lead generation, 
                 scoring, nurturing, and attribution. Stop losing deals to misalignment.
@@ -624,8 +624,8 @@ const Icon = tabContent[activeTab].icon;
                 </motion.button>
               </motion.div>
 
-              <motion.div variants={fadeInLeft} className="flex items-center gap-8 pt-6">
-                <div className="flex items-center gap-3">
+              <motion.div variants={fadeInLeft} className="flex flex-col sm:flex-row items-center sm:gap-8 pt-6">
+                <div className="flex items-center  gap-3">
                   <div className="flex -space-x-3">
                     {[1,2,3,4,5].map((i) => (
                       <div key={i} className="w-10 h-10 rounded-full bg-gradient-to-br from-[var(--color-primary-400)] to-[var(--color-secondary-400)] border-2 border-white flex items-center justify-center text-white text-xs font-bold">
@@ -637,7 +637,7 @@ const Icon = tabContent[activeTab].icon;
                     <strong className="text-[var(--color-primary-600)]">3,500+ teams</strong> aligned
                   </div>
                 </div>
-                <div className="h-8 w-px bg-[var(--border-medium)]" />
+                <div className="h-8  w-px sm:bg-[var(--border-medium)]" />
                 <div className="flex items-center gap-1">
                   {[...Array(5)].map((_, i) => (
                     <Star key={i} className="w-5 h-5 fill-[var(--color-warning-500)] text-[var(--color-warning-500)]" />
@@ -722,7 +722,7 @@ const Icon = tabContent[activeTab].icon;
               <motion.div 
                 animate={{ y: [0, 15, 0], x: [0, 10, 0] }}
                 transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-                className="absolute bottom-20 -left-8 w-64"
+                className="absolute bottom-20 -left-8 w-64 hidden sm:block"
               >
                 <GlassCard className="p-4" hover={false}>
                   <div className="flex items-center gap-3">
@@ -741,7 +741,7 @@ const Icon = tabContent[activeTab].icon;
               <motion.div 
                 animate={{ y: [0, -15, 0], x: [0, -10, 0] }}
                 transition={{ duration: 7, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-                className="absolute top-40 -left-12 w-56"
+                className="absolute top-40 -left-12 w-56 hidden sm:block"
               >
                 <GlassCard className="p-4" hover={false}>
                   <div className="flex items-center gap-3">
@@ -760,7 +760,7 @@ const Icon = tabContent[activeTab].icon;
               <motion.div 
                 animate={{ y: [0, 20, 0] }}
                 transition={{ duration: 8, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
-                className="absolute bottom-40 right-0 w-60"
+                className="absolute bottom-40 right-0 w-60 hidden sm:block"
               >
                 <GlassCard className="p-4" hover={false}>
                   <div className="flex items-center gap-3">
@@ -962,7 +962,7 @@ const Icon = tabContent[activeTab].icon;
 
       {/* 📊 METRICS GRID - Large Stats */}
       <section className="py-20 bg-gradient-to-r from-[var(--color-primary-600)] to-[var(--color-secondary-600)] text-white relative overflow-hidden">
-        <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10" />
+        <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-20" />
         
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div 
@@ -970,7 +970,7 @@ const Icon = tabContent[activeTab].icon;
             whileInView="visible"
             viewport={{ once: true }}
             variants={staggerContainer}
-            className="grid grid-cols-2 lg:grid-cols-4 gap-8"
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8"
           >
             {metrics.map((metric, idx) => (
               <motion.div key={idx} variants={fadeInUp} className="text-center">
@@ -995,7 +995,7 @@ const Icon = tabContent[activeTab].icon;
               See It In Action
             </Badge>
             <motion.h2 variants={fadeInUp} className="text-4xl sm:text-5xl font-bold mt-6 mb-6 text-[var(--text-primary)]">
-              End-to-End <GradientText variant="secondary">Revenue Workflow</GradientText>
+              End-to-End <GradientText variant="primary">Revenue Workflow</GradientText>
             </motion.h2>
           </motion.div>
 
@@ -1115,8 +1115,8 @@ const Icon = tabContent[activeTab].icon;
 
       {/* 🌟 TESTIMONIALS - Masonry Style */}
       <section className="py-24 bg-gradient-to-br from-[var(--color-neutral-900)] to-[var(--color-primary-900)] text-white relative overflow-hidden">
-        <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-5" />
-        <div className="absolute top-0 left-0 w-96 h-96 bg-[var(--color-primary-500)] rounded-full blur-3xl opacity-20" />
+        <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-20" />
+        <div className="absolute top-0 left-0 w-96 h-96 bg-[var(--color-primary-500)] rounded-full blur-3xl opacity-30" />
         
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div 

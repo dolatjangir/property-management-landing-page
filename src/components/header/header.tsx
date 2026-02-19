@@ -359,7 +359,7 @@ const toggleMobileItem = (label: string) => {
               boxShadow: "0 10px 15px -3px var(--color-primary-600)/25",
             }}
           >
-           <Link href="/">  <img width={220} height={220} src="/assets/bnb-green-logo.png" /></Link>
+           <Link href="/">  <img width={200} height={200} src="/assets/green-logo.png" /></Link>
           </div>
         </div>
 
@@ -527,7 +527,7 @@ const toggleMobileItem = (label: string) => {
  <Link href="/">  <img width={220} height={220} src="/assets/bnb-green-logo.png" /></Link>
  <div onClick={() => {setIsMenuOpen(!isMenuOpen)
   setOpenMobileItem(null)}
- } className={`  w-fit absolute p-1 right-2 shadow-xl rounded-md bg-[var(--color-primary-100)] ${isMenuOpen ? 'block' : 'hidden'}`}> <X className="w-6 h-6" /></div></div>
+ } className={`  w-fit absolute p-1 right-2 shadow-xl rounded-md bg-[var(--color-primary-100)] ${isMenuOpen ? 'block' : 'hidden'}`}> <X className="w-6 h-6 text-[var(--color-primary-800)]" /></div></div>
     <div className="px-[var(--space-4)] py-[var(--space-6)] space-y-6">
 
       {navItems.map((item) => (
@@ -596,13 +596,15 @@ const toggleMobileItem = (label: string) => {
       {/* <hr className="border-[var(--border-light)]" /> */}
 <div className='sticky bottom-0 bg-[var(--color-primary-50)] border-t border-neutral-50'>
       {/* Auth Buttons */}
+      <Link href="https://bnb.ibigdata.in/admin" target='_blank'>
       <button className="w-full py-[var(--space-3)] text-[var(--text-secondary)] font-medium">
         Log in
       </button>
-
+      </Link>
+      <Link href="https://bnb.ibigdata.in/register" target='_blank'>
       <button className="w-full py-[var(--space-3)] bg-[var(--color-primary-600)] text-[var(--text-inverse)] font-semibold rounded-[var(--radius-xl)]">
         Start Free Trial
-      </button>
+      </button></Link>
       </div>
     </div>
   </div>

@@ -368,37 +368,54 @@ const ComparisonTable = () => {
   ];
 
   return (
-    <div className="overflow-hidden rounded-[var(--radius-3xl)] shadow-xl border border-[var(--border-light)]">
-      <div className="bg-[var(--bg-primary)]">
-        <div className="grid grid-cols-3 gap-4 p-6 border-b border-[var(--border-light)]">
-          <div className="font-semibold text-[var(--text-primary)]">Feature</div>
-          <div className="font-semibold text-[var(--text-secondary)] text-center">
-            Self-Managed
-          </div>
-          <div className="font-semibold text-[var(--color-primary-600)] text-center">
-            With StayPilot
-          </div>
-        </div>
-        {comparisons.map((item, idx) => (
-          <div
-            key={idx}
-            className="grid grid-cols-3 gap-4 p-6 border-b border-[var(--border-light)] last:border-0 hover:bg-[var(--bg-secondary)] transition-colors"
-          >
-            <div className="flex items-center gap-3 text-[var(--text-primary)]">
-              <span className="text-[var(--color-primary-500)]">{item.icon}</span>
-              {item.feature}
-            </div>
-            <div className="text-center text-[var(--text-tertiary)] text-sm">
-              {item.alone}
-            </div>
-            <div className="text-center text-[var(--color-success-600)] font-medium text-sm flex items-center justify-center gap-2">
-              <CheckCircle2 className="w-4 h-4" />
-              {item.withUs}
-            </div>
-          </div>
-        ))}
+   <div className="overflow-hidden rounded-[var(--radius-3xl)] shadow-xl border border-[var(--border-light)]">
+  <div className="bg-[var(--bg-primary)]">
+    
+    {/* Header */}
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-4 p-4 md:p-6 border-b border-[var(--border-light)]">
+      <div className="font-semibold text-[var(--text-primary)]">
+        Feature
+      </div>
+
+      <div className="font-semibold text-[var(--text-secondary)] md:text-center">
+        Self-Managed
+      </div>
+
+      <div className="font-semibold text-[var(--color-primary-600)] md:text-center">
+        With BNBPMS
       </div>
     </div>
+
+    {comparisons.map((item, idx) => (
+      <div
+        key={idx}
+        className="grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-4 p-4 md:p-6 border-b border-[var(--border-light)] last:border-0 hover:bg-[var(--bg-secondary)] transition-colors"
+      >
+        {/* Feature */}
+        <div className="flex flex-col md:flex-row items-center md:gap-3 text-[var(--text-primary)]">
+          <span className="text-[var(--color-primary-500)]">
+            {item.icon}
+          </span>
+          <span className="text-xs md:text-lg text-center md:text-left">
+            {item.feature}
+          </span>
+        </div>
+
+        {/* Self Managed */}
+        <div className="text-center md:text-center text-[var(--text-tertiary)] text-sm">
+          {item.alone}
+        </div>
+
+        {/* With Us */}
+        <div className="text-center text-[var(--color-success-600)] font-medium text-sm flex items-center justify-center gap-2">
+          <CheckCircle2 className="w-4 h-4" />
+          {item.withUs}
+        </div>
+      </div>
+    ))}
+  </div>
+</div>
+
   );
 };
 
@@ -858,7 +875,7 @@ const SalesPipelinePage = () => {
             </div>
             <div>
               <h2 className="text-3xl font-bold text-[var(--text-primary)] mb-4">
-                Why Choose StayPilot?
+                Why Choose BNB property management?
               </h2>
               <p className="text-[var(--text-secondary)] mb-8">
                 See how we compare to managing your property alone.
@@ -873,7 +890,7 @@ const SalesPipelinePage = () => {
       <section className="py-20 ">
         <div className="max-w-5xl mx-auto px-[var(--space-4)] sm:px-[var(--space-6)] lg:px-[var(--space-8)]">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-[var(--text-primary)] mb-4">
+            <h2 className="text-3xl font-bold text-[var(--color-primary-600)] mb-4">
               Strategic Pipeline Overview
             </h2>
             <p className="text-[var(--text-secondary)]">
@@ -882,87 +899,97 @@ const SalesPipelinePage = () => {
           </div>
 
           <div className="bg-[var(--bg-primary)] rounded-[var(--radius-3xl)] shadow-xl overflow-hidden border border-[var(--border-light)]">
-            <table className="w-full">
-              <thead className="bg-[var(--bg-secondary)]">
-                <tr>
-                  <th className="text-left p-6 font-semibold text-[var(--text-primary)]">
-                    Stage
-                  </th>
-                  <th className="text-left p-6 font-semibold text-[var(--text-primary)]">
-                    Owner Action
-                  </th>
-                  <th className="text-left p-6 font-semibold text-[var(--text-primary)]">
-                    Value Delivered
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                {[
-                  {
-                    stage: "Prospecting",
-                    action: "Fill out lead form",
-                    value: "Initial interest captured",
-                    color: "var(--color-primary-100)",
-                  },
-                  {
-                    stage: "Qualification",
-                    action: "Strategy call",
-                    value: "Fit assessment & potential",
-                    color: "var(--color-secondary-100)",
-                  },
-                  {
-                    stage: "Proposal",
-                    action: "Review projections",
-                    value: "Clear revenue numbers",
-                    color: "var(--color-success-100)",
-                  },
-                  {
-                    stage: "Negotiation",
-                    action: "Sign agreement",
-                    value: "Security & trust",
-                    color: "var(--color-warning-100)",
-                  },
-                  {
-                    stage: "Close",
-                    action: "Onboarding",
-                    value: "Smooth transition",
-                    color: "var(--color-primary-100)",
-                  },
-                  {
-                    stage: "Follow-up",
-                    action: "First payout",
-                    value: "Revenue generation",
-                    color: "var(--color-success-100)",
-                  },
-                ].map((row, idx) => (
-                  <tr
-                    key={idx}
-                    className="border-t border-[var(--border-light)] hover:bg-[var(--bg-secondary)] transition-colors"
-                  >
-                    <td className="p-6">
-                      <div className="flex items-center gap-3">
-                        <div
-                          className="w-3 h-3 rounded-full"
-                          style={{ backgroundColor: row.color }}
-                        />
-                        <span className="font-semibold text-[var(--text-primary)]">
-                          {row.stage}
-                        </span>
-                      </div>
-                    </td>
-                    <td className="p-6 text-[var(--text-secondary)]">
-                      {row.action}
-                    </td>
-                    <td className="p-6">
-                      <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-sm font-medium bg-[var(--bg-secondary)] text-[var(--text-secondary)]">
-                        {row.value}
-                      </span>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
+  
+  {/* Mobile Scroll Wrapper */}
+  <div className="w-full overflow-x-auto">
+    <table className="w-full min-w-[600px]">
+      
+      <thead className="bg-[var(--bg-secondary)]">
+        <tr>
+          <th className="text-left text-sm md:text-md py-4 md:py-6 px-4 md:px-6 font-semibold text-[var(--color-primary-500)]">
+            Stage
+          </th>
+          <th className="text-left text-sm md:text-md py-4 md:py-6 px-4 md:px-6 font-semibold text-[var(--color-primary-500)]">
+            Owner Action
+          </th>
+          <th className="text-left text-sm md:text-md py-4 md:py-6 px-4 md:px-6 font-semibold text-[var(--color-primary-500)]">
+            Value Delivered
+          </th>
+        </tr>
+      </thead>
+
+      <tbody>
+        {[
+          {
+            stage: "Prospecting",
+            action: "Fill out lead form",
+            value: "Initial interest captured",
+            color: "var(--color-primary-100)",
+          },
+          {
+            stage: "Qualification",
+            action: "Strategy call",
+            value: "Fit assessment & potential",
+            color: "var(--color-secondary-100)",
+          },
+          {
+            stage: "Proposal",
+            action: "Review projections",
+            value: "Clear revenue numbers",
+            color: "var(--color-success-100)",
+          },
+          {
+            stage: "Negotiation",
+            action: "Sign agreement",
+            value: "Security & trust",
+            color: "var(--color-warning-100)",
+          },
+          {
+            stage: "Close",
+            action: "Onboarding",
+            value: "Smooth transition",
+            color: "var(--color-primary-100)",
+          },
+          {
+            stage: "Follow-up",
+            action: "First payout",
+            value: "Revenue generation",
+            color: "var(--color-success-100)",
+          },
+        ].map((row, idx) => (
+          <tr
+            key={idx}
+            className="border-t border-[var(--border-light)] hover:bg-[var(--bg-secondary)] transition-colors"
+          >
+            <td className="p-3 md:p-6">
+              <div className="flex items-center gap-1 md:gap-3">
+                <div
+                  className="w-3 h-3 rounded-full"
+                  style={{ backgroundColor: row.color }}
+                />
+                <span className="font-semibold text-xs md:text-md text-[var(--text-primary)]">
+                  {row.stage}
+                </span>
+              </div>
+            </td>
+
+            <td className="p-3 md:p-6 text-xs md:text-md text-[var(--text-secondary)]">
+              {row.action}
+            </td>
+
+            <td className="p-3 md:p-6">
+              <span className="inline-flex text-xs md:text-md items-center gap-2 px-3 py-1 rounded-full font-medium md:bg-[var(--bg-secondary)] text-[var(--text-secondary)]">
+                {row.value}
+              </span>
+            </td>
+          </tr>
+        ))}
+      </tbody>
+
+    </table>
+  </div>
+</div>
+
         </div>
       </section>
 

@@ -229,9 +229,9 @@ import Link from "next/link";
 
 const AnimatedBackground = () => (
   <div className="absolute inset-0 overflow-hidden pointer-events-none">
-    <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-gradient-to-r from-blue-400/20 to-cyan-400/20 rounded-full mix-blend-multiply filter blur-[100px] animate-blob" />
-    <div className="absolute top-0 right-1/4 w-[500px] h-[500px] bg-gradient-to-r from-purple-400/20 to-pink-400/20 rounded-full mix-blend-multiply filter blur-[100px] animate-blob animation-delay-2000" />
-    <div className="absolute -bottom-32 left-1/3 w-[500px] h-[500px] bg-gradient-to-r from-indigo-400/20 to-violet-400/20 rounded-full mix-blend-multiply filter blur-[100px] animate-blob animation-delay-4000" />
+    <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-gradient-to-r from-[var(--color-primary-300)]/20 to-[var(--color-secondary-400)]/20 rounded-full mix-blend-multiply filter blur-[100px] animate-blob" />
+    <div className="absolute top-0 right-1/4 w-[500px] h-[500px] bg-gradient-to-r from-[var(--color-primary-400)]/20 to-[var(--color-primary-500)]/20 rounded-full mix-blend-multiply filter blur-[100px] animate-blob animation-delay-2000" />
+    <div className="absolute -bottom-32 left-1/3 w-[500px] h-[500px] bg-gradient-to-r from-[var(--color-secondary-300)]/20 to-[var(--color-secondary-400)]/20 rounded-full mix-blend-multiply filter blur-[100px] animate-blob animation-delay-4000" />
     <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-[0.03]" />
   </div>
 );
@@ -377,162 +377,166 @@ const HeroSection = () => {
           </div>
 
           {/* RIGHT DEMO */}
-          <div className="relative">
+         <div className="relative">
 
-            <FloatingElement delay={0}>
-              <div className="bg-white rounded-3xl shadow-2xl border border-[var(--border-primary)] overflow-hidden">
+  <FloatingElement delay={0}>
+    <div className="bg-white rounded-3xl shadow-2xl border border-[var(--border-primary)] overflow-hidden">
 
-                {/* HEADER */}
-                <div
-                  className="p-6 text-[var(--text-inverse)]"
-                  style={{ background: "var(--gradient-primary)" }}
-                >
-                  <div className="flex items-center justify-between mb-4">
+      {/* HEADER */}
+      <div
+        className="p-4 md:p-6 text-[var(--text-inverse)]"
+        style={{ background: "var(--gradient-primary)" }}
+      >
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-4">
 
-                    <div className="flex items-center gap-3">
-                      <Bot className="w-8 h-8" />
-                      <div>
-                        <h3 className="font-bold">AI Scheduler</h3>
-                        <p className="text-sm opacity-80">
-                          Coordinating 12 properties
-                        </p>
-                      </div>
-                    </div>
-
-                    <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-white/20 text-sm">
-                      <div className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
-                      Live
-                    </div>
-                  </div>
-
-                  <div className="bg-white/10 backdrop-blur rounded-xl p-3 flex items-center gap-3">
-                    <Sparkles className="w-5 h-5" />
-                    <p className="text-sm">
-                      Suggested: Schedule cleaning between 10 AM - 2 PM
-                    </p>
-                  </div>
-                </div>
-
-                {/* BODY */}
-                <div className="p-6">
-
-                  {/* STEP 1 */}
-                  {bookingStep === 1 && (
-                    <div className="space-y-4">
-
-                      <h4 className="font-semibold text-[var(--text-primary)] mb-4">
-                        Select Date
-                      </h4>
-
-                      <div className="grid grid-cols-7 gap-2">
-                        {dates.map((date) => (
-                          <button
-                            key={date.day}
-                            onClick={() => date.available && setSelectedDate(date.day)}
-                            disabled={!date.available}
-                            className={`aspect-square rounded-xl flex flex-col items-center justify-center text-sm transition-all ${
-                              selectedDate === date.day
-                                ? "bg-[var(--color-primary-600)] text-white"
-                                : date.available
-                                ? "hover:bg-[var(--bg-secondary)] text-[var(--text-secondary)]"
-                                : "text-[var(--text-tertiary)] bg-[var(--bg-secondary)]"
-                            }`}
-                          >
-                            <span className="text-xs opacity-70">{date.weekday}</span>
-                            <span className="font-bold">{date.day}</span>
-                          </button>
-                        ))}
-                      </div>
-
-                      <button
-                        onClick={() => setBookingStep(2)}
-                        className="w-full py-3 bg-[var(--color-primary-600)] text-white font-semibold rounded-xl"
-                      >
-                        Continue to Time Selection
-                      </button>
-                    </div>
-                  )}
-
-                  {/* STEP 2 */}
-                  {bookingStep === 2 && (
-                    <div className="space-y-4">
-
-                      <h4 className="font-semibold text-[var(--text-primary)]">
-                        Select Time
-                      </h4>
-
-                      <div className="grid grid-cols-2 gap-3">
-                        {times.map((time) => (
-                          <button
-                            key={time}
-                            onClick={() => setSelectedTime(time)}
-                            className={`p-3 rounded-xl border transition-all ${
-                              selectedTime === time
-                                ? "border-[var(--color-primary-600)] bg-[var(--bg-secondary)]"
-                                : "border-[var(--border-primary)]"
-                            }`}
-                          >
-                            <div className="flex items-center gap-2 text-[var(--text-secondary)]">
-                              <Clock className="w-4 h-4" />
-                              {time}
-                            </div>
-                          </button>
-                        ))}
-                      </div>
-
-                      <button
-                        onClick={handleBooking}
-                        disabled={isAnimating}
-                        className="w-full py-3 bg-[var(--color-primary-600)] text-white font-semibold rounded-xl flex items-center justify-center gap-2"
-                      >
-                        {isAnimating ? (
-                          <>
-                            <RefreshCw className="w-5 h-5 animate-spin" />
-                            AI Coordinating...
-                          </>
-                        ) : (
-                          <>
-                            Confirm Smart Schedule
-                            <CheckCircle2 className="w-5 h-5" />
-                          </>
-                        )}
-                      </button>
-                    </div>
-                  )}
-
-                  {/* STEP 3 */}
-                  {bookingStep === 3 && (
-                    <div className="text-center py-8">
-
-                      <div className="w-20 h-20 mx-auto mb-4 rounded-full bg-green-100 flex items-center justify-center">
-                        <CheckCircle2 className="w-10 h-10 text-green-600" />
-                      </div>
-
-                      <h4 className="text-xl font-bold text-[var(--text-primary)] mb-2">
-                        Successfully Scheduled!
-                      </h4>
-
-                      <p className="text-[var(--text-secondary)] mb-6">
-                        Cleaning team notified • Calendar updated • Guest informed
-                      </p>
-
-                      <button
-                        onClick={() => {
-                          setBookingStep(1);
-                          setSelectedDate(15);
-                          setSelectedTime("10:00 AM");
-                        }}
-                        className="mt-6 text-[var(--color-primary-600)] font-medium hover:underline"
-                      >
-                        Schedule Another
-                      </button>
-                    </div>
-                  )}
-                </div>
-              </div>
-            </FloatingElement>
-
+          <div className="flex items-center gap-3">
+            <Bot className="w-6 h-6 md:w-8 md:h-8 flex-shrink-0" />
+            <div>
+              <h3 className="font-bold text-sm md:text-base">AI Scheduler</h3>
+              <p className="text-xs md:text-sm opacity-80">
+                Coordinating 12 properties
+              </p>
+            </div>
           </div>
+
+          <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-white/20 text-xs md:text-sm w-fit">
+            <div className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
+            Live
+          </div>
+        </div>
+
+        <div className="bg-white/10 backdrop-blur rounded-xl p-3 flex items-start sm:items-center gap-3">
+          <Sparkles className="w-4 h-4 md:w-5 md:h-5 flex-shrink-0" />
+          <p className="text-xs md:text-sm leading-relaxed">
+            Suggested: Schedule cleaning between 10 AM - 2 PM
+          </p>
+        </div>
+      </div>
+
+      {/* BODY */}
+      <div className="p-4 md:p-6">
+
+        {/* STEP 1 */}
+        {bookingStep === 1 && (
+          <div className="space-y-4">
+
+            <h4 className="font-semibold text-sm md:text-base text-[var(--text-primary)] mb-4">
+              Select Date
+            </h4>
+
+            <div className="grid grid-cols-4 sm:grid-cols-7 gap-2">
+              {dates.map((date) => (
+                <button
+                  key={date.day}
+                  onClick={() => date.available && setSelectedDate(date.day)}
+                  disabled={!date.available}
+                  className={`aspect-square rounded-xl flex flex-col items-center justify-center text-xs md:text-sm transition-all ${
+                    selectedDate === date.day
+                      ? "bg-[var(--color-primary-600)] text-white"
+                      : date.available
+                      ? "hover:bg-[var(--bg-secondary)] text-[var(--text-secondary)]"
+                      : "text-[var(--text-tertiary)] bg-[var(--bg-secondary)]"
+                  }`}
+                >
+                  <span className="text-[10px] md:text-xs opacity-70">
+                    {date.weekday}
+                  </span>
+                  <span className="font-bold">{date.day}</span>
+                </button>
+              ))}
+            </div>
+
+            <button
+              onClick={() => setBookingStep(2)}
+              className="w-full py-3 text-sm md:text-base bg-[var(--color-primary-600)] text-white font-semibold rounded-xl"
+            >
+              Continue to Time Selection
+            </button>
+          </div>
+        )}
+
+        {/* STEP 2 */}
+        {bookingStep === 2 && (
+          <div className="space-y-4">
+
+            <h4 className="font-semibold text-sm md:text-base text-[var(--text-primary)]">
+              Select Time
+            </h4>
+
+            <div className="grid grid-cols-2 gap-3">
+              {times.map((time) => (
+                <button
+                  key={time}
+                  onClick={() => setSelectedTime(time)}
+                  className={`p-3 rounded-xl border transition-all ${
+                    selectedTime === time
+                      ? "border-[var(--color-primary-600)] bg-[var(--bg-secondary)]"
+                      : "border-[var(--border-primary)]"
+                  }`}
+                >
+                  <div className="flex items-center justify-center gap-2 text-xs md:text-sm text-[var(--text-secondary)]">
+                    <Clock className="w-4 h-4" />
+                    {time}
+                  </div>
+                </button>
+              ))}
+            </div>
+
+            <button
+              onClick={handleBooking}
+              disabled={isAnimating}
+              className="w-full py-3 text-sm md:text-base bg-[var(--color-primary-600)] text-white font-semibold rounded-xl flex items-center justify-center gap-2"
+            >
+              {isAnimating ? (
+                <>
+                  <RefreshCw className="w-5 h-5 animate-spin" />
+                  AI Coordinating...
+                </>
+              ) : (
+                <>
+                  Confirm Smart Schedule
+                  <CheckCircle2 className="w-5 h-5" />
+                </>
+              )}
+            </button>
+          </div>
+        )}
+
+        {/* STEP 3 */}
+        {bookingStep === 3 && (
+          <div className="text-center py-6 md:py-8">
+
+            <div className="w-16 h-16 md:w-20 md:h-20 mx-auto mb-4 rounded-full bg-green-100 flex items-center justify-center">
+              <CheckCircle2 className="w-8 h-8 md:w-10 md:h-10 text-green-600" />
+            </div>
+
+            <h4 className="text-lg md:text-xl font-bold text-[var(--text-primary)] mb-2">
+              Successfully Scheduled!
+            </h4>
+
+            <p className="text-sm md:text-base text-[var(--text-secondary)] mb-6">
+              Cleaning team notified • Calendar updated • Guest informed
+            </p>
+
+            <button
+              onClick={() => {
+                setBookingStep(1);
+                setSelectedDate(15);
+                setSelectedTime("10:00 AM");
+              }}
+              className="mt-4 md:mt-6 text-sm md:text-base text-[var(--color-primary-600)] font-medium hover:underline"
+            >
+              Schedule Another
+            </button>
+          </div>
+        )}
+
+      </div>
+    </div>
+  </FloatingElement>
+
+</div>
+
         </div>
       </div>
     </section>
@@ -612,7 +616,7 @@ const AIFeaturesSection = () => {
             AI-Powered Capabilities
           </div>
 
-          <h2 className="text-4xl lg:text-5xl font-bold text-[var(--text-primary)] mb-4">
+          <h2 className="text-4xl lg:text-5xl font-bold text-[var(--color-primary-500)] mb-4">
             Scheduling That Gets Smarter
           </h2>
 
@@ -1318,15 +1322,16 @@ const StatsSection = () => {
   return (
     <section className="py-20 border-y border-[var(--border-primary)] bg-[var(--bg-primary)]">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {stats.map((stat, idx) => (
             <div
               key={idx}
-              className="text-center group"
+              className="text-center group border border-[var(--color-primary-300)] lg:border-0 rounded-xl p-2 lg:p-0"
             >
               <div
                 className="
                   w-14 h-14 mx-auto mb-4 rounded-2xl
+                  
                   bg-[var(--color-primary-50)]
                   text-[var(--color-primary-600)]
                   flex items-center justify-center
@@ -1573,7 +1578,8 @@ const FinalCTASection = () => (
             {/* Primary Button */}
             <button
               className="
-                px-10 py-5
+                px-5 md:px-10 py-3 md:py-5
+                text-sm md:text-md
                 bg-[var(--bg-primary)]
                 text-[var(--color-primary-600)]
                 font-bold text-lg
@@ -1591,7 +1597,8 @@ const FinalCTASection = () => (
             {/* Secondary Button */}
             <button
               className="
-                px-10 py-5
+                px-5 md:px-10 py-3 md:py-5
+                text-sm md:text-md
                 bg-[var(--color-primary-700)]
                 text-[var(--text-inverse)]
                 font-bold text-lg

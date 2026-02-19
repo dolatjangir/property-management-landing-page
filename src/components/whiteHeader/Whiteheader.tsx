@@ -478,10 +478,11 @@ function WhiteHeader() {
         </nav>
           {/* phone navigation */}
         <div className="hidden md:flex items-center gap-[var(--space-4)]">
+          <Link href="https://bnb.ibigdata.in/admin" target='_blank'>
           <button className="text-[var(--color-secondary-100)] hover:text-[var(--color-primary-600)] font-medium transition-colors duration-[var(--duration-fast)]">
             Log in
-          </button>
-
+          </button></Link>
+          <Link href="https://bnb.ibigdata.in/register" target='_blank'>
           <button
             className="px-[var(--space-6)] py-[var(--space-2)] bg-[var(--color-primary-600)] hover:bg-[var(--color-primary-700)] text-[var(--text-inverse)] font-semibold rounded-lg transition-all duration-[var(--duration-fast)] shadow-lg hover:shadow-xl"
             style={{
@@ -489,7 +490,7 @@ function WhiteHeader() {
             }}
           >
             Start For Free Trial
-          </button>
+          </button></Link>
         </div>
 
         <button
@@ -575,13 +576,14 @@ function WhiteHeader() {
       <hr className="border-[var(--border-light)]" />
 
       {/* Auth Buttons */}
+      <Link href="https://bnb.ibigdata.in/admin" target='_blank'>
       <button className="w-full py-[var(--space-3)] text-[var(--text-secondary)] font-medium">
         Log in
-      </button>
-
+      </button></Link>
+      <Link href="https://bnb.ibigdata.in/register" target='_blank'>
       <button className="w-full py-[var(--space-3)] bg-[var(--color-primary-600)] text-[var(--text-inverse)] font-semibold rounded-[var(--radius-xl)]">
         Start Free Trial
-      </button>
+      </button></Link>
     </div>
   </div>
 )}

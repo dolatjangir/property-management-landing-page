@@ -102,7 +102,7 @@ const GlassCard = ({ children, className = "", hover = true, dark = false, eleva
           ? 'bg-[var(--color-neutral-800)]/90 border-[var(--color-neutral-700)] text-white' 
           : elevated
             ? 'bg-white shadow-2xl shadow-[var(--color-primary-500)]/10 border-[var(--border-light)]'
-            : 'bg-white/90 shadow-xl border-[var(--border-light)]'
+            : 'bg-white/90 shadow-xl border-[var(--border-light)] '
     } ${className}`}
   >
     {children}
@@ -250,7 +250,7 @@ const TestimonialCard = ({ quote, author, role, company, metric, image }: {
     <p className="text-[var(--text-secondary)] mb-6 flex-1 leading-relaxed text-lg italic">"{quote}"</p>
     
     <div className="pt-6 border-t border-[var(--border-light)] flex items-center gap-4">
-      <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[var(--color-primary-400)] to-[var(--color-secondary-400)] flex items-center justify-center text-white font-bold text-lg">
+      <div className="min-w-12 min-h-12 rounded-full bg-gradient-to-br from-[var(--color-primary-400)] to-[var(--color-secondary-400)] flex items-center justify-center text-white font-bold text-lg">
         {author.charAt(0)}
       </div>
       <div>
@@ -270,7 +270,7 @@ const MetricCard = ({ value, label, subtext, icon: Icon, trend }: {
   trend?: string;
 }) => (
   <GlassCard className="p-6 text-center" hover={true}>
-    <div className="w-12 h-12 mx-auto mb-4 rounded-[var(--radius-xl)] bg-gradient-to-br from-[var(--color-primary-100)] to-[var(--color-secondary-100)] flex items-center justify-center">
+    <div className="w-12 h-12 mx-auto mb-4 rounded-[var(--radius-xl)] bg-gradient-to-br from-[var(--color-primary-100)] to-[var(--color-secondary-100)]  flex items-center justify-center">
       <Icon className="w-6 h-6 text-[var(--color-primary-600)]" />
     </div>
     <div className="text-4xl font-bold text-[var(--text-primary)] mb-1">{value}</div>
@@ -811,7 +811,7 @@ export default function CustomerSuccessPage() {
             whileInView="visible"
             viewport={{ once: true }}
             variants={staggerContainer}
-            className="grid md:grid-cols-5 gap-6"
+            className="grid   md:grid-cols-5 gap-6"
           >
             {processSteps.map((step, idx) => (
               <motion.div key={idx} variants={fadeInUp}>
@@ -853,7 +853,7 @@ export default function CustomerSuccessPage() {
             whileInView="visible"
             viewport={{ once: true }}
             variants={staggerContainer}
-            className="grid md:grid-cols-2 lg:grid-cols-3 gap-6"
+            className="grid  grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
           >
             {features.map((feature, idx) => (
               <motion.div key={idx} variants={fadeInUp}>
@@ -872,7 +872,7 @@ export default function CustomerSuccessPage() {
             whileInView="visible"
             viewport={{ once: true }}
             variants={staggerContainer}
-            className="grid grid-cols-2 lg:grid-cols-4 gap-6"
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
           >
             {metrics.map((metric, idx) => (
               <motion.div key={idx} variants={fadeInUp}>
@@ -885,7 +885,7 @@ export default function CustomerSuccessPage() {
 
       {/* 🔄 BEFORE/AFTER COMPARISON */}
       <section className="py-24 bg-gradient-to-br from-[var(--color-neutral-900)] to-[var(--color-primary-900)] text-white relative overflow-hidden">
-        <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-5" />
+        <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-30" />
         
         <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div 
@@ -969,7 +969,7 @@ export default function CustomerSuccessPage() {
       {/* 🎁 EXPANSION REVENUE SECTION */}
       <section className="py-24 bg-gradient-to-br from-[var(--color-secondary-50)] to-[var(--color-primary-50)]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
+          <div className="grid  grid-cols-1 sm:grid-cols-2 gap-16 items-center">
             <motion.div 
               initial="hidden"
               whileInView="visible"
@@ -985,7 +985,7 @@ export default function CustomerSuccessPage() {
               
               <motion.h2 variants={fadeInLeft} className="text-4xl sm:text-5xl font-bold mt-6 mb-6 text-[var(--text-primary)]">
                 Turn Support Into <br />
-                <GradientText variant="accent">Expansion Revenue</GradientText>
+                <GradientText variant="primary">Expansion Revenue</GradientText>
               </motion.h2>
               
               <motion.p variants={fadeInLeft} className="text-lg text-[var(--text-secondary)] mb-8 leading-relaxed">
@@ -1019,7 +1019,7 @@ export default function CustomerSuccessPage() {
             >
               <GlassCard elevated={true} className="p-8" hover={false}>
                 <div className="text-center mb-8">
-                  <div className="w-20 h-20 mx-auto mb-4 rounded-full bg-gradient-to-br from-[var(--color-accent-500)] to-[var(--color-primary-500)] flex items-center justify-center">
+                  <div className="w-20 h-20 mx-auto mb-4 rounded-full bg-gradient-to-br from-[var(--color-secondary-500)] to-[var(--color-primary-500)] flex items-center justify-center">
                     <TrendingUp className="w-10 h-10 text-white" />
                   </div>
                   <h3 className="text-2xl font-bold mb-2 text-[var(--text-primary)]">Expansion Revenue</h3>
@@ -1061,7 +1061,7 @@ export default function CustomerSuccessPage() {
 
       {/* 🚀 FINAL CTA */}
       <section className="py-24 bg-gradient-to-br from-[var(--color-success-500)] to-[var(--color-primary-600)] text-white relative overflow-hidden">
-        <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10" />
+        <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-30" />
         <div className="absolute top-0 left-0 w-96 h-96 bg-white/10 rounded-full blur-3xl" />
         <div className="absolute bottom-0 right-0 w-96 h-96 bg-white/10 rounded-full blur-3xl" />
 
